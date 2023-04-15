@@ -7,3 +7,7 @@ const downHour = document.getElementById("down-hour");
 const second = document.getElementById("second");
 const minute = document.getElementById("minute");
 const hour = document.getElementById("hour");
+
+window.onkeydown = e => {
+    return !(e.keyCode == 32)
+}
