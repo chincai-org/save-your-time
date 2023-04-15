@@ -35,7 +35,7 @@ function setup() {
     setInterval(() => {
         seconds++;
 
-        minutes += Math.floor(seconds / 60);
+        minutes += Math.floor(seconds / 60000);
         seconds %= 60;
         hours += Math.floor(minutes / 60);
         minutes %= 60;

@@ -1,1 +1,9 @@
-//ui controls here idk how to call this js
+const upSecond = document.getElementById("up-second");
+const downSecond = document.getElementById("down-second");
+const upMinute = document.getElementById("up-minute");
+const downMinute = document.getElementById("down-minute");
+const upHour = document.getElementById("up-hour");
+const downHour = document.getElementById("down-hour");
+const second = document.getElementById("second");
+const minute = document.getElementById("minute");
+const hour = document.getElementById("hour");
