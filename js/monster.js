@@ -1,11 +1,11 @@
-class Projectile extends Sprite {
+class Monster extends Sprite {
     constructor(x, y, vector) {
-        super(x, y, vector, projectileSpeed, projectileDamage);
+        super(x, y, vector, monsterSpeed, monsterDamage);
     }
 
     draw() {
-        let size = 10;
-        fill(red);
+        let size = 30;
+        fill(black);
         noStroke();
         circle(this.x + size / 2, this.y + size / 2, size);
     }
@@ -17,7 +17,7 @@ class Projectile extends Sprite {
             this.y < 0 ||
             this.y > canvasHeight
         ) {
-            killProjectile(this);
+            killMonster(this);
         } else {
             super.update();
         }

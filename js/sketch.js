@@ -17,6 +17,8 @@ const lineThickness = 5;
 
 const projectileSpeed = 2;
 const projectileDamage = 5;
+const monsterSpeed = 0.5;
+const monsterDamage = 3;
 
 let clock;
 
@@ -25,6 +27,7 @@ let minutes = 0;
 let seconds = 0;
 
 const projectiles = [];
+const monsters = [];
 
 function setup() {
     let canvas = createCanvas(canvasWidth, canvasHeight);
@@ -35,12 +38,18 @@ function setup() {
     setInterval(() => {
         seconds++;
 
-        minutes += Math.floor(seconds / 60000);
+        minutes += Math.floor(seconds / 60);
         seconds %= 60;
         hours += Math.floor(minutes / 60);
         minutes %= 60;
         hours %= 12;
     }, 1000);
+
+    setInterval(() => {
+        for (let i = 0; i < 5; i++) {
+            spawnMonster();
+        }
+    }, 5000);
 }
 
 function draw() {
@@ -56,6 +65,11 @@ function draw() {
         projectile.update();
         projectile.draw();
     }
+
+    for (let monster of monsters) {
+        monster.update();
+        monster.draw();
+    }
 }
 
 function keyPressed(e) {
@@ -65,6 +79,43 @@ function keyPressed(e) {
     }
 }
 
+function randint(min, max) {
+    min = Math.ceil(min);
+    max = Math.floor(max);
+    return Math.floor(Math.random() * (max - min + 1)) + min;
+}
+
 function killProjectile(projectile) {
     projectiles.splice(projectiles.indexOf(projectile), 1);
+}
+
+function killMonster(monster) {
+    monsters.splice(monsters.indexOf(monster), 1);
+}
+
+function spawnMonster() {
+    let x0 = 0;
+    let y0 = 0;
+    let x1 = canvasWidth - 1;
+    let y1 = canvasHeight - 1;
+
+    let choice = randint(0, 3);
+
+    switch (choice) {
+        case 0:
+            x0 = canvasWidth - 1;
+        case 1:
+            x1 = canvasWidth - 1;
+        case 2:
+            y0 = canvasHeight - 1;
+        case 3:
+            y1 = canvasHeight - 1;
+    }
+
+    let x = randint(x0, x1);
+    let y = randint(y0, y1);
+
+    monsters.push(
+        new Monster(x, y, createVector(midPointX - x, midPointY - y))
+    );
 }
