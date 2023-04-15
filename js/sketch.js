@@ -41,8 +41,8 @@ function setup() {
 function draw() {
     background(grey);
 
-    clock.hands.hour.degree = -30 * hours;
-    clock.hands.minute.degree = -6 * minutes;
+    clock.hands.hour.degree = -30 * hours + -0.5 * minutes;
+    clock.hands.minute.degree = -6 * minutes + 0.1 * seconds;
     clock.hands.second.degree = -6 * seconds;
 
     clock.draw();
