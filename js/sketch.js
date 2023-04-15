@@ -104,13 +104,19 @@ function spawnMonster() {
     switch (choice) {
         case 0:
             x0 = canvasWidth - 1;
+            break;
         case 1:
-            x1 = canvasWidth - 1;
+            x1 = 0;
+            break;
         case 2:
             y0 = canvasHeight - 1;
+            break;
         case 3:
-            y1 = canvasHeight - 1;
+            y1 = 0;
+            break;
     }
+
+    console.log(x0, y0, x1, y1);
 
     let x = randint(x0, x1);
     let y = randint(y0, y1);
