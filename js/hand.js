@@ -5,23 +5,39 @@ class Hand {
         this.degree = degree;
     }
 
-    draw() {
-        let x2 =
+    /**
+     * @returns {number[]}
+     */
+    get endPoint() {
+        return [
             midPointX +
-            this.length *
-                Math.cos((this.degree * Math.PI) / 180 + Math.PI * 0.5);
-        let y2 =
+                this.length *
+                    Math.cos((this.degree * Math.PI) / 180 + Math.PI * 0.5),
             midPointY -
-            this.length *
-                Math.sin((this.degree * Math.PI) / 180 + Math.PI * 0.5);
+                this.length *
+                    Math.sin((this.degree * Math.PI) / 180 + Math.PI * 0.5)
+        ];
+    }
 
+    draw() {
         stroke(this.color);
         strokeWeight(lineThickness);
-        line(midPointX, midPointY, x2, y2);
+        line(midPointX, midPointY, ...this.endPoint);
     }
 
     rotate(deg = (6 * Math.PI) / 180) {
-        console.log(this.degree, "bruh");
         this.degree += deg;
+    }
+
+    shoot() {
+        projectiles.push(
+            new Projectile(
+                ...this.endPoint,
+                createVector(
+                    this.endPoint[0] - midPointX,
+                    this.endPoint[1] - midPointY
+                )
+            )
+        );
     }
 }

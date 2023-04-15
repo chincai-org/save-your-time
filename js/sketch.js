@@ -15,11 +15,16 @@ const secondHandSize = 50;
 
 const lineThickness = 5;
 
+const projectileSpeed = 2;
+const projectileDamage = 5;
+
 let clock;
 
 let hours = 0;
 let minutes = 0;
 let seconds = 0;
+
+const projectiles = [];
 
 function setup() {
     let canvas = createCanvas(canvasWidth, canvasHeight);
@@ -42,8 +47,24 @@ function draw() {
     background(grey);
 
     clock.hands.hour.degree = -30 * hours + -0.5 * minutes;
-    clock.hands.minute.degree = -6 * minutes + 0.1 * seconds;
+    clock.hands.minute.degree = -6 * minutes + -0.1 * seconds;
     clock.hands.second.degree = -6 * seconds;
 
     clock.draw();
+
+    for (let projectile of projectiles) {
+        projectile.update();
+        projectile.draw();
+    }
+}
+
+function keyPressed(e) {
+    e.preventDefault();
+    if (keyCode === " ".charCodeAt(0)) {
+        clock.shoot();
+    }
+}
+
+function killProjectile(projectile) {
+    projectiles.splice(projectiles.indexOf(projectile), 1);
 }

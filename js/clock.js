@@ -16,7 +16,6 @@ class Clock {
         );
 
         for (let hand of Object.values(this.hands)) {
-            console.log(hand);
             hand.draw();
         }
 
@@ -26,5 +25,11 @@ class Clock {
 
     addHand(name, length, color) {
         this.hands[name] = new Hand(length, color);
+    }
+
+    shoot() {
+        for (let hand of Object.values(this.hands)) {
+            hand.shoot();
+        }
     }
 }
