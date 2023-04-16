@@ -10,7 +10,7 @@ html {
 }
 
 #main {
-    position: absolute;
+    position: fixed;
 }
 
 aside {
