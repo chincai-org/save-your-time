@@ -13,9 +13,9 @@ window.onkeydown = e => {
 }
 
 function timeDisplay(hours,minutes,seconds) {
-    hour.innerText = hours;
-    minute.innerText = minutes
-    second.innerText = seconds
+    hour.innerText = hours < 10? hours == 0? 12 : '0' + hours : hours 
+    minute.innerText = minutes < 10? '0' + minutes : minutes 
+    second.innerText = seconds < 10? '0' + seconds : seconds 
 }
 
 upSecond.onclick = () => {
