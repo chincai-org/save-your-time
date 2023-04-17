@@ -9,38 +9,44 @@ const minute = document.getElementById("minute");
 const hour = document.getElementById("hour");
 
 window.onkeydown = e => {
-    return !(e.keyCode == 32)
-}
+    return !(e.keyCode == 32);
+};
 
-function timeDisplay(hours,minutes,seconds) {
+function timeDisplay(hours, minutes, seconds) {
     hour.innerText = hours;
-    minute.innerText = minutes
-    second.innerText = seconds
+    minute.innerText = minutes;
+    second.innerText = seconds;
 }
 
 upSecond.onclick = () => {
     seconds++;
-}
+};
 
 downSecond.onclick = () => {
-    seconds--;
-}
+    if (--seconds <= 0) {
+        seconds += 60;
+    }
+};
 
 upMinute.onclick = () => {
     minutes++;
-}
+};
 
 downMinute.onclick = () => {
-    minutes--;
-}
+    if (--minutes <= 0) {
+        minutes += 60;
+    }
+};
 
 upHour.onclick = () => {
     hours++;
-}
+};
 
 downHour.onclick = () => {
-    hours--;
-}
+    if (--hours <= 0) {
+        hours += 60;
+    }
+};
 
 function handleVisibilityChange() {
     if (document.hidden) {
