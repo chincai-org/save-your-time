@@ -63,6 +63,8 @@ function draw() {
         hours += Math.floor(minutes / 60);
         minutes %= 60;
         hours %= 12;
+
+        timeDisplay(...[hours, minutes, seconds].map(Math.floor));
     }
 
     lastUpdate = now;
