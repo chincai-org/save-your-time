@@ -17,6 +17,7 @@ const lineThickness = 5;
 
 const projectileSpeed = 2;
 const projectileDamage = 5;
+const monsterHealth = 5;
 const monsterSpeed = 0.5;
 const monsterDamage = 3;
 
@@ -25,6 +26,9 @@ let clock;
 let hours = 0;
 let minutes = 0;
 let seconds = 0;
+
+let isPageVisible = true;
+let lastUpdate = 0;
 
 const projectiles = [];
 const monsters = [];
@@ -35,25 +39,33 @@ function setup() {
 
     clock = new Clock();
 
-    setInterval(() => {
-        seconds++;
-
-        minutes += Math.floor(seconds / 60);
-        seconds %= 60;
-        hours += Math.floor(minutes / 60);
-        minutes %= 60;
-        hours %= 12;
-    }, 1000);
+    document.onvisibilitychange = handleVisibilityChange;
 
     setInterval(() => {
         for (let i = 0; i < 5; i++) {
             spawnMonster();
         }
+        console.log("spawn 5");
+        console.log("total:", monsters.length);
     }, 5000);
 }
 
 function draw() {
     background(grey);
+
+    let now = Date.now();
+
+    if (lastUpdate !== 0) {
+        let deltaTime = now - lastUpdate;
+        seconds += deltaTime / 1000;
+        minutes += Math.floor(seconds / 60);
+        seconds %= 60;
+        hours += Math.floor(minutes / 60);
+        minutes %= 60;
+        hours %= 12;
+    }
+
+    lastUpdate = now;
 
     clock.hands.hour.degree = -30 * hours + -0.5 * minutes;
     clock.hands.minute.degree = -6 * minutes + -0.1 * seconds;
@@ -116,7 +128,7 @@ function spawnMonster() {
             break;
     }
 
-    console.log(x0, y0, x1, y1);
+    // console.log(x0, y0, x1, y1);
 
     let x = randint(x0, x1);
     let y = randint(y0, y1);

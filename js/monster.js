@@ -1,13 +1,20 @@
 class Monster extends Sprite {
-    constructor(x, y, vector) {
-        super(x, y, vector, monsterSpeed, monsterDamage);
+    constructor(
+        x,
+        y,
+        vector,
+        size = 30,
+        health = monsterHealth,
+        speed = monsterSpeed,
+        damage = monsterDamage
+    ) {
+        super(x, y, vector, size, health, speed, damage);
     }
 
     draw() {
-        let size = 30;
         fill(black);
         noStroke();
-        circle(this.x + size / 2, this.y + size / 2, size);
+        circle(this.x + this.size / 2, this.y + this.size / 2, this.size);
     }
 
     update() {
@@ -17,9 +24,13 @@ class Monster extends Sprite {
             this.y < 0 ||
             this.y > canvasHeight
         ) {
-            killMonster(this);
+            this.kill();
         } else {
             super.update();
         }
+    }
+
+    kill() {
+        killMonster(this);
     }
 }

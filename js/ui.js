@@ -16,27 +16,40 @@ function timeDisplay(hours,minutes,seconds) {
     hour.innerText = hours;
     minute.innerText = minutes
     second.innerText = seconds
-    upSecond.onclick = () => {
-        seconds++;
+}
+
+upSecond.onclick = () => {
+    seconds++;
+}
+
+downSecond.onclick = () => {
+    seconds--;
+}
+
+upMinute.onclick = () => {
+    minutes++;
+}
+
+downMinute.onclick = () => {
+    minutes--;
+}
+
+upHour.onclick = () => {
+    hours++;
+}
+
+downHour.onclick = () => {
+    hours--;
+}
+
+function handleVisibilityChange() {
+    if (document.hidden) {
+        // Page is hidden
+        isPageVisible = false;
+    } else {
+        // Page is visible
+        isPageVisible = true;
     }
-    
-    downSecond.onclick = () => {
-        seconds--;
-    }
-    
-    upMinute.onclick = () => {
-        minutes++;
-    }
-    
-    downMinute.onclick = () => {
-        minutes--;
-    }
-    
-    upHour.onclick = () => {
-        hours++;
-    }
-    
-    downHour.onclick = () => {
-        hours--;
-    }
+
+    console.log(isPageVisible);
 }
