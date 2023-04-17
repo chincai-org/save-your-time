@@ -9,5 +9,17 @@ const minute = document.getElementById("minute");
 const hour = document.getElementById("hour");
 
 window.onkeydown = e => {
-    return !(e.keyCode == 32)
+    return !(e.keyCode == 32);
+};
+
+function handleVisibilityChange() {
+    if (document.hidden) {
+        // Page is hidden
+        isPageVisible = false;
+    } else {
+        // Page is visible
+        isPageVisible = true;
+    }
+
+    console.log(isPageVisible);
 }
