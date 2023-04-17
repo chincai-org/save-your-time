@@ -41,13 +41,13 @@ function setup() {
 
     document.onvisibilitychange = handleVisibilityChange;
 
-    setInterval(() => {
-        for (let i = 0; i < 5; i++) {
-            spawnMonster();
-        }
-        console.log("spawn 5");
-        console.log("total:", monsters.length);
-    }, 5000);
+    // setInterval(() => {
+    //     for (let i = 0; i < 5; i++) {
+    //         spawnMonster();
+    //     }
+    //     console.log("spawn 5");
+    //     console.log("total:", monsters.length);
+    // }, 5000);
 }
 
 function draw() {
@@ -90,6 +90,18 @@ function keyPressed(e) {
     e.preventDefault();
     if (keyCode === " ".charCodeAt(0)) {
         clock.shoot();
+    } else if (keyCode === 100) {
+        upSecond.click();
+    } else if (keyCode === 101) {
+        upMinute.click();
+    } else if (keyCode === 102) {
+        upHour.click();
+    } else if (keyCode === 97) {
+        downSecond.click();
+    } else if (keyCode === 98) {
+        downMinute.click();
+    } else if (keyCode === 99) {
+        downHour.click();
     }
 }
 
