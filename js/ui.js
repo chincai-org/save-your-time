@@ -11,3 +11,32 @@ const hour = document.getElementById("hour");
 window.onkeydown = e => {
     return !(e.keyCode == 32)
 }
+
+function timeDisplay(hours,minutes,seconds) {
+    hour.innerText = hours;
+    minute.innerText = minutes
+    second.innerText = seconds
+    upSecond.onclick = () => {
+        seconds++;
+    }
+    
+    downSecond.onclick = () => {
+        seconds--;
+    }
+    
+    upMinute.onclick = () => {
+        minutes++;
+    }
+    
+    downMinute.onclick = () => {
+        minutes--;
+    }
+    
+    upHour.onclick = () => {
+        hours++;
+    }
+    
+    downHour.onclick = () => {
+        hours--;
+    }
+}
