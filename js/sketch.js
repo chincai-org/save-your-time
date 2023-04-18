@@ -72,6 +72,9 @@ function draw() {
 
     if (lastUpdate !== 0) {
         let deltaTime = now - lastUpdate;
+
+        clock.health -= deltaTime / 1000;
+
         seconds += deltaTime / 1000;
         minutes += Math.floor(seconds / 60);
         seconds %= 60;

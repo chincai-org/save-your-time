@@ -1,6 +1,6 @@
 class Clock extends Sprite {
     constructor() {
-        super(midPointX, midPointY, createVector(0, 0), 128, 3, 0, 0);
+        super(midPointX, midPointY, createVector(0, 0), 128, 180, 0, 0);
 
         this.image = loadImage("assets/clock.png");
         this.font = loadFont("assets/ChivoMono.ttf");
@@ -58,7 +58,7 @@ class Clock extends Sprite {
 
     formatTime() {
         // Format seconds in this.health to hh:mm:ss
-        let seconds = this.health;
+        let seconds = Math.floor(this.health);
         let minutes = Math.floor(seconds / 60);
         seconds -= minutes * 60;
         let hours = Math.floor(minutes / 60);

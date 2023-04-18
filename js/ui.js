@@ -12,10 +12,10 @@ window.onkeydown = e => {
     return !(e.keyCode == 32);
 };
 
-function timeDisplay(hours,minutes,seconds) {
-    hour.innerText = hours < 10? hours == 0? 12 : '0' + hours : hours 
-    minute.innerText = minutes < 10? '0' + minutes : minutes 
-    second.innerText = seconds < 10? '0' + seconds : seconds 
+function timeDisplay(hours, minutes, seconds) {
+    hour.innerText = hours < 10 ? (hours == 0 ? 12 : "0" + hours) : hours;
+    minute.innerText = minutes < 10 ? "0" + minutes : minutes;
+    second.innerText = seconds < 10 ? "0" + seconds : seconds;
 }
 
 upSecond.onclick = () => {
@@ -23,7 +23,7 @@ upSecond.onclick = () => {
 };
 
 downSecond.onclick = () => {
-    if (--seconds <= 0) {
+    if (--seconds < 0) {
         seconds += 60;
     }
 };
@@ -33,7 +33,7 @@ upMinute.onclick = () => {
 };
 
 downMinute.onclick = () => {
-    if (--minutes <= 0) {
+    if (--minutes < 0) {
         minutes += 60;
     }
 };
@@ -43,7 +43,7 @@ upHour.onclick = () => {
 };
 
 downHour.onclick = () => {
-    if (--hours <= 0) {
+    if (--hours < 0) {
         hours += 60;
     }
 };
