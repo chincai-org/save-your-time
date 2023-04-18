@@ -9,3 +9,15 @@ The clock can fire three types of projectiles: second, minute, and hour. Each pr
 As you progress through the game, you will encounter more challenging monsters that require different strategies to defeat. You'll need to carefully choose which type of projectile to use and when to fire to maximize your effectiveness and save your time.
 
 Will you be able to save the clock and restore time to its rightful pace? The fate of the world depends on your skills and bravery. Enter the world of "Save Your Time!" and find out!
+
+powerup:
+1.mirror
+2.double trouble
+3.time bomb
+
+shop:
+1.bullet size
+2.helping hand
+3.decrease powerup time
+4.shield
+5.increase reward

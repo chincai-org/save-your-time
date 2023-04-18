@@ -65,8 +65,8 @@ function setup() {
 }
 
 function draw() {
-    // background(bg);
-    background(grey);
+    background(bg);
+    // background(grey);
 
     let now = Date.now();
 
