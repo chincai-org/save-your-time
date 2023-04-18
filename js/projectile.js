@@ -13,7 +13,7 @@ class Projectile extends Sprite {
     draw() {
         fill(red);
         noStroke();
-        circle(this.x + this.size / 2, this.y + this.size / 2, this.size);
+        circle(this.x, this.y, this.size);
     }
 
     update() {
