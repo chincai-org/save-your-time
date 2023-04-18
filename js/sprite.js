@@ -15,7 +15,7 @@ class Sprite {
     kill() {}
 
     takeDamage(n) {
-        console.log("ouch");
+        // console.log("ouch");
         this.health -= n;
 
         if (this.health <= 0) {

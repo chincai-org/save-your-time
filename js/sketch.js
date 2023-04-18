@@ -4,6 +4,7 @@ const midPointX = canvasWidth / 2;
 const midPointY = canvasHeight / 2;
 
 const black = 0;
+const white = [255, 255, 255];
 const grey = [211, 211, 211];
 const red = [255, 0, 0];
 const green = [0, 255, 0];
@@ -18,10 +19,11 @@ const lineThickness = 5;
 const projectileSpeed = 2;
 const projectileDamage = 5;
 const monsterHealth = 5;
-const monsterSpeed = 0.5;
+const monsterSpeed = 0.2;
 const monsterDamage = 3;
 
 let clock;
+let bg;
 
 let hours = 0;
 let minutes = 0;
@@ -33,24 +35,37 @@ let lastUpdate = 0;
 const projectiles = [];
 const monsters = [];
 
+let waveCount = 0;
+
+let minBatch = 2;
+let maxBatch = 4;
+let minSpawn = 1;
+let maxSpawn = 2;
+
+let nextWaveTime = 0;
+let nextBatchTime = 0;
+
 function setup() {
     let canvas = createCanvas(canvasWidth, canvasHeight);
     canvas.parent("main");
+
+    bg = loadImage("assets/bg.png");
 
     clock = new Clock();
 
     document.onvisibilitychange = handleVisibilityChange;
 
-    // setInterval(() => {
-    //     for (let i = 0; i < 5; i++) {
-    //         spawnMonster();
-    //     }
-    //     console.log("spawn 5");
-    //     console.log("total:", monsters.length);
-    // }, 5000);
+    setInterval(() => {
+        for (let i = 0; i < 5; i++) {
+            spawnMonster();
+        }
+        console.log("spawn 5");
+        console.log("total:", monsters.length);
+    }, 5000);
 }
 
 function draw() {
+    // background(bg);
     background(grey);
 
     let now = Date.now();
