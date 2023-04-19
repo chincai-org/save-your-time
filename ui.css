@@ -1,6 +1,7 @@
 html {
     font-size: 62.5%;
     background-color: gray;
+    padding-right: 0.1rem;
 }
 
 * {
@@ -16,9 +17,8 @@ html {
 aside {
     display: flex;
     margin-left: auto;
-    width: 29%;
+    width: 29.5%;
     flex-direction: column;
-    align-items: center;
     border: 0.1rem solid black;
     text-align: center;
 }
@@ -31,11 +31,14 @@ nav {
     font-size: 4rem;
 }
 
+nav div:hover {
+    color: white;
+}
+
 .shoot {
-    width: 93%;
+    width: 100%;
     display: grid;
-    text-align: center;
-    grid-template-columns: 1.03fr 1.03fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr;
     font-size: 2.5rem;
 }
 
@@ -48,8 +51,33 @@ nav {
     padding: 0.3em;
 }
 
-.shoot article p, .shoot article h5, .shoot article div{
+.shoot article h5 {
     width: 75%;
+}
+.shoot article p {
+    margin-top: 0.2ch;
+    width: 50%;
+}
+
+.shoot article div {
+    border-radius: 25%;
+    width: 25%;
+    background-color: blue;
+    box-shadow: 0.1ch 0.2ch;
+    margin-top: 0.2ch;
+}
+
+
+.shoot article div i:hover {
+    color: white;
+}
+
+.shoot article div i:active {
+    margin-top: 0.1ch;
+}
+
+.shoot article div:active {
+    box-shadow: none;
 }
 
 .choices {
@@ -64,5 +92,48 @@ nav {
 }
 
 .powerups {
+    font-size: 2.5rem;
+}
 
+.powerups-tooltip {
+    display: grid;
+    align-items: center;
+    flex-direction: row;
+    position: absolute;
+    justify-content: center;
+    border-radius: 3%;
+    border: 0.7rem solid blue;
+    visibility: hidden;
+    opacity: 0;
+    transition: opacity 0.5s ease;
+    background-color: black;
+    color: white;
+    width: 26ch;
+}
+
+.powerups-tooltip span{
+    color: rgb(33, 29, 242);
+}
+
+.powerups-title i {
+    border-radius: 25%;
+    box-shadow: 0.1ch 0.2ch;
+    background-color: aqua;
+    align-items: center;
+    width: 1.9ch;
+    height: 1.9ch;
+}
+
+.powerups-title {
+    font-weight: bold;
+}
+
+.powerups-title i:hover {
+    margin-top: 0.1ch;
+    box-shadow: none;
+}
+
+.powerups-title i:hover + .powerups-tooltip {
+    visibility: visible;
+    opacity: 0.9;
 }

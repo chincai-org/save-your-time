@@ -10,6 +10,20 @@ As you progress through the game, you will encounter more challenging monsters t
 
 Will you be able to save the clock and restore time to its rightful pace? The fate of the world depends on your skills and bravery. Enter the world of "Save Your Time!" and find out!
 
+## Powerup:
+
+1. Mirror
+2. Double trouble
+3. Time bomb
+
+## shop:
+
+1. Bullet size
+2. Helping hand
+3. Decrease powerup cooldown
+4. Shield
+5. Increase reward
+
 ## Team Members:
 
 -   [@Mortis66666](https://github.com/Mortis66666)
