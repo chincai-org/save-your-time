@@ -10,12 +10,12 @@ As you progress through the game, you will encounter more challenging monsters t
 
 Will you be able to save the clock and restore time to its rightful pace? The fate of the world depends on your skills and bravery. Enter the world of "Save Your Time!" and find out!
 
-powerup:
+## powerup:
 1.mirror
 2.double trouble
 3.time bomb
 
-shop:
+## shop:
 1.bullet size
 2.helping hand
 3.decrease powerup time
