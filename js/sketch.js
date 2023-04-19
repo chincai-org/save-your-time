@@ -35,15 +35,22 @@ let lastUpdate = 0;
 const projectiles = [];
 const monsters = [];
 
+// TODO adjust broken stats
+const waveRate = 5000;
+const maxEpicRate = 25;
+const adjustEpicRateEvery = 3;
+const epicRateIncrease = 2;
+
+const adjustMinSpawnRateEvery = 10;
+const adjustMaxSpawnRateEvery = 5;
+
 let waveCount = 0;
 let minSpawn = 1;
 let maxSpawn = 1;
 let lastWaveTime = 0;
-let waveRate = 5000;
 let waveCountDown = 0;
 
 let epicRate = 1;
-let maxEpicRate = 25;
 
 function setup() {
     let canvas = createCanvas(canvasWidth, canvasHeight);
@@ -65,8 +72,8 @@ function setup() {
 }
 
 function draw() {
-    background(bg);
-    // background(grey);
+    // background(bg);
+    background(grey);
 
     let now = Date.now();
 
@@ -95,13 +102,13 @@ function draw() {
             console.log("Wave:", ++waveCount);
             lastWaveTime = 0;
 
-            if (waveCount % 3 === 0) {
-                epicRate = Math.min(epicRate + 2, maxEpicRate);
+            if (waveCount % adjustEpicRateEvery === 0) {
+                epicRate = Math.min(epicRate + epicRateIncrease, maxEpicRate);
             }
-            if (waveCount % 5 === 0) {
+            if (waveCount % adjustMaxSpawnRateEvery === 0) {
                 maxSpawn++;
             }
-            if (waveCount % 10 === 0) {
+            if (waveCount % adjustMinSpawnRateEvery === 0) {
                 minSpawn++;
             }
 
