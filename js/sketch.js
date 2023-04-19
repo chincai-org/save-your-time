@@ -41,8 +41,8 @@ const maxEpicRate = 25;
 const adjustEpicRateEvery = 3;
 const epicRateIncrease = 2;
 
-const adjustMinSpawnRateEvery = 10;
-const adjustMaxSpawnRateEvery = 5;
+const adjustMinSpawnRateEvery = 5;
+const adjustMaxSpawnRateEvery = 3;
 
 let waveCount = 0;
 let minSpawn = 1;

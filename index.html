@@ -29,110 +29,112 @@
             <h3>Your highscore: 0</h3>
             <div>Play again</div>
         </section>
-        <aside class="controls">
+        <aside id="aside" class="controls">
             <nav>
                 <div id="controls" class="choices">Controls</div>
-                <div id="shop" class="choices">Upgrades</div>
+                <div id="shops" class="choices">Upgrades</div>
             </nav>
-            <section class="shoot">
-                <article>
-                    <h5>Second hand</h5>
-                    <div id="up-second"><i class="fa-solid fa-arrow-up"></i></div>
-                    <p id="second">00</p>
-                    <div id="down-second"><i class="fa-solid fa-arrow-down"></i></div>
-                </article>
-                <article>
-                    <h5>Minute hand</h5>
-                    <div id="up-minute"><i class="fa-solid fa-arrow-up"></i></div>
-                    <p id="minute">00</p>
-                    <div id="down-minute"><i class="fa-solid fa-arrow-down"></i></div>
-                </article>
-                <article>
-                    <h5>Hour hand</h5>
-                    <div id="up-hour"><i class="fa-solid fa-arrow-up"></i></div>
-                    <p id="hour">00</p>
-                    <div id="down-hour"><i class="fa-solid fa-arrow-down"></i></div>
-                </article>
-            </section>
-            <section class="powerups">
-                <h2>Powerups</h2>
-                <article class="power1">
-                    <div class="powerups-title">
-                        Mirror
-                        <i class="fa-solid fa-info"></i>
-                        <p class="powerups-tooltip"><span>Description: </span>You can shoot enemies behind and in front of you</p>
-                    </div>
-                    <img>img</img>
-                </article>
-                <article class="power2">
-                    <div class="powerups-title">
-                        Double Trouble
-                        <i class="fa-solid fa-info"></i>
-                        <p class="powerups-tooltip"><span>Description: </span>Summon a second clock to fight enemies alongside</p>
-                    </div>
-                    <img>img</img>
-                </article>
-                <article class="power2">
-                    <div class="powerups-title">
-                        Time Bomb
-                        <i class="fa-solid fa-info"></i>
-                        <p class="powerups-tooltip"><span>Description: </span>A bomb that are set to explode in 3 seconds</p>
-                    </div>
-                    <img>img</img>
-                </article>
-            </section>
-            <section class="shop">
-                <article>
-                    <img>img</img>
-                    <div>
-                        Bullet Size
-                        <i class="fa-solid fa-info"></i>
-                        <p><span>Description: </span>s</p>
-                    </div>
-                    <p>Level: 1</p>
-                    <div>Upgrade</div>
-                </article>
-                <article>
-                    <img>img</img>
-                    <div>
-                        Helping Hand
-                        <i class="fa-solid fa-info"></i>
-                        <p><span>Description: </span>s</p>
-                    </div>
-                    <p>Level: 1</p>
-                    <div>Upgrade</div>
-                </article>
-                <article>
-                    <img>img</img>
-                    <div>
-                        Powerup Reload Time
-                        <i class="fa-solid fa-info"></i>
-                        <p><span>Description: </span>s</p>
-                    </div>
-                    <p>Level: 1</p>
-                    <div>Upgrade</div>
-                </article>
-                <article>
-                    <img>img</img>
-                    <div>
-                        Shield
-                        <i class="fa-solid fa-info"></i>
-                        <p><span>Description: </span>s</p>
-                    </div>
-                    <p>Level: 1</p>
-                    <div>Upgrade</div>
-                </article>
-                <article>
-                    <img>img</img>
-                    <div>
-                        Kills Reward Amount
-                        <i class="fa-solid fa-info"></i>
-                        <p><span>Description: </span>s</p>
-                    </div>
-                    <p>Level: 1</p>
-                    <div>Upgrade</div>
-                </article>
-            </section>
+            <div id="main-ui">
+                <section class="shoot">
+                    <article>
+                        <h5>Second hand</h5>
+                        <div id="up-second"><i class="fa-solid fa-arrow-up"></i></div>
+                        <p id="second">00</p>
+                        <div id="down-second"><i class="fa-solid fa-arrow-down"></i></div>
+                    </article>
+                    <article>
+                        <h5>Minute hand</h5>
+                        <div id="up-minute"><i class="fa-solid fa-arrow-up"></i></div>
+                        <p id="minute">00</p>
+                        <div id="down-minute"><i class="fa-solid fa-arrow-down"></i></div>
+                    </article>
+                    <article>
+                        <h5>Hour hand</h5>
+                        <div id="up-hour"><i class="fa-solid fa-arrow-up"></i></div>
+                        <p id="hour">00</p>
+                        <div id="down-hour"><i class="fa-solid fa-arrow-down"></i></div>
+                    </article>
+                </section>
+                <section class="powerups">
+                    <h2>Powerups</h2>
+                    <article class="power1">
+                        <div class="powerups-title">
+                            Mirror
+                            <i class="fa-solid fa-info"></i>
+                            <p class="powerups-tooltip"><span>Description: </span>You can shoot enemies behind and in front of you</p>
+                        </div>
+                        <img>img</img>
+                    </article>
+                    <article class="power2">
+                        <div class="powerups-title">
+                            Double Trouble
+                            <i class="fa-solid fa-info"></i>
+                            <p class="powerups-tooltip"><span>Description: </span>Summon a second clock to fight enemies alongside</p>
+                        </div>
+                        <img>img</img>
+                    </article>
+                    <article class="power2">
+                        <div class="powerups-title">
+                            Time Bomb
+                            <i class="fa-solid fa-info"></i>
+                            <p class="powerups-tooltip"><span>Description: </span>A bomb that are set to explode in 3 seconds</p>
+                        </div>
+                        <img>img</img>
+                    </article>
+                </section>
+                <!-- <section class="upgrades">
+                    <article>
+                        <div class="powerups-title">
+                            <img>img</img>
+                            Bullet Size
+                            <i class="fa-solid fa-info"></i>
+                            <p class="powerups-tooltip"><span>Description: </span>s</p>
+                        </div>
+                        <p>Level: 1</p>
+                        <div class="upgrade-button">Upgrade</div>
+                    </article>
+                    <article>
+                        <div class="powerups-title">
+                            <img>img</img>
+                            Helping Hand
+                            <i class="fa-solid fa-info"></i>
+                            <p class="powerups-tooltip"><span>Description: </span>s</p>
+                        </div>
+                        <p>Level: 1</p>
+                        <div class="upgrade-button">Upgrade</div>
+                    </article>
+                    <article>
+                        <div class="powerups-title">
+                            <img>img</img>
+                            Powerup Reload Time
+                            <i class="fa-solid fa-info"></i>
+                            <p class="powerups-tooltip"><span>Description: </span>s</p>
+                        </div>
+                        <p>Level: 1</p>
+                        <div class="upgrade-button">Upgrade</div>
+                    </article>
+                    <article>
+                        <div class="powerups-title">
+                            <img>img</img>
+                            Shield
+                            <i class="fa-solid fa-info"></i>
+                            <p class="powerups-tooltip"><span>Description: </span>s</p>
+                        </div>
+                        <p>Level: 1</p>
+                        <div class="upgrade-button">Upgrade</div>
+                    </article>
+                    <article>
+                        <div class="powerups-title">
+                            <img>e/png</img>
+                            Kills Reward Amount
+                            <i class="fa-solid fa-info"></i>
+                            <p class="powerups-tooltip"><span>Description: </span>s</p>
+                        </div>
+                        <p>Level: 1</p>
+                        <div class="upgrade-button">Upgrade</div>
+                    </article>
+                </section> -->
+            </div>
         </aside>
     </div>
 </body>
