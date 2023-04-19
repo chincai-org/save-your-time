@@ -29,17 +29,20 @@ class Clock extends Sprite {
     }
 
     drawHealth() {
+        let upperText = lastWaveTime ? "Next wave in:" : "Time left:";
+        let bottomText = lastWaveTime
+            ? 5 - Math.floor((Date.now() - lastWaveTime) / 1000)
+            : this.health <= 0
+            ? "Dead"
+            : this.formatTime();
+
         noStroke();
         fill(black, 120);
         textSize(45);
         textFont(this.font);
         textAlign(CENTER, CENTER);
-        text("Time left:", midPointX, midPointY * 0.15);
-        text(
-            this.health <= 0 ? "Dead" : this.formatTime(),
-            midPointX,
-            midPointY * 0.3
-        );
+        text(upperText, midPointX, midPointY * 0.15);
+        text(bottomText, midPointX, midPointY * 0.3);
     }
 
     addHand(name, length, color) {

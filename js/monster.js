@@ -6,49 +6,27 @@ class Monster extends Sprite {
         size = 30,
         health = monsterHealth,
         speed = monsterSpeed,
-        damage = monsterDamage
+        damage = monsterDamage,
+        reward = 1
     ) {
         super(x, y, vector, size, health, speed, damage);
+        this.reward = reward;
     }
 
     static normal(x, y, vector) {
-        return new Monster(x, y, vector, 30);
+        return new Monster(x, y, vector, 30, 5, 0.2, 20, 3);
     }
 
     static tank(x, y, vector) {
-        return new Monster(
-            x,
-            y,
-            vector,
-            40,
-            monsterHealth + 20,
-            monsterSpeed,
-            monsterDamage
-        );
+        return new Monster(x, y, vector, 40, 25, 0.1, 15, 4);
     }
 
     static speedy(x, y, vector) {
-        return new Monster(
-            x,
-            y,
-            vector,
-            30,
-            monsterHealth,
-            monsterSpeed + 20,
-            monsterDamage
-        );
+        return new Monster(x, y, vector, 30, 4, 0.5, 10, 2);
     }
 
-    static assasin(x, y, vector) {
-        return new Monster(
-            x,
-            y,
-            vector,
-            30,
-            monsterHealth,
-            monsterSpeed,
-            monsterDamage + 20
-        );
+    static assassin(x, y, vector) {
+        return new Monster(x, y, vector, 30, 5, 0.15, 60, 5);
     }
 
     draw() {
@@ -80,6 +58,10 @@ class Monster extends Sprite {
     }
 
     kill() {
+        if (this.health <= 0) {
+            clock.health += this.reward;
+        }
+
         killMonster(this);
     }
 }
