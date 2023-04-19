@@ -29,7 +29,9 @@ class Clock extends Sprite {
     }
 
     drawHealth() {
-        let upperText = lastWaveTime ? "Next wave in:" : "Time left:";
+        let upperText = lastWaveTime
+            ? `Wave ${waveCount + 1} starts in:`
+            : "Time left:";
         let bottomText = lastWaveTime
             ? 5 - Math.floor((Date.now() - lastWaveTime) / 1000)
             : this.health <= 0
