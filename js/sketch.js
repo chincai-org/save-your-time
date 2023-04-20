@@ -29,6 +29,7 @@ let hours = 0;
 let minutes = 0;
 let seconds = 0;
 
+let start = false;
 let isPageVisible = true;
 let lastUpdate = 0;
 
@@ -76,6 +77,7 @@ function setup() {
 }
 
 function draw() {
+    if (!start) return;
     // background(bg);
     background(grey);
 
@@ -155,6 +157,7 @@ function draw() {
 }
 
 function keyPressed(e) {
+    if (!start) return;
     e.preventDefault();
     if (keyCode === " ".charCodeAt(0)) {
         shoot = true;
@@ -180,6 +183,7 @@ function keyPressed(e) {
 }
 
 function mouseClicked() {
+    if (!start) return;
     // Check if mouse is inside canvas
     if (
         mouseX >= 0 &&
