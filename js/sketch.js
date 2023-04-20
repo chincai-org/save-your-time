@@ -38,6 +38,7 @@ let shootRate = 250;
 
 const projectiles = [];
 const monsters = [];
+const rewards = [];
 
 // TODO adjust broken stats
 const waveRate = 5000;
@@ -138,13 +139,17 @@ function draw() {
         monster.draw();
     }
 
-    console.log(shoot);
+    for (let reward of rewards) {
+        reward.update(delta);
+        reward.draw();
+    }
+
+    // console.log(shoot);
     if (shoot && now - lastShoot > shootRate) {
         clock.shoot();
         lastShoot = now;
-    } else {
-        shoot = false;
     }
+    shoot = false;
 
     lastUpdate = now;
 }
@@ -178,6 +183,8 @@ function mouseClicked() {
     ) {
         shoot = true;
     }
+
+    console.log("click");
 }
 
 touchStarted = mouseClicked;
@@ -206,6 +213,10 @@ function killProjectile(projectile) {
 
 function killMonster(monster) {
     monsters.splice(monsters.indexOf(monster), 1);
+}
+
+function killReward(reward) {
+    rewards.splice(rewards.indexOf(reward), 1);
 }
 
 function spawnMonster() {
