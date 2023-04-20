@@ -19,6 +19,7 @@ playBtn.onclick = () => {
     startPage.style.visibility = "hidden";
     playBtn.style.visibility = "hidden";
     flashText.style.visibility = "hidden";
+    start = true;
     //start gameplay
     spawnControls();
 };
@@ -26,6 +27,8 @@ playBtn.onclick = () => {
 controls.onclick = () => {
     spawnControls();
 };
+
+controls.onclick = spawnControls;
 
 function spawnControls() {
     mainUi.innerHTML = ``;
