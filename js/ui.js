@@ -8,27 +8,27 @@ const controls = document.getElementById("controls");
 const shops = document.getElementById("shops");
 const mainUi = document.getElementById("main-ui");
 const playBtn = document.getElementById("play");
-const startPage = document.querySelector(".start")
-const flashText = document.querySelector(".flash-text")
+const startPage = document.querySelector(".start");
+const flashText = document.querySelector(".flash-text");
 
 window.onkeydown = e => {
     return !(e.keyCode == 32);
 };
 
 playBtn.onclick = () => {
-    startPage.style.visibility = 'hidden'
-    playBtn.style.visibility = 'hidden'
-    flashText.style.visibility = 'hidden'
+    startPage.style.visibility = "hidden";
+    playBtn.style.visibility = "hidden";
+    flashText.style.visibility = "hidden";
     //start gameplay
-    spawnControls()
-}
+    spawnControls();
+};
 
 controls.onclick = () => {
-    spawnControls()
+    spawnControls();
 };
 
 function spawnControls() {
-        mainUi.innerHTML = ``;
+    mainUi.innerHTML = ``;
     // Create section "shoot"
     const shootSection = document.createElement("section");
     shootSection.className = "shoot";
@@ -103,7 +103,7 @@ function spawnControls() {
         powerupsSection.appendChild(article);
     });
     mainUi.appendChild(powerupsSection);
-};
+}
 
 shops.onclick = () => {
     mainUi.innerHTML = "";
@@ -164,7 +164,7 @@ shops.onclick = () => {
     mainUi.append(upgradesSection);
 };
 
-timeDisplay = (hours, minutes, seconds) => {
+function timeDisplay(hours, minutes, seconds) {
     try {
         const second = document.getElementById("second");
         const minute = document.getElementById("minute");
@@ -173,7 +173,7 @@ timeDisplay = (hours, minutes, seconds) => {
         minute.innerText = minutes < 10 ? "0" + minutes : minutes;
         second.innerText = seconds < 10 ? "0" + seconds : seconds;
     } catch (e) {}
-};
+}
 
 function handleVisibilityChange() {
     if (document.hidden) {
