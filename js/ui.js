@@ -4,17 +4,31 @@ const upMinute = document.getElementById("up-minute");
 const downMinute = document.getElementById("down-minute");
 const upHour = document.getElementById("up-hour");
 const downHour = document.getElementById("down-hour");
-
 const controls = document.getElementById("controls");
 const shops = document.getElementById("shops");
 const mainUi = document.getElementById("main-ui");
+const playBtn = document.getElementById("play");
+const startPage = document.querySelector(".start")
+const flashText = document.querySelector(".flash-text")
 
 window.onkeydown = e => {
     return !(e.keyCode == 32);
 };
 
+playBtn.onclick = () => {
+    startPage.style.visibility = 'hidden'
+    playBtn.style.visibility = 'hidden'
+    flashText.style.visibility = 'hidden'
+    //start gameplay
+    spawnControls()
+}
+
 controls.onclick = () => {
-    mainUi.innerHTML = ``;
+    spawnControls()
+};
+
+function spawnControls() {
+        mainUi.innerHTML = ``;
     // Create section "shoot"
     const shootSection = document.createElement("section");
     shootSection.className = "shoot";
