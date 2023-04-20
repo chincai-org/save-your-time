@@ -43,7 +43,7 @@ const monsters = [];
 const rewards = [];
 
 // TODO adjust broken stats
-const waveRate = 5000;
+const waveRate = 10000;
 const maxEpicRate = 25;
 const adjustEpicRateEvery = 3;
 const epicRateIncrease = 2;
@@ -111,7 +111,6 @@ function draw() {
         if (lastWaveTime === 0) {
             lastWaveTime = now;
         } else if (now - lastWaveTime > waveRate) {
-            lastWaveTime = now;
             console.log("Wave:", ++waveCount);
             lastWaveTime = 0;
 
@@ -189,6 +188,14 @@ function keyPressed(e) {
         if (--hours <= 0) {
             hours += 60;
         }
+    }
+
+    if (keyCode === 83 && lastWaveTime) {
+        let reward =
+            waveRate / 1000 - Math.floor((Date.now() - lastWaveTime) / 1000);
+        clock.health += reward;
+        rewards.push(new Reward(midPointX, canvasHeight * 0.3, reward));
+        lastWaveTime = 1;
     }
 }
 

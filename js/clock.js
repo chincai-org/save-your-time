@@ -33,7 +33,7 @@ class Clock extends Sprite {
             ? `Wave ${waveCount + 1} starts in:`
             : "Time left:";
         let bottomText = lastWaveTime
-            ? 5 - Math.floor((Date.now() - lastWaveTime) / 1000)
+            ? waveRate / 1000 - Math.floor((Date.now() - lastWaveTime) / 1000)
             : this.health <= 0
             ? "Dead"
             : this.formatTime();
@@ -45,6 +45,10 @@ class Clock extends Sprite {
         textAlign(CENTER, CENTER);
         text(upperText, midPointX, midPointY * 0.15);
         text(bottomText, midPointX, midPointY * 0.3);
+
+        if (lastWaveTime) {
+            text("Press 'S' to skip countdown", midPointX, midPointY * 0.45);
+        }
     }
 
     addHand(name, length, color) {
