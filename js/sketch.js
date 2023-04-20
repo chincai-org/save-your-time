@@ -32,6 +32,10 @@ let seconds = 0;
 let isPageVisible = true;
 let lastUpdate = 0;
 
+let shoot = false;
+let lastShoot = 0;
+let shootRate = 250;
+
 const projectiles = [];
 const monsters = [];
 
@@ -134,13 +138,21 @@ function draw() {
         monster.draw();
     }
 
+    console.log(shoot);
+    if (shoot && now - lastShoot > shootRate) {
+        clock.shoot();
+        lastShoot = now;
+    } else {
+        shoot = false;
+    }
+
     lastUpdate = now;
 }
 
 function keyPressed(e) {
     e.preventDefault();
     if (keyCode === " ".charCodeAt(0)) {
-        clock.shoot();
+        shoot = true;
     } else if (keyCode === 100) {
         upSecond.click();
     } else if (keyCode === 101) {
@@ -164,7 +176,7 @@ function mouseClicked() {
         mouseY >= 0 &&
         mouseY <= canvasHeight
     ) {
-        clock.shoot();
+        shoot = true;
     }
 }
 
