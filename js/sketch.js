@@ -168,6 +168,8 @@ function mouseClicked() {
     }
 }
 
+touchStarted = mouseClicked;
+
 function windowResized() {
     console.log("window resize");
     canvasWidth = window.innerWidth * 0.7;
