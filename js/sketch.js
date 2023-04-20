@@ -159,17 +159,23 @@ function keyPressed(e) {
     if (keyCode === " ".charCodeAt(0)) {
         shoot = true;
     } else if (keyCode === 100 || keyCode == 83) {
-        upSecond.click();
+        seconds++;
     } else if (keyCode === 101 || keyCode == 65) {
-        upMinute.click();
+        minutes++;
     } else if (keyCode === 102 || keyCode == 81) {
-        upHour.click();
+        hours++;
     } else if (keyCode === 97 || keyCode == 87) {
-        downSecond.click();
+        if (--seconds <= 0) {
+            seconds += 60;
+        }
     } else if (keyCode === 98 || keyCode == 68) {
-        downMinute.click();
+        if (--minutes <= 0) {
+            minutes += 60;
+        }
     } else if (keyCode === 99 || keyCode == 69) {
-        downHour.click();
+        if (--hours <= 0) {
+            hours += 60;
+        }
     }
 }
 
