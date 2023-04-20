@@ -15,15 +15,21 @@ window.onkeydown = e => {
     if (e.keyCode == 65 || e.keyCode == 39) {
         minutes++
     } else if (e.keyCode == 68 || e.keyCode == 37) {
-        minutes--
+        if (--minutes < 0) {
+            minutes += 60;
+        }
     } else if (e.keyCode == 87 || e.keyCode == 38) {
-        seconds--
+        if (--seconds < 0) {
+            seconds += 60;
+        }
     } else if (e.keyCode == 83 || e.keyCode == 40) {
         seconds++
     } else if (e.keyCode == 81 || e.keyCode == 188) {
         hours++
     } else if (e.keyCode == 69 || e.keyCode == 190) {
-        hours--
+        if (--hours < 0) {
+            hours += 60;
+        }
     }
     return !(e.keyCode == 32);
 }

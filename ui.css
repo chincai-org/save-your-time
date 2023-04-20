@@ -28,7 +28,7 @@ nav {
     display: grid;
     grid-template-columns: 1fr 1fr;
     font-weight: bold;
-    font-size: 4rem;
+    font-size: 3rem;
 }
 
 nav div:hover {
@@ -92,7 +92,7 @@ nav div:hover {
 }
 
 .powerups {
-    font-size: 2.5rem;
+    font-size: 2rem;
 }
 
 .powerups-tooltip {
