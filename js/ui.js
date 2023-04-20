@@ -181,9 +181,17 @@ function timeDisplay(hours, minutes, seconds) {
 function handleVisibilityChange() {
     if (document.hidden) {
         // Page is hidden
+        draw();
         isPageVisible = false;
     } else {
         // Page is visible
+        let now = Date.now();
+        lastUpdate = now;
+
+        if (lastWaveTime) {
+            lastWaveTime += now - lastUpdate;
+        }
+
         isPageVisible = true;
     }
 

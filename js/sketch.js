@@ -78,6 +78,7 @@ function setup() {
 
 function draw() {
     if (!start) return;
+    // console.log("d");
     // background(bg);
     background(grey);
 

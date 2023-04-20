@@ -9,7 +9,6 @@ class Reward extends Sprite {
     update(delta) {
         super.update(delta);
 
-        console.log(this.origY - this.y);
         if (this.origY - this.y > 20) {
             this.kill();
         }
