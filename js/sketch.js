@@ -24,6 +24,7 @@ let midPointY = canvasHeight / 2;
 
 let clock;
 let bg;
+let soundFile;
 
 let hours = 0;
 let minutes = 0;
@@ -58,12 +59,20 @@ let waveCountDown = 0;
 
 let epicRate = 1;
 
+function preload() {
+    bg = loadImage("assets/bg.png");
+
+    soundFormats("ogg", "mp3");
+    soundFile = loadSound("assets/bgmusic.mp3");
+}
+
 function setup() {
     let canvas = createCanvas(canvasWidth, canvasHeight);
     canvas.parent("main");
 
-    bg = loadImage("assets/bg.png");
     clock = new Clock();
+
+    soundFile.loop();
 
     document.onvisibilitychange = handleVisibilityChange;
 
