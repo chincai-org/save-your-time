@@ -158,17 +158,17 @@ function keyPressed(e) {
     e.preventDefault();
     if (keyCode === " ".charCodeAt(0)) {
         shoot = true;
-    } else if (keyCode === 100) {
+    } else if (keyCode === 100 || keyCode == 83) {
         upSecond.click();
-    } else if (keyCode === 101) {
+    } else if (keyCode === 101 || keyCode == 65) {
         upMinute.click();
-    } else if (keyCode === 102) {
+    } else if (keyCode === 102 || keyCode == 81) {
         upHour.click();
-    } else if (keyCode === 97) {
+    } else if (keyCode === 97 || keyCode == 87) {
         downSecond.click();
-    } else if (keyCode === 98) {
+    } else if (keyCode === 98 || keyCode == 68) {
         downMinute.click();
-    } else if (keyCode === 99) {
+    } else if (keyCode === 99 || keyCode == 69) {
         downHour.click();
     }
 }

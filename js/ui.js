@@ -12,30 +12,72 @@ const shops = document.getElementById("shops");
 const mainUi = document.getElementById("main-ui");
 
 window.onkeydown = e => {
-    if (e.keyCode == 65 || e.keyCode == 39) {
-        minutes++
-    } else if (e.keyCode == 68 || e.keyCode == 37) {
-        if (--minutes < 0) {
-            minutes += 60;
-        }
-    } else if (e.keyCode == 87 || e.keyCode == 38) {
-        if (--seconds < 0) {
-            seconds += 60;
-        }
-    } else if (e.keyCode == 83 || e.keyCode == 40) {
-        seconds++
-    } else if (e.keyCode == 81 || e.keyCode == 188) {
-        hours++
-    } else if (e.keyCode == 69 || e.keyCode == 190) {
-        if (--hours < 0) {
-            hours += 60;
-        }
-    }
     return !(e.keyCode == 32);
 }
 
 controls.onclick = () => {
-    mainUi.innerHTML = ''
+    mainUi.innerHTML = ``
+    // Create section "shoot"
+    const shootSection = document.createElement('section');
+    shootSection.className = 'shoot';
+    const timeUnits = ['second', 'minute', 'hour'];
+    timeUnits.forEach(unit => {
+    const article = document.createElement('article');
+    const h5 = document.createElement('h5');
+    h5.textContent = `${unit.charAt(0).toUpperCase() + unit.slice(1)} hand`;
+    article.appendChild(h5);
+    const upDiv = document.createElement('div');
+    upDiv.id = `up-${unit}`;
+    upDiv.innerHTML = '<i class="fa-solid fa-arrow-up"></i>';
+    article.appendChild(upDiv);
+    const p = document.createElement('p');
+    p.id = unit;
+    p.textContent = '00';
+    article.appendChild(p);
+    const downDiv = document.createElement('div');
+    downDiv.id = `down-${unit}`;
+    downDiv.innerHTML = '<i class="fa-solid fa-arrow-down"></i>';
+    article.appendChild(downDiv);
+    shootSection.appendChild(article);
+    });
+    mainUi.appendChild(shootSection);
+    // Create section "powerups"
+    const powerupsSection = document.createElement('section');
+    powerupsSection.className = 'powerups';
+    const h2 = document.createElement('h2');
+    h2.textContent = 'Powerups';
+    powerupsSection.appendChild(h2);
+    const powerups = [
+    {
+        title: 'Mirror',
+        description: 'You can shoot enemies behind and in front of you',
+    },
+    {
+        title: 'Double Trouble',
+        description: 'Summon a second clock to fight enemies alongside',
+    },
+    {
+        title: 'Time Bomb',
+        description: 'A bomb that is set to explode in 3 seconds',
+    },
+    ];
+    powerups.forEach((powerup, index) => {
+    const article = document.createElement('article');
+    article.className = `power${index + 1}`;
+    const powerupsTitleDiv = document.createElement('div');
+    powerupsTitleDiv.className = 'powerups-title';
+    powerupsTitleDiv.innerHTML = `${powerup.title}<i class="fa-solid fa-info"></i>`;
+    article.appendChild(powerupsTitleDiv);
+    const powerupsTooltipP = document.createElement('p');
+    powerupsTooltipP.className = 'powerups-tooltip';
+    powerupsTooltipP.innerHTML = `<span>Description: </span>${powerup.description}`;
+    powerupsTitleDiv.appendChild(powerupsTooltipP);
+    const img = document.createElement('img');
+    img.textContent = 'img';
+    article.appendChild(img);
+    powerupsSection.appendChild(article);
+    });
+    mainUi.appendChild(powerupsSection);
 }
 
 shops.onclick = () => {
@@ -102,36 +144,6 @@ timeDisplay = (hours, minutes, seconds) => {
     minute.innerText = minutes < 10 ? "0" + minutes : minutes;
     second.innerText = seconds < 10 ? "0" + seconds : seconds;
 }
-
-upSecond.onclick = () => {
-    seconds++;
-};
-
-downSecond.onclick = () => {
-    if (--seconds < 0) {
-        seconds += 60;
-    }
-};
-
-upMinute.onclick = () => {
-    minutes++;
-};
-
-downMinute.onclick = () => {
-    if (--minutes < 0) {
-        minutes += 60;
-    }
-};
-
-upHour.onclick = () => {
-    hours++;
-};
-
-downHour.onclick = () => {
-    if (--hours < 0) {
-        hours += 60;
-    }
-};
 
 function handleVisibilityChange() {
     if (document.hidden) {
