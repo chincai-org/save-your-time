@@ -156,6 +156,18 @@ function keyPressed(e) {
     }
 }
 
+function mouseClicked() {
+    // Check if mouse is inside canvas
+    if (
+        mouseX >= 0 &&
+        mouseX <= canvasWidth &&
+        mouseY >= 0 &&
+        mouseY <= canvasHeight
+    ) {
+        clock.shoot();
+    }
+}
+
 function windowResized() {
     console.log("window resize");
     canvasWidth = window.innerWidth * 0.7;
