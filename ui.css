@@ -97,7 +97,7 @@ nav div:hover {
     background-color: black;
     color: white;
     visibility: visible;
-    opacity: 0.5;
+    opacity: 1;
     width: 100%;
     height: 100%;
 }
