@@ -19,8 +19,10 @@ aside {
     margin-left: auto;
     width: 29.5%;
     flex-direction: column;
-    border: 0.1rem solid black;
     text-align: center;
+    background-color: blueviolet;
+    height: 100vh;
+    height: 100dvh;
 }
 
 nav {
