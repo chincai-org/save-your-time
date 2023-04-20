@@ -7,8 +7,14 @@ class Sprite {
         this.health = health;
         this.speed = speed;
         this.damage = damage;
+    }
 
-        this.direction = this.vector.normalize().mult(speed);
+    direction(delta) {
+        let aspectRatio = canvasWidth / canvasHeight;
+        let currentSpeed = this.speed / Math.sqrt(aspectRatio);
+        let distance = currentSpeed * delta;
+
+        return this.vector.normalize().mult(distance);
     }
 
     draw() {}
@@ -23,8 +29,9 @@ class Sprite {
         }
     }
 
-    update() {
-        this.x += this.direction.x;
-        this.y += this.direction.y;
+    update(delta) {
+        let direction = this.direction(delta);
+        this.x += direction.x;
+        this.y += direction.y;
     }
 }

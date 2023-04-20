@@ -1,8 +1,3 @@
-const canvasWidth = window.innerWidth * 0.7;
-const canvasHeight = window.innerHeight;
-const midPointX = canvasWidth / 2;
-const midPointY = canvasHeight / 2;
-
 const black = 0;
 const white = [255, 255, 255];
 const grey = [211, 211, 211];
@@ -16,11 +11,16 @@ const secondHandSize = 50;
 
 const lineThickness = 5;
 
-const projectileSpeed = 2;
+const projectileSpeed = 0.2;
 const projectileDamage = 5;
 const monsterHealth = 5;
 const monsterSpeed = 0.2;
 const monsterDamage = 3;
+
+let canvasWidth = window.innerWidth * 0.7;
+let canvasHeight = window.innerHeight;
+let midPointX = canvasWidth / 2;
+let midPointY = canvasHeight / 2;
 
 let clock;
 let bg;
@@ -31,6 +31,10 @@ let seconds = 0;
 
 let isPageVisible = true;
 let lastUpdate = 0;
+
+let shoot = false;
+let lastShoot = 0;
+let shootRate = 250;
 
 const projectiles = [];
 const monsters = [];
@@ -57,7 +61,6 @@ function setup() {
     canvas.parent("main");
 
     bg = loadImage("assets/bg.png");
-
     clock = new Clock();
 
     document.onvisibilitychange = handleVisibilityChange;
@@ -76,10 +79,9 @@ function draw() {
     background(grey);
 
     let now = Date.now();
+    let deltaTime = now - lastUpdate;
 
     if (lastUpdate !== 0) {
-        let deltaTime = now - lastUpdate;
-
         if (!lastWaveTime) clock.health -= deltaTime / 1000;
 
         seconds += deltaTime / 1000;
@@ -91,8 +93,6 @@ function draw() {
 
         timeDisplay(...[hours, minutes, seconds].map(Math.floor));
     }
-
-    lastUpdate = now;
 
     if (monsters.length === 0) {
         if (lastWaveTime === 0) {
@@ -126,21 +126,33 @@ function draw() {
 
     clock.draw();
 
+    let delta = lastUpdate === 0 ? 0 : deltaTime;
+
     for (let projectile of projectiles) {
-        projectile.update();
+        projectile.update(delta);
         projectile.draw();
     }
 
     for (let monster of monsters) {
-        monster.update();
+        monster.update(delta);
         monster.draw();
     }
+
+    console.log(shoot);
+    if (shoot && now - lastShoot > shootRate) {
+        clock.shoot();
+        lastShoot = now;
+    } else {
+        shoot = false;
+    }
+
+    lastUpdate = now;
 }
 
 function keyPressed(e) {
     e.preventDefault();
     if (keyCode === " ".charCodeAt(0)) {
-        clock.shoot();
+        shoot = true;
     } else if (keyCode === 100 || keyCode == 83) {
         upSecond.click();
     } else if (keyCode === 101 || keyCode == 65) {
@@ -154,6 +166,32 @@ function keyPressed(e) {
     } else if (keyCode === 99 || keyCode == 69) {
         downHour.click();
     }
+}
+
+function mouseClicked() {
+    // Check if mouse is inside canvas
+    if (
+        mouseX >= 0 &&
+        mouseX <= canvasWidth &&
+        mouseY >= 0 &&
+        mouseY <= canvasHeight
+    ) {
+        shoot = true;
+    }
+}
+
+touchStarted = mouseClicked;
+
+function windowResized() {
+    console.log("window resize");
+    canvasWidth = window.innerWidth * 0.7;
+    canvasHeight = window.innerHeight;
+    midPointX = canvasWidth / 2;
+    midPointY = canvasHeight / 2;
+
+    clock.x = midPointX;
+    clock.y = midPointY;
+    resizeCanvas(canvasWidth, canvasHeight);
 }
 
 function randint(min, max) {
