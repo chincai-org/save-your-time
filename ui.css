@@ -90,7 +90,39 @@ nav div:hover {
 
 .flash-text {
     position: absolute;
-    display: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    background-color: black;
+    color: white;
+    visibility: visible;
+    opacity: 0.5;
+    width: 100%;
+    height: 100%;
+}
+
+.start {
+    font-size: 5rem;
+}
+
+#play {
+    padding-top: 0.3em;
+    padding-bottom: 0.3em;
+    padding-left: 0.5em;
+    padding-right: 0.5em;
+    border-radius: 25%;
+    background: linear-gradient(hsl(120, 100%, 50%), hsl(120, 98%, 20%));;
+    user-select: none;
+}
+
+#play:hover {
+    background: linear-gradient(hsl(120, 100%, 60%), hsl(120, 100%, 30%));
+    user-select: none;
+}
+
+.lose {
+    visibility: hidden;
 }
 
 .powerups {
