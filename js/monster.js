@@ -16,19 +16,19 @@ class Monster extends Sprite {
     }
 
     static normal(x, y, vector) {
-        return new Monster(x, y, vector, 30, black, 5, 0.2, 20, 3);
+        return new Monster(x, y, vector, 30, black, 5, 0.02, 20, 3);
     }
 
     static tank(x, y, vector) {
-        return new Monster(x, y, vector, 40, black, 25, 0.1, 15, 4);
+        return new Monster(x, y, vector, 40, black, 25, 0.01, 15, 4);
     }
 
     static speedy(x, y, vector) {
-        return new Monster(x, y, vector, 30, blue, 4, 0.5, 10, 2);
+        return new Monster(x, y, vector, 30, blue, 4, 0.05, 10, 2);
     }
 
     static assassin(x, y, vector) {
-        return new Monster(x, y, vector, 30, red, 5, 0.15, 60, 5);
+        return new Monster(x, y, vector, 30, red, 5, 0.015, 60, 5);
     }
 
     draw() {
@@ -37,7 +37,7 @@ class Monster extends Sprite {
         circle(this.x, this.y, this.size);
     }
 
-    update() {
+    update(delta) {
         if (
             this.x < 0 ||
             this.x > canvasWidth ||
@@ -46,7 +46,7 @@ class Monster extends Sprite {
         ) {
             this.kill();
         } else {
-            super.update();
+            super.update(delta);
 
             if (
                 dist(this.x, this.y, clock.x, clock.y) <

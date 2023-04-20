@@ -16,7 +16,7 @@ class Projectile extends Sprite {
         circle(this.x, this.y, this.size);
     }
 
-    update() {
+    update(delta) {
         if (
             this.x < 0 ||
             this.x > canvasWidth ||
@@ -25,7 +25,7 @@ class Projectile extends Sprite {
         ) {
             this.kill();
         } else {
-            super.update();
+            super.update(delta);
 
             for (let monster of monsters) {
                 // Check if projectile hit monster
