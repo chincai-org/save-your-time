@@ -62,6 +62,8 @@ class Monster extends Sprite {
     kill() {
         if (this.health <= 0) {
             clock.health += this.reward;
+
+            rewards.push(new Reward(this.x, this.y, this.reward));
         }
 
         killMonster(this);
