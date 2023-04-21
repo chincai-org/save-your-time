@@ -16,6 +16,7 @@ class Reward extends Sprite {
 
     draw() {
         fill(green);
+        textSize(45);
         textAlign(CENTER, CENTER);
         text("+" + this.amt + "s", this.x, this.y);
     }
