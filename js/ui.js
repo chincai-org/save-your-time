@@ -8,8 +8,15 @@ const controls = document.getElementById("controls");
 const shops = document.getElementById("shops");
 const mainUi = document.getElementById("main-ui");
 const playBtn = document.getElementById("play");
+const playAgain = document.getElementById("play-again");
 const startPage = document.querySelector(".start");
 const flashText = document.querySelector(".flash-text");
+const lose = document.querySelector(".lose");
+
+
+function lost() {
+    lose.style.visibility == "visible"
+}
 
 window.onkeydown = e => {
     return !(e.keyCode == 32);
@@ -23,6 +30,11 @@ playBtn.onclick = () => {
     //start gameplay
     spawnControls();
 };
+
+playAgain.onclick = () => {
+    lose.style.visibility == "hidden";
+    //restart gameplay
+}
 
 controls.onclick = spawnControls;
 
