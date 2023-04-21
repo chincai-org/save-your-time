@@ -13,9 +13,8 @@ const startPage = document.querySelector(".start");
 const flashText = document.querySelector(".flash-text");
 const lose = document.querySelector(".lose");
 
-
 function lost() {
-    lose.style.visibility == "visible"
+    lose.style.visibility == "visible";
 }
 
 window.onkeydown = e => {
@@ -34,7 +33,7 @@ playBtn.onclick = () => {
 playAgain.onclick = () => {
     lose.style.visibility == "hidden";
     //restart gameplay
-}
+};
 
 controls.onclick = spawnControls;
 
@@ -54,8 +53,8 @@ function spawnControls() {
         upDiv.innerHTML = '<i class="fa-solid fa-arrow-up"></i>';
 
         upDiv.onclick = () => {
-            console.log(unit);
             eval(`${unit}s++`);
+            tickSound.play();
         };
 
         article.appendChild(upDiv);
@@ -71,6 +70,7 @@ function spawnControls() {
             eval(`if (--${unit}s <= 0) {
                 ${unit}s += 60;
             }`);
+            tickSound.play();
         };
 
         article.appendChild(downDiv);
@@ -194,12 +194,12 @@ function handleVisibilityChange() {
     } else {
         // Page is visible
         let now = Date.now();
-        lastUpdate = now;
 
         if (lastWaveTime) {
             lastWaveTime += now - lastUpdate;
         }
 
+        lastUpdate = now;
         isPageVisible = true;
     }
 

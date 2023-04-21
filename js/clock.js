@@ -1,13 +1,18 @@
 class Clock extends Sprite {
-    constructor() {
-        super(midPointX, midPointY, createVector(0, 0), 128, 180, 0, 0);
+    constructor(
+        x = midPointX,
+        y = midPointY,
+        image = clockImage,
+        health = 180
+    ) {
+        super(x, y, createVector(0, 0), image.width, health, 0, 0);
 
-        this.image = loadImage("assets/clock.png");
+        this.image = image;
         this.font = loadFont("assets/ChivoMono.ttf");
         this.hands = {
-            second: new Hand(secondHandSize, red),
-            minute: new Hand(minuteHandSize, green),
-            hour: new Hand(hourHandSize, blue)
+            second: new Hand((this.size * 50) / 128, red),
+            minute: new Hand((this.size * 30) / 128, green),
+            hour: new Hand((this.size * 15) / 128, blue)
         };
     }
 
