@@ -37,5 +37,15 @@ class Hand {
                 createVector(endPoint[0] - x, endPoint[1] - y)
             )
         );
+
+        if (mirror) {
+            let inverseEndPoint = [x * 2 - endPoint[0], y * 2 - endPoint[1]];
+            projectiles.push(
+                new Projectile(
+                    ...inverseEndPoint,
+                    createVector(inverseEndPoint[0] - x, inverseEndPoint[1] - y)
+                )
+            );
+        }
     }
 }

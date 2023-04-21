@@ -42,6 +42,7 @@ let isPageVisible = true;
 let lastUpdate = 0;
 
 let shoot = false;
+let mirror = true;
 let lastShoot = 0;
 let shootRate = 250;
 
