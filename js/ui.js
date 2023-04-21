@@ -24,10 +24,6 @@ playBtn.onclick = () => {
     spawnControls();
 };
 
-controls.onclick = () => {
-    spawnControls();
-};
-
 controls.onclick = spawnControls;
 
 function spawnControls() {
