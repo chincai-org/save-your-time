@@ -59,6 +59,11 @@ class Monster extends Sprite {
         }
     }
 
+    takeDamage(n) {
+        super.takeDamage(n);
+        enemyHurtSound.play();
+    }
+
     kill() {
         if (this.health <= 0) {
             let reward =

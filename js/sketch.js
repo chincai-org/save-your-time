@@ -25,6 +25,11 @@ let midPointY = canvasHeight / 2;
 let clock;
 let bg;
 let soundFile;
+let clockImage;
+let tickSound;
+let clickSound;
+let shootSound;
+let enemyHurtSound;
 
 let hours = 0;
 let minutes = 0;
@@ -61,9 +66,16 @@ let epicRate = 1;
 
 function preload() {
     bg = loadImage("assets/bg.png");
+    clockImage = loadImage("assets/clock.png");
 
     soundFormats("ogg", "mp3");
     soundFile = loadSound("assets/bgmusic.mp3");
+
+    soundFormats("ogg", "wav");
+    tickSound = loadSound("assets/tick.wav");
+    clickSound = loadSound("assets/click.wav");
+    shootSound = loadSound("assets/shoot.wav");
+    enemyHurtSound = loadSound("assets/enemyhurt.wav");
 }
 
 function setup() {
@@ -159,6 +171,7 @@ function draw() {
     if (shoot && now - lastShoot > shootRate) {
         clock.shoot();
         lastShoot = now;
+        shootSound.play();
     }
     shoot = false;
 
@@ -172,22 +185,28 @@ function keyPressed(e) {
         shoot = true;
     } else if (keyCode === 100 || keyCode == 83) {
         seconds++;
+        tickSound.play();
     } else if (keyCode === 101 || keyCode == 65) {
         minutes++;
+        tickSound.play();
     } else if (keyCode === 102 || keyCode == 81) {
         hours++;
+        tickSound.play();
     } else if (keyCode === 97 || keyCode == 87) {
         if (--seconds <= 0) {
             seconds += 60;
         }
+        tickSound.play();
     } else if (keyCode === 98 || keyCode == 68) {
         if (--minutes <= 0) {
             minutes += 60;
         }
+        tickSound.play();
     } else if (keyCode === 99 || keyCode == 69) {
         if (--hours <= 0) {
             hours += 60;
         }
+        tickSound.play();
     }
 
     if (keyCode === 83 && lastWaveTime) {
@@ -208,10 +227,9 @@ function mouseClicked() {
         mouseY >= 0 &&
         mouseY <= canvasHeight
     ) {
+        clickSound.play();
         shoot = true;
     }
-
-    console.log("click");
 }
 
 touchStarted = mouseClicked;
