@@ -54,7 +54,16 @@ class Monster extends Sprite {
             ) {
                 clock.takeDamage(this.damage);
                 this.kill();
-                console.log("hit");
+            }
+
+            if (smallClock) {
+                if (
+                    dist(this.x, this.y, smallClock.x, smallClock.y) <
+                    smallClock.size / 2 + this.size / 2
+                ) {
+                    smallClock.takeDamage(this.damage);
+                    this.kill();
+                }
             }
         }
     }

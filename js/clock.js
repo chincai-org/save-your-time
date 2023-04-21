@@ -19,16 +19,16 @@ class Clock extends Sprite {
     draw() {
         image(
             this.image,
-            canvasWidth / 2 - this.image.width / 2,
-            canvasHeight / 2 - this.image.height / 2
+            this.x - this.image.width / 2,
+            this.y - this.image.height / 2
         );
 
         for (let hand of Object.values(this.hands)) {
-            hand.draw();
+            hand.draw(this.x, this.y);
         }
 
         stroke(black);
-        rect(midPointX, midPointY, lineThickness / 2, lineThickness / 2);
+        rect(this.x, this.y, lineThickness / 2, lineThickness / 2);
 
         this.drawHealth();
     }
@@ -62,7 +62,7 @@ class Clock extends Sprite {
 
     shoot() {
         for (let hand of Object.values(this.hands)) {
-            hand.shoot();
+            hand.shoot(this.x, this.y);
         }
     }
 

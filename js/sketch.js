@@ -23,9 +23,11 @@ let midPointX = canvasWidth / 2;
 let midPointY = canvasHeight / 2;
 
 let clock;
+let smallClock = null;
 let bg;
 let soundFile;
 let clockImage;
+let smallClockImage;
 let tickSound;
 let clickSound;
 let shootSound;
@@ -67,6 +69,7 @@ let epicRate = 1;
 function preload() {
     bg = loadImage("assets/bg.png");
     clockImage = loadImage("assets/clock.png");
+    smallClockImage = loadImage("assets/miniclock.png");
 
     soundFormats("ogg", "mp3");
     soundFile = loadSound("assets/bgmusic.mp3");
@@ -87,6 +90,7 @@ function setup() {
     canvas.parent("main");
 
     clock = new Clock();
+    smallClock = new SmallClock();
 
     soundFile.loop();
 
@@ -152,9 +156,17 @@ function draw() {
     clock.hands.minute.degree = -6 * minutes + -0.1 * seconds;
     clock.hands.second.degree = -6 * seconds;
 
-    clock.draw();
+    if (smallClock) {
+        smallClock.hands.hour.degree = -30 * hours + -0.5 * minutes;
+        smallClock.hands.minute.degree = -6 * minutes + -0.1 * seconds;
+        smallClock.hands.second.degree = -6 * seconds;
+    }
 
     let delta = lastUpdate === 0 ? 0 : deltaTime;
+
+    clock.draw();
+    smallClock?.update(delta);
+    smallClock?.draw();
 
     for (let projectile of projectiles) {
         projectile.update(delta);
@@ -174,6 +186,7 @@ function draw() {
     // console.log(shoot);
     if (shoot && now - lastShoot > shootRate) {
         clock.shoot();
+        smallClock?.shoot();
         lastShoot = now;
         shootSound.play();
     }

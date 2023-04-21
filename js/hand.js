@@ -8,35 +8,33 @@ class Hand {
     /**
      * @returns {number[]}
      */
-    get endPoint() {
+    findEndPoint(x, y) {
         return [
-            midPointX +
+            x +
                 this.length *
                     Math.cos((this.degree * Math.PI) / 180 + Math.PI * 0.5),
-            midPointY -
+            y -
                 this.length *
                     Math.sin((this.degree * Math.PI) / 180 + Math.PI * 0.5)
         ];
     }
 
-    draw() {
+    draw(x, y) {
         stroke(this.color);
         strokeWeight(lineThickness);
-        line(midPointX, midPointY, ...this.endPoint);
+        line(x, y, ...this.findEndPoint(x, y));
     }
 
     rotate(deg = (6 * Math.PI) / 180) {
         this.degree += deg;
     }
 
-    shoot() {
+    shoot(x, y) {
+        let endPoint = this.findEndPoint(x, y);
         projectiles.push(
             new Projectile(
-                ...this.endPoint,
-                createVector(
-                    this.endPoint[0] - midPointX,
-                    this.endPoint[1] - midPointY
-                )
+                ...endPoint,
+                createVector(endPoint[0] - x, endPoint[1] - y)
             )
         );
     }
