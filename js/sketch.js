@@ -76,6 +76,10 @@ function preload() {
     clickSound = loadSound("assets/click.wav");
     shootSound = loadSound("assets/shoot.wav");
     enemyHurtSound = loadSound("assets/enemyhurt.wav");
+    tickSound.setVolume(100);
+    clickSound.setVolume(100);
+    shootSound.setVolume(100);
+    enemyHurtSound.setVolume(100);
 }
 
 function setup() {
