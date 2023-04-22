@@ -15,16 +15,16 @@ const startPage = document.querySelector(".start");
 const flashText = document.querySelector(".flash-text");
 const lose = document.querySelector(".lose");
 
-let bulletsizeLevel = 0;
-let helpinghandLevel = 0;
-let powerupreloadtimeLevel = 0;
+let bulletSizeLevel = 0;
+let helpingHandLevel = 0;
+let powerupReloadtimeLevel = 0;
 let shieldLevel = 0;
-let rewardboosterLevel = 0;
-let bulletsizeCost = 50;
-let helpinghandCost = 40;
-let powerupreloadtimeCost = 30;
+let rewardBoosterLevel = 0;
+let bulletSizeCost = 50;
+let helpingHandCost = 40;
+let powerupReloadTimeCost = 30;
 let shieldCost = 40;
-let rewardboosterCost = 30;
+let rewardBoosterCost = 30;
 
 function lost(score) {
     lose.style.visibility = "visible"; // TODO this is not working
@@ -166,16 +166,16 @@ shops.onclick = () => {
             img: "/assets/bulletsize.png",
             title: "Bullet Size",
             description: "Increase size of bullet",
-            level: bulletsizeLevel,
-            cost: bulletsizeCost,
+            level: bulletSizeLevel,
+            cost: bulletSizeCost,
             onclick: (level, cost) => () => {
                 console.log(level);
                 if (1) {
                     bulletSizeMultiplier++;
-                    bulletsizeLevel++;
-                    level.textContent = `Level: ${bulletsizeLevel}`;
-                    bulletsizeCost *= 1.25;
-                    cost.textContent = `Cost: ${Math.floor(bulletsizeCost)}sec`;
+                    bulletSizeLevel++;
+                    level.textContent = `Level: ${bulletSizeLevel}`;
+                    bulletSizeCost *= 1.25;
+                    cost.textContent = `Cost: ${Math.floor(bulletSizeCost)}sec`;
                 }
             }
         },
@@ -184,24 +184,24 @@ shops.onclick = () => {
             title: "Helping Hand",
             description:
                 "Add more hand that automatically shoot enemies. Maximum: 5",
-            level: helpinghandLevel,
-            cost: helpinghandCost,
+            level: helpingHandLevel,
+            cost: helpingHandCost,
             onclick: level => () => {}
         },
         {
             img: "/assets/",
             title: "Powerup Reload Time",
             description: "Speed up reload time of powerups.",
-            level: powerupreloadtimeLevel,
-            cost: powerupreloadtimeCost,
+            level: powerupReloadtimeLevel,
+            cost: powerupReloadTimeCost,
             onclick: (level, cost) => () => {
                 powerUpReloadTimeMultipler++;
-                powerupreloadtimeLevel++;
-                powerupreloadtimeCost *= 1.25;
+                powerupReloadtimeLevel++;
+                powerupReloadTimeCost *= 1.25;
                 cost.textContent = `Cost: ${Math.floor(
-                    powerupreloadtimeCost
+                    powerupReloadTimeCost
                 )}sec`;
-                level.textContent = `Level: ${powerupreloadtimeLevel}`;
+                level.textContent = `Level: ${powerupReloadtimeLevel}`;
             }
         },
         {
@@ -217,14 +217,14 @@ shops.onclick = () => {
             title: "Reward booster",
             description:
                 "Increase the amount of time gain after killing enemies.",
-            level: rewardboosterLevel,
-            cost: rewardboosterCost,
+            level: rewardBoosterLevel,
+            cost: rewardBoosterCost,
             onclick: (level, cost) => () => {
                 rewardMulitplier++;
-                rewardboosterLevel++;
-                rewardboosterCost *= 1.25;
-                cost.textContent = `Cost: ${Math.floor(rewardboosterCost)}sec`;
-                level.textContent = `Level: ${rewardboosterLevel}`;
+                rewardBoosterLevel++;
+                rewardBoosterCost *= 1.25;
+                cost.textContent = `Cost: ${Math.floor(rewardBoosterCost)}sec`;
+                level.textContent = `Level: ${rewardBoosterLevel}`;
             }
         }
     ];
