@@ -14,7 +14,22 @@ class Projectile extends Sprite {
         image = projectileImage
     ) {
         super(x, y, vector, size * bulletSizeMultiplier, -1, speed, damage);
-        this.image = image;
+        this.image = createImage(image.width, image.height);
+        this.image.copy(
+            image,
+            0,
+            0,
+            image.width,
+            image.height,
+            0,
+            0,
+            image.width,
+            image.height
+        );
+        this.image.resize(
+            image.width * bulletSizeMultiplier,
+            image.height * bulletSizeMultiplier
+        );
     }
 
     draw() {
