@@ -46,6 +46,10 @@ let mirror = true;
 let lastShoot = 0;
 let shootRate = 250;
 
+let bulletSizeMultiplier = 1;
+let powerUpReloadTimeMultipler = 1;
+let rewardMulitplier = 1;
+
 const projectiles = [];
 const monsters = [];
 const rewards = [];

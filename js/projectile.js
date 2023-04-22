@@ -7,7 +7,7 @@ class Projectile extends Sprite {
         speed = projectileSpeed,
         damage = projectileDamage
     ) {
-        super(x, y, vector, size, -1, speed, damage);
+        super(x, y, vector, size * bulletSizeMultiplier, -1, speed, damage);
     }
 
     draw() {

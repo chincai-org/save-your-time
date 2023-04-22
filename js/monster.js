@@ -80,7 +80,8 @@ class Monster extends Sprite {
                     Math.sqrt(
                         (canvasWidth / 2) ** 2 + (canvasHeight / 2) ** 2
                     )) *
-                this.reward;
+                this.reward *
+                rewardMulitplier;
             clock.health += reward;
 
             rewards.push(new Reward(this.x, this.y, Math.ceil(reward)));
