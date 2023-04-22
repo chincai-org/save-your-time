@@ -91,7 +91,7 @@ function spawnControls() {
         {
             title: "Mirror",
             description: "You can shoot enemies behind and in front of you",
-            img: "/assets/"
+            img: "/assets/mirror.png"
         },
         {
             title: "Double Trouble",
