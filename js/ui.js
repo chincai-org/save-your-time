@@ -15,6 +15,12 @@ const startPage = document.querySelector(".start");
 const flashText = document.querySelector(".flash-text");
 const lose = document.querySelector(".lose");
 
+let bulletsizeLevel = 0
+let helpinghandLevel = 0
+let powerupreloadtimeLevel = 0
+let shieldLevel = 0
+let rewardboosterLevel = 0
+
 function lost(score, highscore) {
     lose.style.visibility == "visible";
     displayHighscore.innerText = `Your highscore: ${highscore}`;
@@ -123,10 +129,6 @@ function spawnControls() {
         powerupsTitleDiv.appendChild(powerupsTooltipP);
         const img = document.createElement("img");
         img.className = "powerup-img";
-<<<<<<< HEAD
-        img.id = powerup.id
-=======
->>>>>>> f5c45cb516bc7516e2999b93cd0979ff63914512
         img.setAttribute("src", powerup.img);
         img.onclick = powerup.onclick(img);
         article.appendChild(img);
@@ -141,11 +143,11 @@ shops.onclick = () => {
     upgradesSection.classList.add("upgrades");
 
     const upgrades = [
-        { img: "/assets/bulletsize.png", title: "Bullet Size", description: "Increase size of bullet", level: 0, onclick: ()=>{bulletSizeMultiplier++; level++; console.log("1")}},
-        { img: "/assets/", title: "Helping Hand", description: "Add more hand that automatically shoot enemies. Maximum: 5", level: 0, onclick: ()=>{}},
-        { img: "/assets/", title: "Powerup Reload Time", description: "Speed up reload time of powerups.", level: 0, onclick: ()=>{powerUpReloadTimeMultipler++; level++}}, 
-        { img: "/assets/shield.png", title: "Shield", description: "Add a shield around the clock to protect it.", level: 0, onclick: ()=>{}},
-        { img: "/assets/rewardbooster.png", title: "Reward booster", description: "Increase the amount of time gain after killing enemies.", level: 0, onclick: ()=>{rewardMulitplier++; level++}}
+        { img: "/assets/bulletsize.png", title: "Bullet Size", description: "Increase size of bullet", level: bulletsizeLevel, onclick: ()=> (level)=> {bulletSizeMultiplier++; bulletsizeLevel++; level.textContent = `Level: ${bulletsizeLevel}`}},
+        { img: "/assets/", title: "Helping Hand", description: "Add more hand that automatically shoot enemies. Maximum: 5", level: helpinghandLevel, onclick: ()=>{}},
+        { img: "/assets/", title: "Powerup Reload Time", description: "Speed up reload time of powerups.", level: powerupreloadtimeLevel, onclick: ()=> ()=> {powerUpReloadTimeMultipler++; powerupreloadtimeLevel++}}, 
+        { img: "/assets/shield.png", title: "Shield", description: "Add a shield around the clock to protect it.", level: shieldLevel, onclick: ()=>{}},
+        { img: "/assets/rewardbooster.png", title: "Reward booster", description: "Increase the amount of time gain after killing enemies.", level: rewardboosterLevel, onclick: ()=> ()=> {rewardMulitplier++; rewardboosterLevel++}}
     ];
 
     upgrades.forEach(upgrade => {
@@ -186,7 +188,7 @@ shops.onclick = () => {
         const upgradeButton = document.createElement("div");
         upgradeButton.classList.add("upgrade-button");
         upgradeButton.textContent = "Upgrade";
-        upgradeButton.onclick = upgrade.onclick
+        upgradeButton.onclick = upgrade.onclick(level)
         article.appendChild(upgradeButton);
 
         upgradesSection.appendChild(article);

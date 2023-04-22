@@ -69,15 +69,15 @@ const rewards = [];
 const waveRate = 10000;
 
 const maxEpicRate = 50;
-const adjustEpicRateEvery = 3;
+const adjustEpicRateEvery = 1;
 const epicRateIncrease = 2;
 
 const maxMythicRate = 30;
-const adjustMythicRateEvery = 5;
+const adjustMythicRateEvery = 3;
 const mythicRateIncrease = 2;
 
-const adjustMinSpawnRateEvery = 3;
-const adjustMaxSpawnRateEvery = 2;
+const adjustMinSpawnRateEvery = 2;
+const adjustMaxSpawnRateEvery = 1;
 
 let waveCount = 0;
 let minSpawn = 1;
@@ -140,7 +140,6 @@ function setup() {
     canvas.parent("main");
 
     clock = new Clock();
-    shield = new Shield();
 
     soundFile.loop();
 
