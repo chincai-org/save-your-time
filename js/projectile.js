@@ -1,3 +1,8 @@
+// shield = new Shield(insertHpHere)
+// shield will kill itself when it dies, to increase the shield's hp do
+// shield.health += n;
+
+// can u handle it?
 class Projectile extends Sprite {
     constructor(
         x,

@@ -15,6 +15,12 @@ const startPage = document.querySelector(".start");
 const flashText = document.querySelector(".flash-text");
 const lose = document.querySelector(".lose");
 
+let bulletsizeLevel = 0
+let helpinghandLevel = 0
+let powerupreloadtimeLevel = 0
+let shieldLevel = 0
+let rewardboosterLevel = 0
+
 function lost(score, highscore) {
     lose.style.visibility == "visible";
     displayHighscore.innerText = `Your highscore: ${highscore}`;
@@ -91,17 +97,23 @@ function spawnControls() {
         {
             title: "Mirror",
             description: "You can shoot enemies behind and in front of you",
-            img: "/assets/mirror.png"
+            img: "/assets/mirror.png",
+            id: "mirror-powerup",
+            onclick: (img) => () => {img.style.opacity = "0.5"}
         },
         {
             title: "Double Trouble",
             description: "Summon a second clock to fight enemies alongside",
-            img: "/assets/doubletrouble.png"
+            img: "/assets/doubletrouble.png",
+            id: "doubletrouble-powerup",
+            onclick: (img) => () => {img.style.opacity = "0.5"}
         },
         {
             title: "Time Bomb",
             description: "A bomb that is set to explode in 3 seconds",
-            img: "/assets/"
+            img: "/assets/timebomb.png",
+            id: "timebomb-powerup",
+            onclick: (img) => () => {img.style.opacity = "0.5"}
         }
     ];
     powerups.forEach((powerup, index) => {
@@ -118,6 +130,7 @@ function spawnControls() {
         const img = document.createElement("img");
         img.className = "powerup-img";
         img.setAttribute("src", powerup.img);
+        img.onclick = powerup.onclick(img);
         article.appendChild(img);
         powerupsSection.appendChild(article);
     });
@@ -130,33 +143,11 @@ shops.onclick = () => {
     upgradesSection.classList.add("upgrades");
 
     const upgrades = [
-        {
-            img: "img",
-            title: "Bullet Size",
-            description: "Increase size of bullet"
-        },
-        {
-            img: "img",
-            title: "Helping Hand",
-            description:
-                "Add more hand that automatically shoot enemies. Maximum: 5"
-        },
-        {
-            img: "img",
-            title: "Powerup Reload Time",
-            description: "Speed up reload time of powerups."
-        },
-        {
-            img: "img",
-            title: "Shield",
-            description: "Add a shield around the clock to protect it."
-        },
-        {
-            img: "e/png",
-            title: "Reward booster",
-            description:
-                "Increase the amount of time gain after killing enemies."
-        }
+        { img: "/assets/bulletsize.png", title: "Bullet Size", description: "Increase size of bullet", level: bulletsizeLevel, onclick: ()=> (level)=> {bulletSizeMultiplier++; bulletsizeLevel++; level.textContent = `Level: ${bulletsizeLevel}`}},
+        { img: "/assets/", title: "Helping Hand", description: "Add more hand that automatically shoot enemies. Maximum: 5", level: helpinghandLevel, onclick: ()=>{}},
+        { img: "/assets/", title: "Powerup Reload Time", description: "Speed up reload time of powerups.", level: powerupreloadtimeLevel, onclick: ()=> ()=> {powerUpReloadTimeMultipler++; powerupreloadtimeLevel++}}, 
+        { img: "/assets/shield.png", title: "Shield", description: "Add a shield around the clock to protect it.", level: shieldLevel, onclick: ()=>{}},
+        { img: "/assets/rewardbooster.png", title: "Reward booster", description: "Increase the amount of time gain after killing enemies.", level: rewardboosterLevel, onclick: ()=> ()=> {rewardMulitplier++; rewardboosterLevel++}}
     ];
 
     upgrades.forEach(upgrade => {
@@ -166,6 +157,7 @@ shops.onclick = () => {
         powerupsTitle.classList.add("powerups-title");
 
         const img = document.createElement("img");
+        img.className = 'upgrade-img'
         img.setAttribute("src", upgrade.img);
         powerupsTitle.appendChild(img);
 
@@ -190,12 +182,13 @@ shops.onclick = () => {
         article.appendChild(powerupsTitle);
 
         const level = document.createElement("p");
-        level.textContent = "Level: 1";
+        level.textContent = `Level: ${upgrade.level}`;
         article.appendChild(level);
 
         const upgradeButton = document.createElement("div");
         upgradeButton.classList.add("upgrade-button");
         upgradeButton.textContent = "Upgrade";
+        upgradeButton.onclick = upgrade.onclick(level)
         article.appendChild(upgradeButton);
 
         upgradesSection.appendChild(article);
