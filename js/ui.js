@@ -9,12 +9,16 @@ const shops = document.getElementById("shops");
 const mainUi = document.getElementById("main-ui");
 const playBtn = document.getElementById("play");
 const playAgain = document.getElementById("play-again");
+const displayScore = document.getElementById("score");
+const displayHighscore = document.getElementById("highscore");
 const startPage = document.querySelector(".start");
 const flashText = document.querySelector(".flash-text");
 const lose = document.querySelector(".lose");
 
-function lost() {
+function lost(score, highscore) {
     lose.style.visibility == "visible";
+    displayHighscore.innerText = `Your highscore: ${highscore}`
+    displayScore.innerText = `Your score: ${score}`
 }
 
 window.onkeydown = e => {

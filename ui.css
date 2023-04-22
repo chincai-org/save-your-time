@@ -122,6 +122,7 @@ nav div:hover {
 }
 
 .lose {
+    background-color: black;
     font-size: 4rem;
     visibility: hidden;
 }
