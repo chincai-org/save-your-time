@@ -58,16 +58,16 @@ const rewards = [];
 // TODO adjust broken stats
 const waveRate = 10000;
 
-const maxEpicRate = 40;
+const maxEpicRate = 50;
 const adjustEpicRateEvery = 3;
 const epicRateIncrease = 2;
 
-const maxMythicRate = 25;
-const adjustMythicRateEvery = 7;
-const mythicRateIncrease = 1;
+const maxMythicRate = 30;
+const adjustMythicRateEvery = 5;
+const mythicRateIncrease = 2;
 
-const adjustMinSpawnRateEvery = 5;
-const adjustMaxSpawnRateEvery = 3;
+const adjustMinSpawnRateEvery = 3;
+const adjustMaxSpawnRateEvery = 2;
 
 let waveCount = 0;
 let minSpawn = 1;
@@ -91,10 +91,10 @@ function preload() {
     clickSound = loadSound("assets/click.wav");
     shootSound = loadSound("assets/shoot.wav");
     enemyHurtSound = loadSound("assets/enemyhurt.wav");
-    tickSound.setVolume(100);
-    clickSound.setVolume(100);
-    shootSound.setVolume(100);
-    enemyHurtSound.setVolume(100);
+    tickSound.setVolume(10);
+    clickSound.setVolume(10);
+    shootSound.setVolume(10);
+    enemyHurtSound.setVolume(10);
 }
 
 function setup() {

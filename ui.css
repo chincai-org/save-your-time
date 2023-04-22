@@ -162,7 +162,15 @@ nav div:hover {
     width: 26ch;
 }
 
+.upgrade-img {
+    width: 4.5rem;
+    height: 4.5rem;
+    border-radius: 50%;
+}
+
 .powerup-img {
+    width: 6rem;
+    height: 6rem;
     border-radius: 50%;
 }
 

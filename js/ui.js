@@ -91,17 +91,23 @@ function spawnControls() {
         {
             title: "Mirror",
             description: "You can shoot enemies behind and in front of you",
-            img: "/assets/mirror.png"
+            img: "/assets/mirror.png",
+            id: "mirror-powerup",
+            onclick: (img) => () => {img.style.opacity = "0.5"}
         },
         {
             title: "Double Trouble",
             description: "Summon a second clock to fight enemies alongside",
-            img: "/assets/doubletrouble.png"
+            img: "/assets/doubletrouble.png",
+            id: "doubletrouble-powerup",
+            onclick: (img) => () => {img.style.opacity = "0.5"}
         },
         {
             title: "Time Bomb",
             description: "A bomb that is set to explode in 3 seconds",
-            img: "/assets/"
+            img: "/assets/timebomb.png",
+            id: "timebomb-powerup",
+            onclick: (img) => () => {img.style.opacity = "0.5"}
         }
     ];
     powerups.forEach((powerup, index) => {
@@ -116,8 +122,10 @@ function spawnControls() {
         powerupsTooltipP.innerHTML = `<span>Description: </span>${powerup.description}`;
         powerupsTitleDiv.appendChild(powerupsTooltipP);
         const img = document.createElement("img");
-        img.className = "powerup-img"
+        img.className = "powerup-img";
+        img.id = powerup.id
         img.setAttribute("src", powerup.img);
+        img.onclick = powerup.onclick(img);
         article.appendChild(img);
         powerupsSection.appendChild(article);
     });
@@ -130,11 +138,11 @@ shops.onclick = () => {
     upgradesSection.classList.add("upgrades");
 
     const upgrades = [
-        { img: "img", title: "Bullet Size", description: "Increase size of bullet" },
-        { img: "img", title: "Helping Hand", description: "Add more hand that automatically shoot enemies. Maximum: 5" },
-        { img: "img", title: "Powerup Reload Time", description: "Speed up reload time of powerups." },
-        { img: "img", title: "Shield", description: "Add a shield around the clock to protect it." },
-        { img: "e/png", title: "Reward booster", description: "Increase the amount of time gain after killing enemies." }
+        { img: "/assets/bulletsize.png", title: "Bullet Size", description: "Increase size of bullet", level: 0, onclick: ()=>{bulletSizeMultiplier++; level++; console.log("1")}},
+        { img: "/assets/", title: "Helping Hand", description: "Add more hand that automatically shoot enemies. Maximum: 5", level: 0, onclick: ()=>{}},
+        { img: "/assets/", title: "Powerup Reload Time", description: "Speed up reload time of powerups.", level: 0, onclick: ()=>{powerUpReloadTimeMultipler++; level++}}, 
+        { img: "/assets/shield.png", title: "Shield", description: "Add a shield around the clock to protect it.", level: 0, onclick: ()=>{}},
+        { img: "/assets/rewardbooster.png", title: "Reward booster", description: "Increase the amount of time gain after killing enemies.", level: 0, onclick: ()=>{rewardMulitplier++; level++}}
     ];
 
     upgrades.forEach(upgrade => {
@@ -144,6 +152,7 @@ shops.onclick = () => {
         powerupsTitle.classList.add("powerups-title");
 
         const img = document.createElement("img");
+        img.className = 'upgrade-img'
         img.setAttribute("src", upgrade.img);
         powerupsTitle.appendChild(img);
 
@@ -168,12 +177,13 @@ shops.onclick = () => {
         article.appendChild(powerupsTitle);
 
         const level = document.createElement("p");
-        level.textContent = "Level: 1";
+        level.textContent = `Level: ${upgrade.level}`;
         article.appendChild(level);
 
         const upgradeButton = document.createElement("div");
         upgradeButton.classList.add("upgrade-button");
         upgradeButton.textContent = "Upgrade";
+        upgradeButton.onclick = upgrade.onclick
         article.appendChild(upgradeButton);
 
         upgradesSection.appendChild(article);
