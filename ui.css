@@ -1,6 +1,6 @@
 html {
     font-size: 62.5%;
-    background-color: gray;
+    background-color: rgb(6 , 33, 92);
     padding-right: 0.1rem;
 }
 
@@ -20,7 +20,7 @@ aside {
     width: 29.5%;
     flex-direction: column;
     text-align: center;
-    background-color: blueviolet;
+    background-color: rgb(6 , 33, 92);
     height: 100vh;
     height: 100dvh;
 }
@@ -122,7 +122,23 @@ nav div:hover {
 }
 
 .lose {
+    font-size: 4rem;
     visibility: hidden;
+}
+
+#play-again {
+    padding-top: 0.3em;
+    padding-bottom: 0.3em;
+    padding-left: 0.5em;
+    padding-right: 0.5em;
+    border-radius: 15%;
+    background: linear-gradient(hsl(120, 100%, 50%), hsl(120, 98%, 20%));;
+    user-select: none;
+}
+
+#play-again:hover {
+    background: linear-gradient(hsl(120, 100%, 60%), hsl(120, 100%, 30%));
+    user-select: none;
 }
 
 .powerups {
@@ -143,6 +159,10 @@ nav div:hover {
     background-color: black;
     color: white;
     width: 26ch;
+}
+
+.powerup-img {
+    border-radius: 50%;
 }
 
 .powerups-tooltip span{
@@ -168,6 +188,7 @@ nav div:hover {
 }
 
 .powerups-title i:hover + .powerups-tooltip {
+    z-index: 900;
     visibility: visible;
     opacity: 0.9;
 }

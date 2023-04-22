@@ -3,7 +3,7 @@ class SmallClock extends Clock {
         super(-1, -1, smallClockImage, 60);
 
         this.angle = 0;
-        this.radius = 200;
+        this.radius = 98;
     }
 
     update(delta) {

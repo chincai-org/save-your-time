@@ -86,15 +86,18 @@ function spawnControls() {
     const powerups = [
         {
             title: "Mirror",
-            description: "You can shoot enemies behind and in front of you"
+            description: "You can shoot enemies behind and in front of you",
+            img: "/assets/"
         },
         {
             title: "Double Trouble",
-            description: "Summon a second clock to fight enemies alongside"
+            description: "Summon a second clock to fight enemies alongside",
+            img: "/assets/doubletrouble.png"
         },
         {
             title: "Time Bomb",
-            description: "A bomb that is set to explode in 3 seconds"
+            description: "A bomb that is set to explode in 3 seconds",
+            img: "/assets/"
         }
     ];
     powerups.forEach((powerup, index) => {
@@ -109,7 +112,8 @@ function spawnControls() {
         powerupsTooltipP.innerHTML = `<span>Description: </span>${powerup.description}`;
         powerupsTitleDiv.appendChild(powerupsTooltipP);
         const img = document.createElement("img");
-        img.textContent = "img";
+        img.className = "powerup-img"
+        img.setAttribute("src", powerup.img);
         article.appendChild(img);
         powerupsSection.appendChild(article);
     });
@@ -122,11 +126,11 @@ shops.onclick = () => {
     upgradesSection.classList.add("upgrades");
 
     const upgrades = [
-        { img: "img", title: "Bullet Size", description: "s" },
-        { img: "img", title: "Helping Hand", description: "s" },
-        { img: "img", title: "Powerup Reload Time", description: "s" },
-        { img: "img", title: "Shield", description: "s" },
-        { img: "e/png", title: "Kills Reward Amount", description: "s" }
+        { img: "img", title: "Bullet Size", description: "Increase size of bullet" },
+        { img: "img", title: "Helping Hand", description: "Add more hand that automatically shoot enemies. Maximum: 5" },
+        { img: "img", title: "Powerup Reload Time", description: "Speed up reload time of powerups." },
+        { img: "img", title: "Shield", description: "Add a shield around the clock to protect it." },
+        { img: "e/png", title: "Reward booster", description: "Increase the amount of time gain after killing enemies." }
     ];
 
     upgrades.forEach(upgrade => {

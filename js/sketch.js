@@ -43,7 +43,7 @@ let isPageVisible = true;
 let lastUpdate = 0;
 
 let shoot = false;
-let mirror = true;
+let mirror = false;
 let lastShoot = 0;
 let shootRate = 250;
 
@@ -102,7 +102,6 @@ function setup() {
     canvas.parent("main");
 
     clock = new Clock();
-    smallClock = new SmallClock();
 
     soundFile.loop();
 
@@ -119,9 +118,8 @@ function setup() {
 
 function draw() {
     if (!start) return;
-    // console.log("d");
-    // background(bg);
-    background(grey);
+    background(bg);
+    // background(grey);
 
     let now = Date.now();
     let deltaTime = now - lastUpdate;
