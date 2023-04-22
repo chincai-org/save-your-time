@@ -85,6 +85,15 @@ class Monster extends Sprite {
                     return this.kill();
                 }
             }
+
+            if (timeBomb) {
+                if (
+                    dist(this.x, this.y, timeBomb.x, timeBomb.y) <
+                    timeBomb.size / 2 + this.size / 2
+                ) {
+                    return this.kill();
+                }
+            }
         }
     }
 

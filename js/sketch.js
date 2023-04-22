@@ -30,6 +30,7 @@ let midPointY = canvasHeight / 2;
 let clock;
 let smallClock = null;
 let shield = null;
+let timeBomb = null;
 let bg;
 let soundFile;
 let clockImage;
@@ -140,6 +141,7 @@ function setup() {
     canvas.parent("main");
 
     clock = new Clock();
+    timeBomb = new TimeBomb();
 
     soundFile.loop();
 
@@ -224,6 +226,9 @@ function draw() {
 
     shield?.update();
     shield?.draw();
+
+    timeBomb?.update();
+    timeBomb?.draw();
 
     for (let projectile of projectiles) {
         projectile.update(delta);
