@@ -29,6 +29,7 @@ let bg;
 let soundFile;
 let clockImage;
 let smallClockImage;
+let projectileImage;
 let tickSound;
 let clickSound;
 let shootSound;
@@ -82,6 +83,7 @@ function preload() {
     bg = loadImage("assets/bg.png");
     clockImage = loadImage("assets/clock.png");
     smallClockImage = loadImage("assets/miniclock.png");
+    projectileImage = loadImage("assets/bullet.png");
 
     soundFormats("ogg", "mp3");
     soundFile = loadSound("assets/bgmusic.mp3");

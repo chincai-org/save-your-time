@@ -5,15 +5,19 @@ class Projectile extends Sprite {
         vector,
         size = 10,
         speed = projectileSpeed,
-        damage = projectileDamage
+        damage = projectileDamage,
+        image = projectileImage
     ) {
         super(x, y, vector, size * bulletSizeMultiplier, -1, speed, damage);
+        this.image = image;
     }
 
     draw() {
-        fill(red);
-        noStroke();
-        circle(this.x, this.y, this.size);
+        image(
+            this.image,
+            this.x - this.image.width / 2,
+            this.y - this.image.height / 2
+        );
     }
 
     update(delta) {
