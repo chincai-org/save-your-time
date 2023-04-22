@@ -24,20 +24,20 @@ class Monster extends Sprite {
             case 1:
                 return new Monster(x, y, vector, 40, grey, 25, 0.017, 15, 15); // tank
             case 2:
-                return new Monster(x, y, vector, 30, blue, 4, 0.05, 10, 9); // speedy
+                return new Monster(x, y, vector, 30, blue, 4, 0.05, 10, 7); // speedy
             case 3:
-                return new Monster(x, y, vector, 30, red, 5, 0.02, 60, 7); // assassin
+                return new Monster(x, y, vector, 30, red, 5, 0.02, 60, 9); // assassin
         }
     }
 
     static mythic(x, y, vector, choice) {
         switch (choice || randint(1, 3)) {
             case 1:
-                return new Monster(x, y, vector, 40, blue, 25, 0.05, 15, 15); // speedy tank
+                return new Monster(x, y, vector, 40, blue, 25, 0.0335, 15, 22); // speedy tank
             case 2:
-                return new Monster(x, y, vector, 30, purple, 4, 0.05, 60, 9); // speedy assassin
+                return new Monster(x, y, vector, 30, purple, 5, 0.04, 60, 16); // speedy assassin
             case 3:
-                return new Monster(x, y, vector, 40, red, 25, 0.02, 60, 7); // tank assassin
+                return new Monster(x, y, vector, 40, red, 25, 0.0235, 60, 23); // tank assassin
         }
     }
 
