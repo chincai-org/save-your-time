@@ -4,6 +4,7 @@ const grey = [211, 211, 211];
 const red = [255, 0, 0];
 const green = [0, 255, 0];
 const blue = [0, 0, 255];
+const lightBlue = [0, 153, 255];
 const purple = [255, 0, 255];
 
 const hourHandSize = 15;
@@ -18,6 +19,9 @@ const monsterHealth = 5;
 const monsterSpeed = 0.2;
 const monsterDamage = 3;
 
+const shieldHealRate = 5000;
+const shieldHeal = 1;
+
 let canvasWidth = window.innerWidth * 0.7;
 let canvasHeight = window.innerHeight;
 let midPointX = canvasWidth / 2;
@@ -25,14 +29,20 @@ let midPointY = canvasHeight / 2;
 
 let clock;
 let smallClock = null;
+let shield = null;
 let bg;
 let soundFile;
 let clockImage;
 let smallClockImage;
+let projectileImage;
 let tickSound;
 let clickSound;
 let shootSound;
 let enemyHurtSound;
+
+let canUseMirror = true;
+let canUseTimeBomb = true;
+let canUseDoubleTrouble = true;
 
 let hours = 0;
 let minutes = 0;
@@ -78,10 +88,38 @@ let waveCountDown = 0;
 let epicRate = 1;
 let mythicRate = 0;
 
+const cooldowns = {
+    mirrorCooldown: {
+        duration: 180_000,
+        startTime: null,
+        timerId: null,
+        onCooldownEnd: () => {
+            canUseMirror = true;
+        }
+    },
+    timeBombCooldown: {
+        duration: 600_000,
+        startTime: null,
+        timerId: null,
+        onCooldownEnd: () => {
+            canUseTimeBomb = true;
+        }
+    },
+    doubleTroubleCooldown: {
+        duration: 300_000,
+        startTime: null,
+        timerId: null,
+        onCooldownEnd: () => {
+            canUseDoubleTrouble = true;
+        }
+    }
+};
+
 function preload() {
     bg = loadImage("assets/bg.png");
     clockImage = loadImage("assets/clock.png");
     smallClockImage = loadImage("assets/miniclock.png");
+    projectileImage = loadImage("assets/bullet.png");
 
     soundFormats("ogg", "mp3");
     soundFile = loadSound("assets/bgmusic.mp3");
@@ -102,6 +140,7 @@ function setup() {
     canvas.parent("main");
 
     clock = new Clock();
+    shield = new Shield();
 
     soundFile.loop();
 
@@ -183,6 +222,9 @@ function draw() {
     clock.draw();
     smallClock?.update(delta);
     smallClock?.draw();
+
+    shield?.update();
+    shield?.draw();
 
     for (let projectile of projectiles) {
         projectile.update(delta);
@@ -339,4 +381,29 @@ function spawnMonster() {
     }
 
     monsters.push(monster);
+}
+
+function startCooldown(cooldownName) {
+    const cooldown = cooldowns[cooldownName];
+    cooldown.startTime = Date.now();
+    const remainingTime = cooldown.duration - (Date.now() - cooldown.startTime);
+    cooldown.timerId = setTimeout(() => {
+        cooldown.onCooldownEnd();
+    }, remainingTime);
+}
+
+function pauseCooldown(cooldownName) {
+    const cooldown = cooldowns[cooldownName];
+    clearTimeout(cooldown.timerId);
+    const remainingTime = cooldown.duration - (Date.now() - cooldown.startTime);
+    cooldown.remainingTime = remainingTime > 0 ? remainingTime : 0;
+}
+
+function resumeCooldown(cooldownName) {
+    const cooldown = cooldowns[cooldownName];
+    if (cooldown.remainingTime > 0) {
+        cooldown.timerId = setTimeout(() => {
+            cooldown.onCooldownEnd();
+        }, cooldown.remainingTime);
+    }
 }

@@ -63,7 +63,7 @@ class Monster extends Sprite {
                 clock.size / 2 + this.size / 2
             ) {
                 clock.takeDamage(this.damage);
-                this.kill();
+                return this.kill();
             }
 
             if (smallClock) {
@@ -72,7 +72,17 @@ class Monster extends Sprite {
                     smallClock.size / 2 + this.size / 2
                 ) {
                     smallClock.takeDamage(this.damage);
-                    this.kill();
+                    return this.kill();
+                }
+            }
+
+            if (shield) {
+                if (
+                    dist(this.x, this.y, shield.x, shield.y) <
+                    shield.size / 2 + this.size / 2
+                ) {
+                    shield.takeDamage(this.damage);
+                    return this.kill();
                 }
             }
         }

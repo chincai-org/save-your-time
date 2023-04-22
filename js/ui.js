@@ -17,8 +17,8 @@ const lose = document.querySelector(".lose");
 
 function lost(score, highscore) {
     lose.style.visibility == "visible";
-    displayHighscore.innerText = `Your highscore: ${highscore}`
-    displayScore.innerText = `Your score: ${score}`
+    displayHighscore.innerText = `Your highscore: ${highscore}`;
+    displayScore.innerText = `Your score: ${score}`;
 }
 
 window.onkeydown = e => {
@@ -123,7 +123,10 @@ function spawnControls() {
         powerupsTitleDiv.appendChild(powerupsTooltipP);
         const img = document.createElement("img");
         img.className = "powerup-img";
+<<<<<<< HEAD
         img.id = powerup.id
+=======
+>>>>>>> f5c45cb516bc7516e2999b93cd0979ff63914512
         img.setAttribute("src", powerup.img);
         img.onclick = powerup.onclick(img);
         article.appendChild(img);
@@ -209,16 +212,29 @@ function handleVisibilityChange() {
         // Page is hidden
         draw();
         isPageVisible = false;
+
+        Object.keys(cooldowns).forEach(cooldownName => {
+            pauseCooldown(cooldownName);
+        });
     } else {
         // Page is visible
         let now = Date.now();
+        let leaveTime = now - lastUpdate;
 
         if (lastWaveTime) {
-            lastWaveTime += now - lastUpdate;
+            lastWaveTime += leaveTime;
+        }
+
+        if (shield) {
+            shield.lastHealTime += leaveTime;
         }
 
         lastUpdate = now;
         isPageVisible = true;
+
+        Object.keys(cooldowns).forEach(cooldownName => {
+            resumeCooldown(cooldownName);
+        });
     }
 
     console.log(isPageVisible);
