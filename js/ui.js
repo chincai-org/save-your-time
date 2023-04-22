@@ -17,8 +17,8 @@ const lose = document.querySelector(".lose");
 
 function lost(score, highscore) {
     lose.style.visibility == "visible";
-    displayHighscore.innerText = `Your highscore: ${highscore}`
-    displayScore.innerText = `Your score: ${score}`
+    displayHighscore.innerText = `Your highscore: ${highscore}`;
+    displayScore.innerText = `Your score: ${score}`;
 }
 
 window.onkeydown = e => {
@@ -116,7 +116,7 @@ function spawnControls() {
         powerupsTooltipP.innerHTML = `<span>Description: </span>${powerup.description}`;
         powerupsTitleDiv.appendChild(powerupsTooltipP);
         const img = document.createElement("img");
-        img.className = "powerup-img"
+        img.className = "powerup-img";
         img.setAttribute("src", powerup.img);
         article.appendChild(img);
         powerupsSection.appendChild(article);
@@ -130,11 +130,33 @@ shops.onclick = () => {
     upgradesSection.classList.add("upgrades");
 
     const upgrades = [
-        { img: "img", title: "Bullet Size", description: "Increase size of bullet" },
-        { img: "img", title: "Helping Hand", description: "Add more hand that automatically shoot enemies. Maximum: 5" },
-        { img: "img", title: "Powerup Reload Time", description: "Speed up reload time of powerups." },
-        { img: "img", title: "Shield", description: "Add a shield around the clock to protect it." },
-        { img: "e/png", title: "Reward booster", description: "Increase the amount of time gain after killing enemies." }
+        {
+            img: "img",
+            title: "Bullet Size",
+            description: "Increase size of bullet"
+        },
+        {
+            img: "img",
+            title: "Helping Hand",
+            description:
+                "Add more hand that automatically shoot enemies. Maximum: 5"
+        },
+        {
+            img: "img",
+            title: "Powerup Reload Time",
+            description: "Speed up reload time of powerups."
+        },
+        {
+            img: "img",
+            title: "Shield",
+            description: "Add a shield around the clock to protect it."
+        },
+        {
+            img: "e/png",
+            title: "Reward booster",
+            description:
+                "Increase the amount of time gain after killing enemies."
+        }
     ];
 
     upgrades.forEach(upgrade => {
@@ -199,16 +221,29 @@ function handleVisibilityChange() {
         // Page is hidden
         draw();
         isPageVisible = false;
+
+        Object.keys(cooldowns).forEach(cooldownName => {
+            pauseCooldown(cooldownName);
+        });
     } else {
         // Page is visible
         let now = Date.now();
+        let leaveTime = now - lastUpdate;
 
         if (lastWaveTime) {
-            lastWaveTime += now - lastUpdate;
+            lastWaveTime += leaveTime;
+        }
+
+        if (shield) {
+            shield.lastHealTime += leaveTime;
         }
 
         lastUpdate = now;
         isPageVisible = true;
+
+        Object.keys(cooldowns).forEach(cooldownName => {
+            resumeCooldown(cooldownName);
+        });
     }
 
     console.log(isPageVisible);
