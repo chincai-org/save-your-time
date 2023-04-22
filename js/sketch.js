@@ -4,6 +4,7 @@ const grey = [211, 211, 211];
 const red = [255, 0, 0];
 const green = [0, 255, 0];
 const blue = [0, 0, 255];
+const purple = [255, 0, 255];
 
 const hourHandSize = 15;
 const minuteHandSize = 30;
@@ -56,9 +57,14 @@ const rewards = [];
 
 // TODO adjust broken stats
 const waveRate = 10000;
-const maxEpicRate = 25;
+
+const maxEpicRate = 40;
 const adjustEpicRateEvery = 3;
 const epicRateIncrease = 2;
+
+const maxMythicRate = 25;
+const adjustMythicRateEvery = 7;
+const mythicRateIncrease = 1;
 
 const adjustMinSpawnRateEvery = 5;
 const adjustMaxSpawnRateEvery = 3;
@@ -70,6 +76,7 @@ let lastWaveTime = 0;
 let waveCountDown = 0;
 
 let epicRate = 1;
+let mythicRate = 0;
 
 function preload() {
     bg = loadImage("assets/bg.png");
@@ -141,6 +148,12 @@ function draw() {
 
             if (waveCount % adjustEpicRateEvery === 0) {
                 epicRate = Math.min(epicRate + epicRateIncrease, maxEpicRate);
+            }
+            if (waveCount % adjustMythicRateEvery === 0) {
+                mythicRate = Math.min(
+                    mythicRate + mythicRateIncrease,
+                    maxMythicRate
+                );
             }
             if (waveCount % adjustMaxSpawnRateEvery === 0) {
                 maxSpawn++;
@@ -315,18 +328,15 @@ function spawnMonster() {
     let y = randint(y0, y1);
 
     let randomNum = Math.random() * 100;
-    let normalRate = 100 - epicRate * 3;
     let monster;
     let args = [x, y, createVector(midPointX - x, midPointY - y)];
 
-    if (randomNum < normalRate) {
+    if (randomNum < epicRate) {
+        monster = Monster.epic(...args);
+    } else if (randomNum < epicRate + mythicRate) {
+        monster = Monster.mythic(...args);
+    } else {
         monster = Monster.normal(...args);
-    } else if (randomNum < normalRate + epicRate) {
-        monster = Monster.tank(...args);
-    } else if (randomNum < normalRate + epicRate * 2) {
-        monster = Monster.speedy(...args);
-    } else if (randomNum < normalRate + epicRate * 3) {
-        monster = Monster.assassin(...args);
     }
 
     monsters.push(monster);
