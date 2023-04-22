@@ -260,8 +260,9 @@ function mouseClicked() {
         mouseY >= 0 &&
         mouseY <= canvasHeight
     ) {
-        clickSound.play();
         shoot = true;
+    } else {
+        clickSound.play();
     }
 }
 
