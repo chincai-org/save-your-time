@@ -98,6 +98,9 @@ const cooldowns = {
         timerId: null,
         onCooldownEnd: () => {
             canUseMirror = true;
+
+            let element = document.getElementById("mirror-powerup");
+            if (element) element.style.opacity = "1";
         }
     },
     timeBombCooldown: {

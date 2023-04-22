@@ -113,7 +113,11 @@ function spawnControls() {
             img: "/assets/mirror.png",
             id: "mirror-powerup",
             onclick: img => () => {
-                img.style.opacity = "0.5";
+                if (canUseMirror && !mirror) {
+                    img.style.opacity = "0.5";
+                    mirror = true;
+                    startCooldown("mirrorCooldown");
+                }
             }
         },
         {
@@ -138,15 +142,19 @@ function spawnControls() {
     powerups.forEach((powerup, index) => {
         const article = document.createElement("article");
         article.className = `power${index + 1}`;
+
         const powerupsTitleDiv = document.createElement("div");
         powerupsTitleDiv.className = "powerups-title";
         powerupsTitleDiv.innerHTML = `${powerup.title}<i class="fa-solid fa-info"></i>`;
         article.appendChild(powerupsTitleDiv);
+
         const powerupsTooltipP = document.createElement("p");
         powerupsTooltipP.className = "powerups-tooltip";
         powerupsTooltipP.innerHTML = `<span>Description: </span>${powerup.description}`;
         powerupsTitleDiv.appendChild(powerupsTooltipP);
+
         const img = document.createElement("img");
+        img.id = powerup.id;
         img.className = "powerup-img";
         img.setAttribute("src", powerup.img);
         img.onclick = powerup.onclick(img);
@@ -229,47 +237,62 @@ shops.onclick = () => {
         }
     ];
 
+    // Iterate through each upgrade
     upgrades.forEach(upgrade => {
+        // Create an article element
         const article = document.createElement("article");
 
+        // Create a div element for the powerups title
         const powerupsTitle = document.createElement("div");
         powerupsTitle.classList.add("powerups-title");
 
+        // Create an image element
         const img = document.createElement("img");
         img.className = "upgrade-img";
         img.setAttribute("src", upgrade.img);
         powerupsTitle.appendChild(img);
 
+        // Create a text node for the title
         const title = document.createTextNode(upgrade.title);
         powerupsTitle.appendChild(title);
 
+        // Create an info icon
         const infoIcon = document.createElement("i");
         infoIcon.classList.add("fa-solid", "fa-info");
         powerupsTitle.appendChild(infoIcon);
 
+        // Create a tooltip
         const tooltip = document.createElement("p");
         tooltip.classList.add("powerups-tooltip");
 
+        // Create a description label
         const descriptionLabel = document.createElement("span");
         descriptionLabel.textContent = "Description: ";
         tooltip.appendChild(descriptionLabel);
 
+        // Create a text node for the description
         const description = document.createTextNode(upgrade.description);
         tooltip.appendChild(description);
-
         powerupsTitle.appendChild(tooltip);
+
+        // Append the powerups title to the article
         article.appendChild(powerupsTitle);
 
+        // Create a paragraph element for the level
         const level = document.createElement("p");
         level.textContent = `Level: ${upgrade.level}`;
         article.appendChild(level);
 
+        // Create a div element for the upgrade button
         const upgradeButton = document.createElement("div");
         upgradeButton.classList.add("upgrade-button");
         upgradeButton.textContent = `Cost: ${upgrade.cost}sec`;
+
+        // Set the onclick event for the upgrade button
         upgradeButton.onclick = upgrade.onclick(level, upgradeButton);
         article.appendChild(upgradeButton);
 
+        // Append the article to the upgrades section
         upgradesSection.appendChild(article);
     });
 
