@@ -68,6 +68,7 @@ class Clock extends Sprite {
 
     kill() {
         console.log("dead");
+        lost(score);
     }
 
     formatTime() {

@@ -1,11 +1,11 @@
 html {
     font-size: 62.5%;
-    background-color: rgb(6 , 33, 92);
+    background-color: rgb(6, 33, 92);
     padding-right: 0.1rem;
 }
 
 * {
-    font-style: "Garamond","Serif";
+    font-style: "Garamond", "Serif";
     margin: 0;
     padding: 0;
 }
@@ -20,7 +20,7 @@ aside {
     width: 29.5%;
     flex-direction: column;
     text-align: center;
-    background-color: rgb(6 , 33, 92);
+    background-color: rgb(6, 33, 92);
     height: 100vh;
     height: 100dvh;
 }
@@ -56,6 +56,7 @@ nav div:hover {
 .shoot article h5 {
     width: 75%;
 }
+
 .shoot article p {
     margin-top: 0.2ch;
     width: 50%;
@@ -112,7 +113,8 @@ nav div:hover {
     padding-left: 0.5em;
     padding-right: 0.5em;
     border-radius: 25%;
-    background: linear-gradient(hsl(120, 100%, 50%), hsl(120, 98%, 20%));;
+    background: linear-gradient(hsl(120, 100%, 50%), hsl(120, 98%, 20%));
+    ;
     user-select: none;
 }
 
@@ -124,7 +126,6 @@ nav div:hover {
 .lose {
     background-color: black;
     font-size: 4rem;
-    visibility: hidden;
 }
 
 #play-again {
@@ -133,7 +134,7 @@ nav div:hover {
     padding-left: 0.5em;
     padding-right: 0.5em;
     border-radius: 15%;
-    background: linear-gradient(hsl(120, 100%, 50%), hsl(120, 98%, 20%));;
+    background: linear-gradient(hsl(120, 100%, 50%), hsl(120, 98%, 20%));
     user-select: none;
 }
 
@@ -174,7 +175,7 @@ nav div:hover {
     border-radius: 50%;
 }
 
-.powerups-tooltip span{
+.powerups-tooltip span {
     color: rgb(33, 29, 242);
 }
 
@@ -196,7 +197,7 @@ nav div:hover {
     box-shadow: none;
 }
 
-.powerups-title i:hover + .powerups-tooltip {
+.powerups-title i:hover+.powerups-tooltip {
     z-index: 900;
     visibility: visible;
     opacity: 0.9;

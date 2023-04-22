@@ -111,7 +111,9 @@ class Monster extends Sprite {
                     )) *
                 this.reward *
                 rewardMulitplier;
+
             clock.health += reward;
+            score += reward;
 
             rewards.push(new Reward(this.x, this.y, Math.ceil(reward)));
         }

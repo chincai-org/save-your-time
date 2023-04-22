@@ -21,4 +21,8 @@ class SmallClock extends Clock {
         textSize(15);
         text(this.formatTime(), this.x, this.y - 45);
     }
+
+    kill() {
+        smallClock = null;
+    }
 }

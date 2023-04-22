@@ -89,6 +89,8 @@ let waveCountDown = 0;
 let epicRate = 1;
 let mythicRate = 0;
 
+let score = 0;
+
 const cooldowns = {
     mirrorCooldown: {
         duration: 180_000,
@@ -165,7 +167,7 @@ function draw() {
     let deltaTime = now - lastUpdate;
 
     if (lastUpdate !== 0) {
-        if (!lastWaveTime) clock.health -= deltaTime / 1000;
+        if (!lastWaveTime) clock.takeDamage(deltaTime / 1000);
 
         seconds += deltaTime / 1000;
         minutes += Math.floor(seconds / 60);
