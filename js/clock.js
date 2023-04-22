@@ -44,7 +44,7 @@ class Clock extends Sprite {
             : this.formatTime();
 
         noStroke();
-        fill(black, 120);
+        fill(grey);
         textSize(45);
         textFont(this.font);
         textAlign(CENTER, CENTER);
@@ -52,7 +52,7 @@ class Clock extends Sprite {
         text(bottomText, midPointX, midPointY * 0.3);
 
         if (lastWaveTime) {
-            text("Press 'S' to skip countdown", midPointX, midPointY * 0.45);
+            text("Press 'P' to skip countdown", midPointX, midPointY * 0.45);
         }
     }
 

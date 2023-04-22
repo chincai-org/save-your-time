@@ -242,7 +242,7 @@ function keyPressed(e) {
         tickSound.play();
     }
 
-    if (keyCode === 83 && lastWaveTime) {
+    if (keyCode === 80 && lastWaveTime) {
         let reward =
             waveRate / 1000 - Math.floor((Date.now() - lastWaveTime) / 1000);
         clock.health += reward;

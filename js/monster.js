@@ -16,13 +16,13 @@ class Monster extends Sprite {
     }
 
     static normal(x, y, vector) {
-        return new Monster(x, y, vector, 30, black, 5, 0.02, 20, 6);
+        return new Monster(x, y, vector, 30, grey, 5, 0.02, 20, 6);
     }
 
     static epic(x, y, vector, choice) {
         switch (choice || randint(1, 3)) {
             case 1:
-                return new Monster(x, y, vector, 40, black, 25, 0.017, 15, 15); // tank
+                return new Monster(x, y, vector, 40, grey, 25, 0.017, 15, 15); // tank
             case 2:
                 return new Monster(x, y, vector, 30, blue, 4, 0.05, 10, 9); // speedy
             case 3:

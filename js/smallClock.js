@@ -17,7 +17,7 @@ class SmallClock extends Clock {
 
     drawHealth() {
         noStroke();
-        fill(black, 120);
+        fill(grey);
         textSize(15);
         text(this.formatTime(), this.x, this.y - 45);
     }
