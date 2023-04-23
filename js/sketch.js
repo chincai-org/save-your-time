@@ -200,7 +200,7 @@ function draw() {
 
     if (monsters.length === 0) {
         if (lastWaveTime === 0) {
-            lastWaveTime = now;
+            if (!timeBomb) lastWaveTime = now;
         } else if (now - lastWaveTime > waveRate) {
             console.log("Wave:", ++waveCount);
             lastWaveTime = 0;
@@ -366,25 +366,25 @@ function killReward(reward) {
 }
 
 function spawnMonster() {
-    let x0 = 0;
-    let y0 = 0;
-    let x1 = canvasWidth - 1;
-    let y1 = canvasHeight - 1;
+    let x0 = -1;
+    let y0 = -1;
+    let x1 = canvasWidth;
+    let y1 = canvasHeight;
 
     let choice = randint(0, 3);
 
     switch (choice) {
         case 0:
-            x0 = canvasWidth - 1;
+            x0 = canvasWidth;
             break;
         case 1:
-            x1 = 0;
+            x1 = -1;
             break;
         case 2:
-            y0 = canvasHeight - 1;
+            y0 = canvasHeight;
             break;
         case 3:
-            y1 = 0;
+            y1 = -1;
             break;
     }
 
