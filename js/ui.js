@@ -22,11 +22,11 @@ let shieldLevel = 0;
 let rewardBoosterLevel = 0;
 
 // TODO adjust max level
-let maxBulletSizeLevel = 5;
-let maxHelpingHandLevel = 5;
-let maxPowerupReloadtimeLevel = 5;
-let maxShieldLevel = 5;
-let maxRewardBoosterLevel = 5;
+let maxBulletSizeLevel = 10;
+let maxHelpingHandLevel = 10;
+let maxPowerupReloadtimeLevel = 10;
+let maxShieldLevel = 10;
+let maxRewardBoosterLevel = 10;
 
 let bulletSizeCost = 50;
 let helpingHandCost = 40;
@@ -210,7 +210,7 @@ shops.onclick = () => {
                     bulletSizeLevel < maxBulletSizeLevel
                 ) {
                     clock.takeDamage(bulletSizeCost);
-                    bulletSizeMultiplier++; // If you just add like this it will eventually become very big, and the max level will be very low
+                    bulletSizeMultiplier += 0.3; // If you just add like this it will eventually become very big, and the max level will be very low
                     bulletSizeLevel++;
                     level.textContent = `Level: ${bulletSizeLevel}`;
                     bulletSizeCost *= 1.25;
