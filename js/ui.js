@@ -112,11 +112,14 @@ function spawnControls() {
             description: "You can shoot enemies behind and in front of you",
             img: "/assets/mirror.png",
             id: "mirror-powerup",
+            checkAvailable: "canUseMirror",
             onclick: img => () => {
                 if (canUseMirror && !mirror) {
                     img.style.opacity = "0.5";
                     mirror = true;
+                    canUseMirror = false;
                     startCooldown("mirrorCooldown");
+                    startCooldown("mirrorEnd");
                 }
             }
         },
@@ -125,8 +128,14 @@ function spawnControls() {
             description: "Summon a second clock to fight enemies alongside",
             img: "/assets/doubletrouble.png",
             id: "doubletrouble-powerup",
+            checkAvailable: "canUseDoubleTrouble && !smallClock",
             onclick: img => () => {
-                img.style.opacity = "0.5";
+                if (canUseDoubleTrouble && !smallClock) {
+                    img.style.opacity = "0.5";
+                    smallClock = new SmallClock();
+                    canUseDoubleTrouble = false;
+                    startCooldown("doubleTroubleCooldown");
+                }
             }
         },
         {
@@ -134,8 +143,14 @@ function spawnControls() {
             description: "A bomb that is set to explode in 3 seconds",
             img: "/assets/timebomb.png",
             id: "timebomb-powerup",
+            checkAvailable: "canUseTimeBomb",
             onclick: img => () => {
-                img.style.opacity = "0.5";
+                if (canUseTimeBomb && !timeBomb) {
+                    img.style.opacity = "0.5";
+                    timeBomb = new TimeBomb();
+                    canUseTimeBomb = false;
+                    startCooldown("timeBombCooldown");
+                }
             }
         }
     ];
@@ -158,6 +173,11 @@ function spawnControls() {
         img.className = "powerup-img";
         img.setAttribute("src", powerup.img);
         img.onclick = powerup.onclick(img);
+
+        if (!eval(powerup.checkAvailable)) {
+            img.style.opacity = "0.5";
+        }
+
         article.appendChild(img);
         powerupsSection.appendChild(article);
     });

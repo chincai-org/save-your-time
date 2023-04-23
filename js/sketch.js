@@ -109,6 +109,9 @@ const cooldowns = {
         timerId: null,
         onCooldownEnd: () => {
             canUseTimeBomb = true;
+
+            let element = document.getElementById("timebomb-powerup");
+            if (element) element.style.opacity = "1";
         }
     },
     doubleTroubleCooldown: {
@@ -117,6 +120,17 @@ const cooldowns = {
         timerId: null,
         onCooldownEnd: () => {
             canUseDoubleTrouble = true;
+
+            let element = document.getElementById("doubletrouble-powerup");
+            if (element && !smallClock) element.style.opacity = "1";
+        }
+    },
+    mirrorEnd: {
+        duration: 30_000,
+        startTime: null,
+        timerId: null,
+        onCooldownEnd: () => {
+            mirror = false;
         }
     }
 };
@@ -146,7 +160,6 @@ function setup() {
     canvas.parent("main");
 
     clock = new Clock();
-    timeBomb = new TimeBomb();
 
     soundFile.loop();
 

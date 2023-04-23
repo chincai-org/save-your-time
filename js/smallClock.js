@@ -23,6 +23,9 @@ class SmallClock extends Clock {
     }
 
     kill() {
+        let element = document.getElementById("doubletrouble-powerup");
+        if (canUseDoubleTrouble) element.style.opacity = "1";
+
         smallClock = null;
     }
 }

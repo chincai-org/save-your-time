@@ -47,6 +47,7 @@ class Projectile extends Sprite {
             this.y < 0 ||
             this.y > canvasHeight
         ) {
+            // mythicRate = Math.min(mythicRate + 0.05, maxMythicRate);
             this.kill();
         } else {
             super.update(delta);
