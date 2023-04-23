@@ -113,6 +113,7 @@ class Monster extends Sprite {
                 rewardMulitplier;
 
             clock.health += reward;
+            if (smallClock) smallClock.health += reward / 2;
             score += reward;
 
             rewards.push(new Reward(this.x, this.y, Math.ceil(reward)));

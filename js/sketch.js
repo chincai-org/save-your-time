@@ -183,7 +183,10 @@ function draw() {
     let deltaTime = now - lastUpdate;
 
     if (lastUpdate !== 0) {
-        if (!lastWaveTime) clock.takeDamage(deltaTime / 1000);
+        if (!lastWaveTime) {
+            clock.takeDamage(deltaTime / 1000);
+            smallClock?.takeDamage(deltaTime / 1000);
+        }
 
         seconds += deltaTime / 1000;
         minutes += Math.floor(seconds / 60);
