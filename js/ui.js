@@ -13,7 +13,7 @@ const displayScore = document.getElementById("score");
 const displayHighscore = document.getElementById("highscore");
 const startPage = document.querySelector(".start");
 const flashText = document.querySelector(".flash-text");
-const lose = document.querySelector(".lose");
+const lose = document.querySelectorAll(".lose");
 
 let bulletSizeLevel = 0;
 let helpingHandLevel = 0;
@@ -35,15 +35,18 @@ let shieldCost = 40;
 let rewardBoosterCost = 30;
 
 function lost(score) {
-    lose.style.visibility = "visible"; // TODO this is not working
+    flashText.style.visibility = "visible";
+    [...lose].forEach(el => {
+        el.classList.remove("hide"); // TODO this is not working
+    });
 
     localStorage.setItem(
         "highscore",
         Math.max(localStorage.getItem("highscore") || 0, score)
     );
 
-    displayHighscore.innerText = `Your highscore: ${localStorage.getItem(
-        "highscore"
+    displayHighscore.innerText = `Your highscore: ${Math.floor(
+        localStorage.getItem("highscore")
     )}`;
     displayScore.innerText = `Your score: ${score}`;
 }
@@ -205,7 +208,6 @@ shops.onclick = () => {
             level: bulletSizeLevel,
             cost: bulletSizeCost,
             onclick: (level, upgradeButton) => () => {
-                console.log(level);
                 if (
                     clock.health >= bulletSizeCost &&
                     bulletSizeLevel < maxBulletSizeLevel
