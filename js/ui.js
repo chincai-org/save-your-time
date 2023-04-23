@@ -20,6 +20,14 @@ let helpingHandLevel = 0;
 let powerupReloadtimeLevel = 0;
 let shieldLevel = 0;
 let rewardBoosterLevel = 0;
+
+// TODO adjust max level
+let maxBulletSizeLevel = 5;
+let maxHelpingHandLevel = 5;
+let maxPowerupReloadtimeLevel = 5;
+let maxShieldLevel = 5;
+let maxRewardBoosterLevel = 5;
+
 let bulletSizeCost = 50;
 let helpingHandCost = 40;
 let powerupReloadTimeCost = 30;
@@ -196,14 +204,20 @@ shops.onclick = () => {
             description: "Increase size of bullet",
             level: bulletSizeLevel,
             cost: bulletSizeCost,
-            onclick: (level, cost) => () => {
+            onclick: (level, upgradeButton) => () => {
                 console.log(level);
-                if (1) {
-                    bulletSizeMultiplier++;
+                if (
+                    clock.health >= bulletSizeCost &&
+                    bulletSizeLevel < maxBulletSizeLevel
+                ) {
+                    clock.takeDamage(bulletSizeCost);
+                    bulletSizeMultiplier++; // If you just add like this it will eventually become very big, and the max level will be very low
                     bulletSizeLevel++;
                     level.textContent = `Level: ${bulletSizeLevel}`;
                     bulletSizeCost *= 1.25;
-                    cost.textContent = `Cost: ${Math.floor(bulletSizeCost)}sec`;
+                    upgradeButton.textContent = `Cost: ${Math.floor(
+                        bulletSizeCost
+                    )}sec`;
                 }
             }
         },
@@ -214,7 +228,14 @@ shops.onclick = () => {
                 "Add more hand that automatically shoot enemies. Maximum: 5",
             level: helpingHandLevel,
             cost: helpingHandCost,
-            onclick: level => () => {}
+            onclick: (level, upgradeButton) => () => {
+                if (
+                    clock.health >= helpingHandCost &&
+                    helpingHandLevel < maxHelpingHandLevel
+                ) {
+                    // TODO add helping hand
+                }
+            }
         },
         {
             img: "/assets/",
@@ -222,14 +243,20 @@ shops.onclick = () => {
             description: "Speed up reload time of powerups.",
             level: powerupReloadtimeLevel,
             cost: powerupReloadTimeCost,
-            onclick: (level, cost) => () => {
-                powerUpReloadTimeMultipler++;
-                powerupReloadtimeLevel++;
-                powerupReloadTimeCost *= 1.25;
-                cost.textContent = `Cost: ${Math.floor(
-                    powerupReloadTimeCost
-                )}sec`;
-                level.textContent = `Level: ${powerupReloadtimeLevel}`;
+            onclick: (level, upgradeButton) => () => {
+                if (
+                    clock.health >= powerupReloadTimeCost &&
+                    powerupReloadtimeLevel < maxPowerupReloadtimeLevel
+                ) {
+                    clock.takeDamage(powerupReloadTimeCost);
+                    powerUpReloadTimeMultipler++; // ???, by upgrading this you get a higher reload time?
+                    powerupReloadtimeLevel++;
+                    powerupReloadTimeCost *= 1.25;
+                    upgradeButton.textContent = `Cost: ${Math.floor(
+                        powerupReloadTimeCost
+                    )}sec`;
+                    level.textContent = `Level: ${powerupReloadtimeLevel}`;
+                }
             }
         },
         {
@@ -238,7 +265,22 @@ shops.onclick = () => {
             description: "Add a shield around the clock to protect it.",
             level: shieldLevel,
             cost: shieldCost,
-            onclick: level => () => {}
+            onclick: (level, upgradeButton) => () => {
+                if (
+                    clock.health >= shieldCost &&
+                    shieldLevel < maxShieldLevel
+                ) {
+                    clock.takeDamage(shieldCost);
+                    shieldLevel++;
+                    shieldCost *= 1.25;
+                    upgradeButton.textContent = `Cost: ${Math.floor(
+                        shieldCost
+                    )}sec`;
+                    level.textContent = `Level: ${shieldLevel}`;
+
+                    // TODO add shield
+                }
+            }
         },
         {
             img: "/assets/rewardbooster.png",
@@ -247,12 +289,20 @@ shops.onclick = () => {
                 "Increase the amount of time gain after killing enemies.",
             level: rewardBoosterLevel,
             cost: rewardBoosterCost,
-            onclick: (level, cost) => () => {
-                rewardMulitplier++;
-                rewardBoosterLevel++;
-                rewardBoosterCost *= 1.25;
-                cost.textContent = `Cost: ${Math.floor(rewardBoosterCost)}sec`;
-                level.textContent = `Level: ${rewardBoosterLevel}`;
+            onclick: (level, upgradeButton) => () => {
+                if (
+                    clock.health >= rewardBoosterCost &&
+                    rewardBoosterLevel < maxRewardBoosterLevel
+                ) {
+                    clock.takeDamage(rewardBoosterCost);
+                    rewardMulitplier++; // Same with bullet, it will become very big afterwards, even 2x is already a lot, better to make it smaller value
+                    rewardBoosterLevel++;
+                    rewardBoosterCost *= 1.25;
+                    cost.textContent = `Cost: ${Math.floor(
+                        rewardBoosterCost
+                    )}sec`;
+                    level.textContent = `Level: ${rewardBoosterLevel}`;
+                }
             }
         }
     ];
