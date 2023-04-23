@@ -64,7 +64,7 @@ playBtn.onclick = () => {
     spawnControls();
 };
 
-playAgain.onclick = location.reload;
+playAgain.onclick = () => location.reload();
 
 controls.onclick = spawnControls;
 

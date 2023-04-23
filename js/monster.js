@@ -49,10 +49,10 @@ class Monster extends Sprite {
 
     update(delta) {
         if (
-            this.x < 0 ||
-            this.x > canvasWidth ||
-            this.y < 0 ||
-            this.y > canvasHeight
+            this.x < -this.size ||
+            this.x > canvasWidth + this.size ||
+            this.y < -this.size ||
+            this.y > canvasHeight + this.size
         ) {
             this.kill();
         } else {
@@ -113,7 +113,11 @@ class Monster extends Sprite {
                 rewardMulitplier;
 
             clock.health += reward;
-            if (smallClock) smallClock.health += reward / 2;
+            if (smallClock)
+                smallClock.health = Math.min(
+                    smallClock.health + reward / 2,
+                    60
+                );
             score += reward;
 
             rewards.push(new Reward(this.x, this.y, Math.ceil(reward)));

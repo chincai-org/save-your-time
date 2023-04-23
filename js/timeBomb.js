@@ -11,7 +11,8 @@ class TimeBomb extends Sprite {
     }
 
     update() {
-        if (++this.size > canvasWidth) {
+        this.size += 5;
+        if (this.size > Math.sqrt(canvasWidth ** 2 + canvasHeight ** 2)) {
             timeBomb = null;
         }
     }
