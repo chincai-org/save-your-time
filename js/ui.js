@@ -64,10 +64,7 @@ playBtn.onclick = () => {
     spawnControls();
 };
 
-playAgain.onclick = () => {
-    lose.style.visibility == "hidden";
-    //restart gameplay
-};
+playAgain.onclick = location.reload;
 
 controls.onclick = spawnControls;
 
