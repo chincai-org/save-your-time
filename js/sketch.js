@@ -18,6 +18,7 @@ const projectileDamage = 5;
 const monsterHealth = 5;
 const monsterSpeed = 0.2;
 const monsterDamage = 3;
+const monsterFps = 7;
 
 const shieldHealRate = 5000;
 const shieldHeal = 1;
@@ -406,6 +407,12 @@ function spawnMonster() {
     }
 
     monsters.push(monster);
+}
+
+function loadFrames(name, frameAmount) {
+    return Array(frameAmount)
+        .fill()
+        .map((_, i) => loadImage(`assets/${name}/sprite_${i}.png`));
 }
 
 function startCooldown(cooldownName) {

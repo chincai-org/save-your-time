@@ -4,47 +4,130 @@ class Monster extends Sprite {
         y,
         vector,
         size = 30,
-        debugColor,
+        frames,
         health = monsterHealth,
         speed = monsterSpeed,
         damage = monsterDamage,
         reward = 1
     ) {
         super(x, y, vector, size, health, speed, damage);
-        this.debugColor = debugColor;
+        this.frames = frames;
+        this.frameIndex = 0;
+        this.changeFrameEvery = (1 / monsterFps) * 1000;
+        this.lastUpdate = Date.now();
         this.reward = reward;
     }
 
     static normal(x, y, vector) {
-        return new Monster(x, y, vector, 30, grey, 5, 0.02, 20, 6);
+        return new Monster(
+            x,
+            y,
+            vector,
+            30,
+            loadFrames("normal", 3),
+            5,
+            0.02,
+            20,
+            6
+        );
     }
 
     static epic(x, y, vector, choice) {
         switch (choice || randint(1, 3)) {
             case 1:
-                return new Monster(x, y, vector, 40, grey, 25, 0.017, 15, 15); // tank
+                return new Monster(
+                    x,
+                    y,
+                    vector,
+                    40,
+                    loadFrames("placeholder", 1),
+                    25,
+                    0.017,
+                    15,
+                    15
+                ); // tank
             case 2:
-                return new Monster(x, y, vector, 30, blue, 4, 0.05, 10, 7); // speedy
+                return new Monster(
+                    x,
+                    y,
+                    vector,
+                    30,
+                    loadFrames("speedy", 5),
+                    4,
+                    0.05,
+                    10,
+                    7
+                ); // speedy
             case 3:
-                return new Monster(x, y, vector, 30, red, 5, 0.02, 60, 9); // assassin
+                return new Monster(
+                    x,
+                    y,
+                    vector,
+                    30,
+                    loadFrames("assassin", 3),
+                    5,
+                    0.02,
+                    60,
+                    9
+                ); // assassin
         }
     }
 
     static mythic(x, y, vector, choice) {
         switch (choice || randint(1, 3)) {
             case 1:
-                return new Monster(x, y, vector, 40, blue, 25, 0.0335, 15, 22); // speedy tank
+                return new Monster(
+                    x,
+                    y,
+                    vector,
+                    40,
+                    loadFrames("placeholder", 1),
+                    25,
+                    0.0335,
+                    15,
+                    22
+                ); // speedy tank
             case 2:
-                return new Monster(x, y, vector, 30, purple, 5, 0.04, 60, 16); // speedy assassin
+                return new Monster(
+                    x,
+                    y,
+                    vector,
+                    30,
+                    loadFrames("placeholder", 1),
+                    5,
+                    0.04,
+                    60,
+                    16
+                ); // speedy assassin
             case 3:
-                return new Monster(x, y, vector, 40, red, 25, 0.0235, 60, 23); // tank assassin
+                return new Monster(
+                    x,
+                    y,
+                    vector,
+                    40,
+                    loadFrames("placeholder", 1),
+                    25,
+                    0.0235,
+                    60,
+                    23
+                ); // tank assassin
         }
     }
 
     draw() {
-        fill(this.debugColor);
-        noStroke();
-        circle(this.x, this.y, this.size);
+        let img = this.frames[this.frameIndex];
+
+        // fill(lightBlue);
+        // circle(this.x, this.y, this.size);
+
+        // translate(width / 2, height / 2); // move the origin to the center of the canvas
+        push();
+        let angle = atan2(this.vector.y, this.vector.x); // get the angle between the x-axis and the vector
+        translate(this.x, this.y); // move the origin to the center of the image
+        rotate(angle); // rotate the canvas by the angle
+        imageMode(CENTER); // set the image mode to CENTER
+        image(img, 0, 0); // draw the image at the rotated origin
+        pop();
     }
 
     update(delta) {
@@ -94,6 +177,12 @@ class Monster extends Sprite {
                     return this.kill();
                 }
             }
+        }
+
+        let now = Date.now();
+        if (now - this.lastUpdate > this.changeFrameEvery) {
+            this.lastUpdate = now;
+            this.frameIndex = (this.frameIndex + 1) % this.frames.length;
         }
     }
 
