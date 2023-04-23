@@ -48,7 +48,7 @@ function lost(score) {
     displayHighscore.innerText = `Your highscore: ${Math.floor(
         localStorage.getItem("highscore")
     )}`;
-    displayScore.innerText = `Your score: ${score}`;
+    displayScore.innerText = `Your score: ${Math.floor(score)}`;
 }
 
 window.onkeydown = e => {

@@ -175,7 +175,7 @@ function setup() {
 }
 
 function draw() {
-    if (!start) return;
+    if (!start || clock.health <= 0) return;
     background(bg);
     // background(grey);
 
