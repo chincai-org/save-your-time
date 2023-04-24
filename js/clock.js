@@ -14,6 +14,11 @@ class Clock extends Sprite {
             minute: new Hand((this.size * 30) / 128, green),
             hour: new Hand((this.size * 15) / 128, blue)
         };
+        this.helperHands = [];
+    }
+
+    get mergeHands() {
+        return Object.values(this.hands).concat(this.helperHands);
     }
 
     draw() {
@@ -23,7 +28,7 @@ class Clock extends Sprite {
             this.y - this.image.height / 2
         );
 
-        for (let hand of Object.values(this.hands)) {
+        for (let hand of this.mergeHands.sort((a, b) => b.length - a.length)) {
             hand.draw(this.x, this.y);
         }
 
@@ -56,12 +61,12 @@ class Clock extends Sprite {
         }
     }
 
-    addHand(name, length, color) {
-        this.hands[name] = new Hand(length, color);
+    addHand(length = 50, color = yellow) {
+        this.helperHands.push(new Hand(length, color));
     }
 
     shoot() {
-        for (let hand of Object.values(this.hands)) {
+        for (let hand of this.mergeHands) {
             hand.shoot(this.x, this.y);
         }
     }

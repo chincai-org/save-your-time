@@ -2,6 +2,7 @@ const black = 0;
 const white = [255, 255, 255];
 const grey = [211, 211, 211];
 const red = [255, 0, 0];
+const yellow = [255, 255, 0];
 const green = [0, 255, 0];
 const blue = [0, 0, 255];
 const lightBlue = [0, 153, 255];
@@ -188,6 +189,10 @@ function draw() {
         if (!lastWaveTime) {
             clock.takeDamage(deltaTime / 1000);
             smallClock?.takeDamage(deltaTime / 1000);
+        }
+
+        for (let hand of clock.helperHands) {
+            hand.degree -= (deltaTime / 1000) * 6;
         }
 
         seconds += deltaTime / 1000;
