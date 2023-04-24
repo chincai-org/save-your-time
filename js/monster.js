@@ -117,9 +117,6 @@ class Monster extends Sprite {
     draw() {
         let img = this.frames[this.frameIndex];
 
-        // fill(lightBlue);
-        // circle(this.x, this.y, this.size);
-
         // translate(width / 2, height / 2); // move the origin to the center of the canvas
         push();
         let angle = atan2(this.vector.y, this.vector.x); // get the angle between the x-axis and the vector
@@ -128,6 +125,11 @@ class Monster extends Sprite {
         imageMode(CENTER); // set the image mode to CENTER
         image(img, 0, 0); // draw the image at the rotated origin
         pop();
+
+        if (debug) {
+            fill(color(...lightBlue, 150));
+            circle(this.x, this.y, this.size);
+        }
     }
 
     update(delta) {
