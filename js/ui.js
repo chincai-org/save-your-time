@@ -277,7 +277,7 @@ shops.onclick = () => {
                     )}sec`;
                     level.textContent = `Level: ${shieldLevel}`;
 
-                    new Shield(15);
+                    shield = new Shield(15);
                     //TODO shield
                 }
             }
