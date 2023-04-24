@@ -409,6 +409,36 @@ function spawnMonster() {
         monster = Monster.normal(...args);
     }
 
+    if (monster.isHorde) {
+        for (let xOffset of [-1, 0, 1]) {
+            for (let yOffset of [-1, 0, 1]) {
+                if (xOffset === 0 && yOffset === 0) continue;
+                monsters.push(
+                    Monster.epic(
+                        x + xOffset * monster.size,
+                        y + yOffset * monster.size,
+                        createVector(
+                            midPointX - x - xOffset * monster.size,
+                            midPointY - y - yOffset * monster.size
+                        ),
+                        4
+                    )
+                );
+            }
+        }
+        monsters.push(
+            Monster.epic(
+                x - 2 * monster.size,
+                y - 2 * monster.size,
+                createVector(
+                    midPointX - x + 2 * monster.size,
+                    midPointY - y + 2 * monster.size
+                ),
+                4
+            )
+        );
+    }
+
     monsters.push(monster);
 }
 

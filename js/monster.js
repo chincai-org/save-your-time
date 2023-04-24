@@ -8,7 +8,8 @@ class Monster extends Sprite {
         health = monsterHealth,
         speed = monsterSpeed,
         damage = monsterDamage,
-        reward = 1
+        reward = 1,
+        isHorde = false
     ) {
         super(x, y, vector, size, health, speed, damage);
         this.frames = frames;
@@ -16,6 +17,7 @@ class Monster extends Sprite {
         this.changeFrameEvery = (1 / monsterFps) * 1000;
         this.lastUpdate = Date.now();
         this.reward = reward;
+        this.isHorde = isHorde;
     }
 
     static normal(x, y, vector) {
@@ -33,7 +35,7 @@ class Monster extends Sprite {
     }
 
     static epic(x, y, vector, choice) {
-        switch (choice || randint(1, 3)) {
+        switch (choice || randint(1, 4)) {
             case 1:
                 return new Monster(
                     x,
@@ -52,7 +54,7 @@ class Monster extends Sprite {
                     y,
                     vector,
                     30,
-                    loadFrames("placeholder", 5),
+                    loadFrames("placeholder", 1),
                     4,
                     0.05,
                     10,
@@ -70,6 +72,19 @@ class Monster extends Sprite {
                     60,
                     9
                 ); // assassin
+            case 4:
+                return new Monster(
+                    x,
+                    y,
+                    vector,
+                    24,
+                    loadFrames("normal", 3),
+                    4,
+                    0.02,
+                    10,
+                    5,
+                    true
+                ); // horde
         }
     }
 
@@ -93,7 +108,7 @@ class Monster extends Sprite {
                     y,
                     vector,
                     30,
-                    loadFrames("speedyassasin", 1),
+                    loadFrames("speedyassasin", 5),
                     5,
                     0.04,
                     60,
@@ -133,53 +148,53 @@ class Monster extends Sprite {
     }
 
     update(delta) {
-        if (
-            this.x < -this.size ||
-            this.x > canvasWidth + this.size ||
-            this.y < -this.size ||
-            this.y > canvasHeight + this.size
-        ) {
-            this.kill();
-        } else {
-            super.update(delta);
+        // if (
+        //     this.x < -this.size ||
+        //     this.x > canvasWidth + this.size ||
+        //     this.y < -this.size ||
+        //     this.y > canvasHeight + this.size
+        // ) {
+        //     this.kill();
+        // } else {
+        super.update(delta);
 
+        if (
+            dist(this.x, this.y, clock.x, clock.y) <
+            clock.size / 2 + this.size / 2
+        ) {
+            clock.takeDamage(this.damage);
+            return this.kill();
+        }
+
+        if (smallClock) {
             if (
-                dist(this.x, this.y, clock.x, clock.y) <
-                clock.size / 2 + this.size / 2
+                dist(this.x, this.y, smallClock.x, smallClock.y) <
+                smallClock.size / 2 + this.size / 2
             ) {
-                clock.takeDamage(this.damage);
+                smallClock.takeDamage(this.damage);
                 return this.kill();
             }
+        }
 
-            if (smallClock) {
-                if (
-                    dist(this.x, this.y, smallClock.x, smallClock.y) <
-                    smallClock.size / 2 + this.size / 2
-                ) {
-                    smallClock.takeDamage(this.damage);
-                    return this.kill();
-                }
-            }
-
-            if (shield) {
-                if (
-                    dist(this.x, this.y, shield.x, shield.y) <
-                    shield.size / 2 + this.size / 2
-                ) {
-                    shield.takeDamage(this.damage);
-                    return this.kill();
-                }
-            }
-
-            if (timeBomb) {
-                if (
-                    dist(this.x, this.y, timeBomb.x, timeBomb.y) <
-                    timeBomb.size / 2 + this.size / 2
-                ) {
-                    return this.kill();
-                }
+        if (shield) {
+            if (
+                dist(this.x, this.y, shield.x, shield.y) <
+                shield.size / 2 + this.size / 2
+            ) {
+                shield.takeDamage(this.damage);
+                return this.kill();
             }
         }
+
+        if (timeBomb) {
+            if (
+                dist(this.x, this.y, timeBomb.x, timeBomb.y) <
+                timeBomb.size / 2 + this.size / 2
+            ) {
+                return this.kill();
+            }
+        }
+        // }
 
         let now = Date.now();
         if (now - this.lastUpdate > this.changeFrameEvery) {
