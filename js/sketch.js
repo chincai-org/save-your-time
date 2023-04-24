@@ -70,12 +70,12 @@ const rewards = [];
 // TODO adjust broken stats
 const waveRate = 10000;
 
-const maxEpicRate = 50;
+const maxEpicRate = 56;
 const adjustEpicRateEvery = 1;
-const epicRateIncrease = 2;
+const epicRateIncrease = 4;
 
-const maxMythicRate = 30;
-const adjustMythicRateEvery = 3;
+const maxMythicRate = 40;
+const adjustMythicRateEvery = 2;
 const mythicRateIncrease = 2;
 
 const adjustMinSpawnRateEvery = 2;
@@ -87,7 +87,7 @@ let maxSpawn = 1;
 let lastWaveTime = 0;
 let waveCountDown = 0;
 
-let epicRate = 1;
+let epicRate = 0;
 let mythicRate = 0;
 
 let score = 0;
