@@ -1,18 +1,19 @@
 # Save Your Time
 
-In a world where time is everything, a powerful clock at the center of the universe is the only source of time and energy. However, an evil sorcerer has cast a spell that is slowing down time and sent his minions to destroy the clock.
+## Intro
+In a world where time is everything, a powerful clock at the center of the universe is the only source of time. However, an army of greedy monsters want to steal time from the clock.
 
-As the controller of the clock, you are the last line of defense against an invasion of time-wasting monsters that threaten to plunge the world into chaos. With your quick reflexes and precise aiming, you fire powerful projectiles from the clock's hands to defeat the monsters that are approaching from all directions.
+As the controller of the clock, you are the last line of defense against an never-ending invasion of time-wasting monsters that threaten to steal time and create chaos in the universe. With your quick reflexes and precise aiming, you fire powerful time vortexes from the clock's hands to defeat the monsters that are approaching from all directions.
 
-As you progress through the game, you will encounter more challenging monsters that require different strategies to defeat. You'll need to carefully choose which type of projectile to use and when to fire to maximize your effectiveness and save your time.
+As you progress through the game, you will encounter more challenging monsters that require different strategies to defeat. You'll need to carefully choose which powerups to use and when to fire to maximize your effectiveness and save your time.
 
-Will you be able to save the clock and restore time to its rightful pace? The fate of the world depends on your skills and bravery. Enter the world of "Save Your Time!" and find out!
+Will you be able to save the clock from endless wave of monsters? The fate of the world depends on your skills and bravery. Enter the world of "Save Your Time!" and find out!
 
 ## How to Play
 
 ### How to Survive
 
-In this game, you play as a clock and enemies will come at you from all directions. Your objective is to shoot them down to stay alive. Your remaining time is displayed above, and if it runs out, you lose the game.
+In this game, you control a clock and monsters will come at you from all directions. Your objective is to stay alive by shooting them. A timer will be displayed and it will decrease second by second, and if it runs out, you lose the game. The only way to lengthen the timer is to kill monsters.
 
 ### Shooting
 
@@ -41,13 +42,17 @@ Shooting down enemies will earn you rewarded time. Each enemy holds a different 
 
 ### Powerup:
 
+Use it wisely to survive the endless waves of monsters!
+
 | Type                                          | Cooldown (min) | Description                                                 |
 | --------------------------------------------- | -------------- | ----------------------------------------------------------- |
-| Mirror ![](/assets/mirror.png)                | 3              | You can shoot enemies behind and in front of you            |
+| Mirror ![](/assets/mirror.png)                | 3              | You can shoot enemies behind and in front of the clock hand.            |
 | Double trouble ![](/assets/doubletrouble.png) | 5              | Summon a second clock to fight enemies alongside            |
 | Time bomb ![](/assets/timebomb.png)           | 10             | A bomb that that will kill all enemy in less than 5 seconds |
 
-### Shop:
+### Upgrades:
+
+Upgrades that will boost your survival from the never-ending waves of monsters!
 
 | Type                                                        | Cost(second) | Max level | Description                                                |
 | ----------------------------------------------------------- | ------------ | --------- | ---------------------------------------------------------- |
@@ -57,7 +62,20 @@ Shooting down enemies will earn you rewarded time. Each enemy holds a different 
 | Shield ![](/assets/shield.png)                              | 40           | 10        | Add a shield around the clock to protect it.               |
 | Reward booster ![](/assets/rewardbooster.png)               | 30           | 30        | Increase the amount of time gain after killing enemies     |
 
-## Team Members:
+## Creators:
 
 -   [@Mortis66666](https://github.com/Mortis66666)
 -   [@ddddddddrrdd3](https://github.com/ddddddddrrdd3)
+
+## Credits:
+
+### Note: Some of the assets are not belong by us
+
+#### Music: 
+-   Music by [Jesper_Kyd](https://en.wikipedia.org/wiki/Jesper_Kyd). Music I found in [griffpatch zombie cube escape](https://scratch.mit.edu/projects/284516654/).
+
+#### Art:
+-   Everything is drawn by us.
+
+#### Sound effect:
+-   Sound effect by [theChAOTic](https://scratch.mit.edu/users/theChAOTiC/). Found in his [soundpack](https://scratch.mit.edu/projects/659001424/).

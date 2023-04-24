@@ -117,7 +117,7 @@ function spawnControls() {
     const powerups = [
         {
             title: "Mirror",
-            description: "You can shoot enemies behind and in front of you",
+            description: "You can shoot enemies behind and in front of the clock hand",
             img: "assets/mirror.png",
             id: "mirror-powerup",
             checkAvailable: "canUseMirror",
