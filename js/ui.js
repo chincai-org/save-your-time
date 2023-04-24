@@ -148,7 +148,7 @@ function spawnControls() {
         },
         {
             title: "Time Bomb",
-            description: "A bomb that is set to explode in 3 seconds",
+            description: "A bomb that that will kill all enemy in less than 5 seconds",
             img: "assets/timebomb.png",
             id: "timebomb-powerup",
             checkAvailable: "canUseTimeBomb",
