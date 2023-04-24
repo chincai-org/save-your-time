@@ -22,11 +22,11 @@ let shieldLevel = 0;
 let rewardBoosterLevel = 0;
 
 // TODO adjust max level
-let maxBulletSizeLevel = 10;
+let maxBulletSizeLevel = 30;
 let maxHelpingHandLevel = 10;
 let maxPowerupReloadtimeLevel = 10;
 let maxShieldLevel = 10;
-let maxRewardBoosterLevel = 10;
+let maxRewardBoosterLevel = 30;
 
 let bulletSizeCost = 50;
 let helpingHandCost = 40;
@@ -37,7 +37,7 @@ let rewardBoosterCost = 30;
 function lost(score) {
     flashText.style.visibility = "visible";
     [...lose].forEach(el => {
-        el.classList.remove("hide"); // TODO this is not working
+        el.classList.remove("hide");
     });
 
     localStorage.setItem(
@@ -210,7 +210,7 @@ shops.onclick = () => {
                     bulletSizeLevel < maxBulletSizeLevel
                 ) {
                     clock.takeDamage(bulletSizeCost);
-                    bulletSizeMultiplier += 0.3; // If you just add like this it will eventually become very big, and the max level will be very low
+                    bulletSizeMultiplier += 0.1;
                     bulletSizeLevel++;
                     level.textContent = `Level: ${bulletSizeLevel}`;
                     bulletSizeCost *= 1.25;
@@ -248,7 +248,7 @@ shops.onclick = () => {
                     powerupReloadtimeLevel < maxPowerupReloadtimeLevel
                 ) {
                     clock.takeDamage(powerupReloadTimeCost);
-                    powerUpReloadTimeMultipler++; // ???, by upgrading this you get a higher reload time?
+                    powerUpReloadTimeMultipler/= 1000; // ???, by upgrading this you get a higher reload time?
                     powerupReloadtimeLevel++;
                     powerupReloadTimeCost *= 1.25;
                     upgradeButton.textContent = `Cost: ${Math.floor(
@@ -277,7 +277,8 @@ shops.onclick = () => {
                     )}sec`;
                     level.textContent = `Level: ${shieldLevel}`;
 
-                    // TODO add shield
+                    new Shield(15);
+                    //TODO shield
                 }
             }
         },
@@ -294,10 +295,10 @@ shops.onclick = () => {
                     rewardBoosterLevel < maxRewardBoosterLevel
                 ) {
                     clock.takeDamage(rewardBoosterCost);
-                    rewardMulitplier++; // Same with bullet, it will become very big afterwards, even 2x is already a lot, better to make it smaller value
+                    rewardMulitplier+= 0.2;
                     rewardBoosterLevel++;
                     rewardBoosterCost *= 1.25;
-                    cost.textContent = `Cost: ${Math.floor(
+                    upgradeButton.textContent = `Cost: ${Math.floor(
                         rewardBoosterCost
                     )}sec`;
                     level.textContent = `Level: ${rewardBoosterLevel}`;
