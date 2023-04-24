@@ -118,7 +118,7 @@ function spawnControls() {
         {
             title: "Mirror",
             description: "You can shoot enemies behind and in front of you",
-            img: "/assets/mirror.png",
+            img: "assets/mirror.png",
             id: "mirror-powerup",
             checkAvailable: "canUseMirror",
             onclick: img => () => {
@@ -134,7 +134,7 @@ function spawnControls() {
         {
             title: "Double Trouble",
             description: "Summon a second clock to fight enemies alongside",
-            img: "/assets/doubletrouble.png",
+            img: "assets/doubletrouble.png",
             id: "doubletrouble-powerup",
             checkAvailable: "canUseDoubleTrouble && !smallClock",
             onclick: img => () => {
@@ -149,7 +149,7 @@ function spawnControls() {
         {
             title: "Time Bomb",
             description: "A bomb that is set to explode in 3 seconds",
-            img: "/assets/timebomb.png",
+            img: "assets/timebomb.png",
             id: "timebomb-powerup",
             checkAvailable: "canUseTimeBomb",
             onclick: img => () => {
@@ -199,7 +199,7 @@ shops.onclick = () => {
 
     const upgrades = [
         {
-            img: "/assets/bulletsize.png",
+            img: "assets/bulletsize.png",
             title: "Bullet Size",
             description: "Increase size of bullet",
             level: bulletSizeLevel,
@@ -221,7 +221,7 @@ shops.onclick = () => {
             }
         },
         {
-            img: "/assets/",
+            img: "assets/",
             title: "Helping Hand",
             description:
                 "Add more hand that automatically shoot enemies. Maximum: 5",
@@ -237,7 +237,7 @@ shops.onclick = () => {
             }
         },
         {
-            img: "/assets/",
+            img: "assets/",
             title: "Powerup Reload Time",
             description: "Speed up reload time of powerups.",
             level: powerupReloadtimeLevel,
@@ -248,7 +248,7 @@ shops.onclick = () => {
                     powerupReloadtimeLevel < maxPowerupReloadtimeLevel
                 ) {
                     clock.takeDamage(powerupReloadTimeCost);
-                    powerUpReloadTimeMultipler/= 1000; // ???, by upgrading this you get a higher reload time?
+                    powerUpReloadTimeMultipler /= 1000; // ???, by upgrading this you get a higher reload time?
                     powerupReloadtimeLevel++;
                     powerupReloadTimeCost *= 1.25;
                     upgradeButton.textContent = `Cost: ${Math.floor(
@@ -259,7 +259,7 @@ shops.onclick = () => {
             }
         },
         {
-            img: "/assets/shield.png",
+            img: "assets/shield.png",
             title: "Shield",
             description: "Add a shield around the clock to protect it.",
             level: shieldLevel,
@@ -283,7 +283,7 @@ shops.onclick = () => {
             }
         },
         {
-            img: "/assets/rewardbooster.png",
+            img: "assets/rewardbooster.png",
             title: "Reward booster",
             description:
                 "Increase the amount of time gain after killing enemies.",
@@ -295,7 +295,7 @@ shops.onclick = () => {
                     rewardBoosterLevel < maxRewardBoosterLevel
                 ) {
                     clock.takeDamage(rewardBoosterCost);
-                    rewardMulitplier+= 0.2;
+                    rewardMulitplier += 0.2;
                     rewardBoosterLevel++;
                     rewardBoosterCost *= 1.25;
                     upgradeButton.textContent = `Cost: ${Math.floor(

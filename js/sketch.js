@@ -52,6 +52,7 @@ let seconds = 0;
 
 let start = false;
 let isPageVisible = true;
+let debug = false;
 let lastUpdate = 0;
 
 let shoot = false;
@@ -308,6 +309,8 @@ function keyPressed(e) {
             hours += 60;
         }
         tickSound.play();
+    } else if (keyCode === 18) {
+        debug = !debug;
     }
 
     if (keyCode === 80 && lastWaveTime) {
