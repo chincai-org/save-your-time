@@ -49,11 +49,13 @@ Shooting down enemies will earn you rewarded time. Each enemy holds a different 
 
 ### Shop:
 
-1. Bullet size
-2. Helping hand
-3. Decrease powerup cooldown
-4. Shield
-5. Increase reward
+| Type                                                        | Cost(second) | Max level | Description                                                |
+| ----------------------------------------------------------- | ------------ | --------- | ---------------------------------------------------------- |
+| Bullet size ![](/assets/bulletsize.png)                     | 50           | 30        | Increase size of bullet                                    |
+| Helping hand ![](/assets/helpinghand.png)                   | 40           | 10        | Add more hand that automatically shoot enemies. Maximum: 5 |
+| Decrease powerup cooldown![](/assets/powerupreloadtime.png) | 30           | 10        | Speed up reload time of powerups.                          |
+| Shield ![](/assets/shield.png)                              | 40           | 10        | Add a shield around the clock to protect it.               |
+| Reward booster ![](/assets/rewardbooster.png)               | 30           | 30        | Increase the amount of time gain after killing enemies     |
 
 ## Team Members:
 
