@@ -20,7 +20,7 @@ To shoot enemies, you can click on the screen or press the <kbd>SPACE</kbd> key.
 
 ### Aiming
 
-You can aim by adjusting the time on the sidebar. Alternatively, you can use the keyboard to adjust the time. If you look at your numpad, you can imagine the <kbd>4</kbd>, <kbd>5</kbd>, <kbd>6</kbd>, <kbd>1</kbd>, <kbd>2</kbd>, <kbd>3</kbd> keys to be aligned with the arrows on the sidebar. To use this shortcut, you must have the numlock on.
+You can aim by adjusting the time on the sidebar. Alternatively, you can use the keyboard to adjust the time. If you look at your numpad, you can imagine the <kbd>4</kbd>, <kbd>5</kbd>, <kbd>6</kbd>, <kbd>1</kbd>, <kbd>2</kbd>, <kbd>3</kbd> keys to be aligned with the arrows on the sidebar. To use this shortcut, you must have the numlock on. <kbd>q</kbd>, <kbd>a</kbd>, <kbd>w</kbd>, <kbd>s</kbd>, <kbd>e</kbd>, <kbd>d</kbd> keys is also an option and it is aligned with the arrows on the sidebar.
 
 ### Rewards
 

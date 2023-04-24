@@ -290,26 +290,26 @@ function keyPressed(e) {
     e.preventDefault();
     if (keyCode === " ".charCodeAt(0)) {
         shoot = true;
-    } else if (keyCode === 100 || keyCode == 83) {
+    } else if (keyCode === 100 || keyCode == 81) {
         seconds++;
         tickSound.play();
-    } else if (keyCode === 101 || keyCode == 65) {
+    } else if (keyCode === 101 || keyCode == 87) {
         minutes++;
         tickSound.play();
-    } else if (keyCode === 102 || keyCode == 81) {
+    } else if (keyCode === 102 || keyCode == 69) {
         hours++;
         tickSound.play();
-    } else if (keyCode === 97 || keyCode == 87) {
+    } else if (keyCode === 97 || keyCode == 65) {
         if (--seconds <= 0) {
             seconds += 60;
         }
         tickSound.play();
-    } else if (keyCode === 98 || keyCode == 68) {
+    } else if (keyCode === 98 || keyCode == 83) {
         if (--minutes <= 0) {
             minutes += 60;
         }
         tickSound.play();
-    } else if (keyCode === 99 || keyCode == 69) {
+    } else if (keyCode === 99 || keyCode == 68) {
         if (--hours <= 0) {
             hours += 60;
         }
