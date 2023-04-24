@@ -221,7 +221,7 @@ shops.onclick = () => {
             }
         },
         {
-            img: "assets/",
+            img: "assets/helpinghand.png",
             title: "Helping Hand",
             description:
                 "Add more hand that automatically shoot enemies. Maximum: 5",
@@ -237,7 +237,7 @@ shops.onclick = () => {
             }
         },
         {
-            img: "assets/",
+            img: "assets/powerupreloadtime.png",
             title: "Powerup Reload Time",
             description: "Speed up reload time of powerups.",
             level: powerupReloadtimeLevel,
@@ -277,7 +277,7 @@ shops.onclick = () => {
                     )}sec`;
                     level.textContent = `Level: ${shieldLevel}`;
 
-                    new Shield(15);
+                    shield = new Shield(15);
                     //TODO shield
                 }
             }

@@ -54,7 +54,7 @@ class Monster extends Sprite {
                     y,
                     vector,
                     30,
-                    loadFrames("placeholder", 1),
+                    loadFrames("speedy", 5),
                     4,
                     0.05,
                     10,
