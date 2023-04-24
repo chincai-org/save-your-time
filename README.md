@@ -32,18 +32,20 @@ Shooting down enemies will earn you rewarded time. Each enemy holds a different 
 | ------------------------------------------------------- | ------ | ------ | ------ | ---------- | --------------- | ------------------ |
 | Normal ![](/assets/normal/sprite_0.png)                 | 5      | 0.0200 | 20     | 6          | -               | 1                  |
 | Tank ![](/assets/)                                      | 25     | 0.0170 | 15     | 15         | -               | 1                  |
-| speedy ![](/assets/speedy/sprite_3.png)                 | 4      | 0.0500 | 10     | 7          | -               | 1                  |
-| assassin ![](/assets/assassin/sprite_2.png)             | 5      | 0.0300 | 60     | 9          | -               | 1                  |
-| speedy tank ![](/assets/)                               | 25     | 0.0335 | 15     | 22         | hybrid          | 1                  |
-| speedy assassin ![](/assets/speedyassasin/sprite_0.png) | 5      | 0.0400 | 60     | 16         | hybrid          | 1                  |
-| tank assassin ![](/assets/)                             | 25     | 0.0235 | 60     | 23         | hybrid          | 1                  |
-| horde/each ![](/assets/)                                | 4      | 0.0200 | 10     | 5          | army            | 10                 |
+| Speedy ![](/assets/speedy/sprite_3.png)                 | 4      | 0.0500 | 10     | 7          | -               | 1                  |
+| Assassin ![](/assets/assassin/sprite_2.png)             | 5      | 0.0300 | 60     | 9          | -               | 1                  |
+| Speedy tank ![](/assets/)                               | 25     | 0.0335 | 15     | 22         | hybrid          | 1                  |
+| Speedy assassin ![](/assets/speedyassasin/sprite_0.png) | 5      | 0.0400 | 60     | 16         | hybrid          | 1                  |
+| Tank assassin ![](/assets/)                             | 25     | 0.0235 | 60     | 23         | hybrid          | 1                  |
+| Horde/each ![](/assets/)                                | 4      | 0.0200 | 10     | 5          | army            | 10                 |
 
 ### Powerup:
 
-1. Mirror:
-2. Double trouble
-3. Time bomb
+| Type                                          | Cooldown (min) | Description                                                 |
+| --------------------------------------------- | -------------- | ----------------------------------------------------------- |
+| Mirror ![](/assets/mirror.png)                | 3              | You can shoot enemies behind and in front of you            |
+| Double trouble ![](/assets/doubletrouble.png) | 5              | Summon a second clock to fight enemies alongside            |
+| Time bomb ![](/assets/timebomb.png)           | 10             | A bomb that that will kill all enemy in less than 5 seconds |
 
 ### Shop:
 
