@@ -26,7 +26,7 @@ let maxBulletSizeLevel = 5;
 let maxHelpingHandLevel = 5;
 let maxPowerupReloadtimeLevel = 10;
 let maxShieldLevel = 10;
-let maxRewardBoosterLevel = 30;
+let maxRewardBoosterLevel = 10;
 
 //adjust starting cost
 let bulletSizeCost = 40;
@@ -376,7 +376,7 @@ shops.onclick = () => {
                     rewardBoosterLevel < maxRewardBoosterLevel
                 ) {
                     clock.takeDamage(rewardBoosterCost);
-                    rewardMulitplier += 0.2;
+                    rewardMulitplier += 0.4;
                     rewardBoosterLevel++;
                     rewardBoosterCost *= 1.25;
                     if (rewardBoosterCost == maxRewardBoosterLevel) {
