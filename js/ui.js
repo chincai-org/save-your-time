@@ -218,7 +218,7 @@ function spawnControls() {
 setInterval(function () {
     if (canUseTimeBomb) return;
     timeBombTimer = Math.ceil(
-        (cooldowns["timeBombCooldown"].duration * powerUpReloadTimeMultiplier -
+        (cooldowns["timeBombCooldown"].duration -
             (Date.now() - cooldowns["timeBombCooldown"].startTime)) /
             1000
     );
@@ -228,8 +228,7 @@ setInterval(function () {
 setInterval(function () {
     if (canUseDoubleTrouble) return;
     doubleTroubleTimer = Math.ceil(
-        (cooldowns["doubleTroubleCooldown"].duration *
-            powerUpReloadTimeMultiplier -
+        (cooldowns["doubleTroubleCooldown"].duration -
             (Date.now() - cooldowns["doubleTroubleCooldown"].startTime)) /
             1000
     );
@@ -239,7 +238,7 @@ setInterval(function () {
 setInterval(function () {
     if (canUseMirror) return;
     mirrorTimer = Math.ceil(
-        (cooldowns["mirrorCooldown"].duration * powerUpReloadTimeMultiplier -
+        (cooldowns["mirrorCooldown"].duration -
             (Date.now() - cooldowns["mirrorCooldown"].startTime)) /
             1000
     );
@@ -319,7 +318,7 @@ shops.onclick = () => {
                     powerupReloadtimeLevel < maxPowerupReloadtimeLevel
                 ) {
                     clock.takeDamage(powerupReloadTimeCost);
-                    powerUpReloadTimeMultiplier *= 0.7;
+                    // powerUpReloadTimeMultiplier *= 0.7;
                     powerupReloadtimeLevel++;
                     powerupReloadTimeCost = Math.floor(
                         powerupReloadTimeCost * 1.25
@@ -332,6 +331,10 @@ shops.onclick = () => {
                         )}sec`;
                     }
                     level.textContent = `Level: ${powerupReloadtimeLevel}`;
+
+                    cooldowns["doubleTroubleCooldown"].duration *= 0.7;
+                    cooldowns["mirrorCooldown"].duration *= 0.7;
+                    cooldowns["timeBombCooldown"].duration *= 0.7;
                 }
             }
         },
