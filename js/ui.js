@@ -11,7 +11,7 @@ const playBtn = document.getElementById("play");
 const playAgain = document.getElementById("play-again");
 const displayScore = document.getElementById("score");
 const displayHighscore = document.getElementById("highscore");
-const startPage = document.querySelector(".start");
+const startPage = document.querySelectorAll(".start");
 const flashText = document.querySelector(".flash-text");
 const lose = document.querySelectorAll(".lose");
 let loadtexts = ["m", "d", "t"];
@@ -64,7 +64,7 @@ window.onkeydown = e => {
 };
 
 playBtn.onclick = () => {
-    startPage.style.visibility = "hidden";
+    [...startPage].forEach(el => (el.style.visibility = "hidden"));
     playBtn.style.visibility = "hidden";
     flashText.style.visibility = "hidden";
     start = true;
@@ -320,7 +320,9 @@ shops.onclick = () => {
                     clock.takeDamage(powerupReloadTimeCost);
                     powerUpReloadTimeMultiplier *= 0.7;
                     powerupReloadtimeLevel++;
-                    powerupReloadTimeCost = Math.floor(powerupReloadTimeCost * 1.25);
+                    powerupReloadTimeCost = Math.floor(
+                        powerupReloadTimeCost * 1.25
+                    );
                     if (powerupReloadtimeLevel == maxPowerupReloadtimeLevel) {
                         upgradeButton.textContent = `Max`;
                     } else {
