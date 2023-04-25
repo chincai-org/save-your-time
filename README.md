@@ -24,6 +24,17 @@ To shoot enemies, you can click on the screen or press the <kbd>SPACE</kbd> key.
 
 You can aim by adjusting the time on the sidebar. Alternatively, you can use the keyboard to adjust the time. If you look at your numpad, you can imagine the <kbd>4</kbd>, <kbd>5</kbd>, <kbd>6</kbd>, <kbd>1</kbd>, <kbd>2</kbd>, <kbd>3</kbd> keys to be aligned with the arrows on the sidebar. To use this shortcut, you must have the num lock on. <kbd>Q</kbd>, <kbd>A</kbd>, <kbd>W</kbd>, <kbd>S</kbd>, <kbd>E</kbd>, <kbd>D</kbd> keys are also an option and they are aligned with the arrows on the sidebar.
 
+### Aim table
+| Type                       | Keys         |
+| ---------------------------|------------- |     help me kbd all the keys
+| second-up                  | numpad 7 & q |
+| second-down                | numpad 1 & a |
+| minute-up                  | numpad 8 & w |
+| minute-down                | numpad 2 & s |
+| hour-up                    | numpad 9 & e |
+| hour-down                  | numpad 3 & d |
+
+
 ### Rewards
 
 Shooting down enemies will earn you rewarded time. Each enemy holds a different value of reward. The closer the enemy gets to you, the lower the reward will be.
@@ -33,13 +44,14 @@ Shooting down enemies will earn you rewarded time. Each enemy holds a different 
 | Type                                                    | Health | Speed  | Damage | Max reward | Special ability | Quantity per spawn |
 | ------------------------------------------------------- | ------ | ------ | ------ | ---------- | --------------- | ------------------ |
 | Normal ![](/assets/normal/sprite_0.png)                 | 5      | 0.0200 | 20     | 6          | -               | 1                  |
-| Tank ![](/assets/)                                      | 25     | 0.0170 | 15     | 15         | -               | 1                  |
+| Tank ![](/assets/normal/sprite_0.png)                   | 25     | 0.0170 | 15     | 15         | -               | 1                  |
 | Speedy ![](/assets/speedy/sprite_3.png)                 | 4      | 0.0500 | 10     | 7          | -               | 1                  |
 | Assassin ![](/assets/assassin/sprite_2.png)             | 5      | 0.0300 | 60     | 9          | -               | 1                  |
-| Speedy tank ![](/assets/)                               | 25     | 0.0335 | 15     | 22         | hybrid          | 1                  |
+| Speedy tank ![](/assets/speedy/sprite_3.png)            | 25     | 0.0335 | 15     | 22         | hybrid          | 1                  |
 | Speedy assassin ![](/assets/speedyassasin/sprite_0.png) | 5      | 0.0400 | 60     | 16         | hybrid          | 1                  |
-| Tank assassin ![](/assets/)                             | 25     | 0.0235 | 60     | 23         | hybrid          | 1                  |
-| Horde/each ![](/assets/)                                | 4      | 0.0200 | 10     | 5          | army            | 10                 |
+| Tank assassin ![](/assets/assassin/sprite_2.png)        | 25     | 0.0235 | 60     | 23         | hybrid          | 1                  |
+| Horde/each ![](/assets/horde/sprite_0.png)              | 4      | 0.0200 | 10     | 5          | army            | 10                 |
+| Tank horde/each ![](/assets/horde/sprite_0.png)         | 20     | 0.0185 | 15     | 14         | hybrid army     | 10                 |
 
 ### Powerup:
 
