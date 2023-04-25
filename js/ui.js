@@ -14,7 +14,7 @@ const displayHighscore = document.getElementById("highscore");
 const startPage = document.querySelector(".start");
 const flashText = document.querySelector(".flash-text");
 const lose = document.querySelectorAll(".lose");
-let loadtexts = ['','','']
+let loadtexts = ['m','d','t']
 let bulletSizeLevel = 0;
 let helpingHandLevel = 0;
 let powerupReloadtimeLevel = 0;
@@ -128,6 +128,7 @@ function spawnControls() {
             description: "You can shoot enemies behind and in front of the clock hand",
             img: "assets/mirror.png",
             id: "mirror-powerup",
+            loadtextid: "mirror-load",
             checkAvailable: "canUseMirror",
             
             onclick: img => () => {
@@ -145,6 +146,7 @@ function spawnControls() {
             description: "Summon a second clock to fight enemies alongside",
             img: "assets/doubletrouble.png",
             id: "doubletrouble-powerup",
+            loadtextid: "doubletrouble-load",
             checkAvailable: "canUseDoubleTrouble && !smallClock",
             onclick: img => () => {
                 if (canUseDoubleTrouble && !smallClock) {
@@ -160,6 +162,7 @@ function spawnControls() {
             description: "A bomb that that will kill all enemy in less than 5 seconds",
             img: "assets/timebomb.png",
             id: "timebomb-powerup",
+            loadtextid: "timebomb-load",
             checkAvailable: "canUseTimeBomb",
             onclick: img => () => {
                 if (canUseTimeBomb && !timeBomb) {
@@ -194,14 +197,13 @@ function spawnControls() {
         loadText.textContent = powerup.timer;
         loadText.className = "powerup-load-text"
         loadtexts[index] = (loadText)
-        article.appendChild(loadText)
+        
+        const powerupImage = document.createElement("div");
+        powerupImage.onclick = powerup.onclick(loadText);
 
         if (!eval(powerup.checkAvailable)) {
             loadText.style.visibility = "visible";
         }
-
-        const powerupImage = document.createElement("div");
-        powerupImage.onclick = powerup.onclick(loadText);
         
         powerupImage.appendChild(img);
         powerupImage.appendChild(loadText);

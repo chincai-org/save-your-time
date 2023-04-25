@@ -100,36 +100,36 @@ let score = 0;
 
 const cooldowns = {
     mirrorCooldown: {
-        duration: 180_000,
+        duration: 5_000, //180
         startTime: null,
         timerId: null,
         onCooldownEnd: () => {
             canUseMirror = true;
 
-            let element = document.getElementById("mirror-powerup");
-            if (element) element.style.opacity = "1";
+            let element = loadtexts[0];
+            if (element) element.style.opacity = "0";
         }
     },
     timeBombCooldown: {
-        duration: 600_000,
+        duration: 3_000, //600
         startTime: null,
         timerId: null,
         onCooldownEnd: () => {
             canUseTimeBomb = true;
 
-            let element = document.getElementById("timebomb-powerup");
-            if (element) element.style.opacity = "1";
+            let element = loadtexts[1];
+            if (element) element.style.opacity = "0";
         }
     },
     doubleTroubleCooldown: {
-        duration: 300_000,
+        duration: 3_000, //300
         startTime: null,
         timerId: null,
         onCooldownEnd: () => {
             canUseDoubleTrouble = true;
 
-            let element = document.getElementById("doubletrouble-powerup");
-            if (element && !smallClock) element.style.opacity = "1";
+            let element = loadtexts[2];
+            if (element && !smallClock) element.style.opacity = "0";
         }
     },
     mirrorEnd: {
