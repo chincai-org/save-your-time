@@ -218,7 +218,7 @@ function spawnControls() {
 setInterval(function () {
     if (canUseTimeBomb) return;
     timeBombTimer = Math.ceil(
-        (cooldowns["timeBombCooldown"].duration -
+        (cooldowns["timeBombCooldown"].duration * powerUpReloadTimeMultiplier -
             (Date.now() - cooldowns["timeBombCooldown"].startTime)) /
             1000
     );
@@ -228,7 +228,8 @@ setInterval(function () {
 setInterval(function () {
     if (canUseDoubleTrouble) return;
     doubleTroubleTimer = Math.ceil(
-        (cooldowns["doubleTroubleCooldown"].duration -
+        (cooldowns["doubleTroubleCooldown"].duration *
+            powerUpReloadTimeMultiplier -
             (Date.now() - cooldowns["doubleTroubleCooldown"].startTime)) /
             1000
     );
@@ -238,7 +239,7 @@ setInterval(function () {
 setInterval(function () {
     if (canUseMirror) return;
     mirrorTimer = Math.ceil(
-        (cooldowns["mirrorCooldown"].duration -
+        (cooldowns["mirrorCooldown"].duration * powerUpReloadTimeMultiplier -
             (Date.now() - cooldowns["mirrorCooldown"].startTime)) /
             1000
     );
