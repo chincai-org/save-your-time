@@ -1,5 +1,7 @@
 # Save Your Time
 
+This game is made for the [Gamedev.js Jam 2023](https://itch.io/jam/gamedevjs-2023)
+
 ## Intro
 
 In a world where time is everything, a powerful clock at the center of the universe is the only source of time. However, an army of greedy monsters want to steal time from the clock.
