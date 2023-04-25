@@ -25,15 +25,15 @@ To shoot enemies, you can click on the screen or press the <kbd>SPACE</kbd> key.
 You can aim by adjusting the time on the sidebar. Alternatively, you can use the keyboard to adjust the time. If you look at your numpad, you can imagine the <kbd>4</kbd>, <kbd>5</kbd>, <kbd>6</kbd>, <kbd>1</kbd>, <kbd>2</kbd>, <kbd>3</kbd> keys to be aligned with the arrows on the sidebar. To use this shortcut, you must have the num lock on. <kbd>Q</kbd>, <kbd>A</kbd>, <kbd>W</kbd>, <kbd>S</kbd>, <kbd>E</kbd>, <kbd>D</kbd> keys are also an option and they are aligned with the arrows on the sidebar.
 
 ### Aim table
-| Type                       | Keys         |
-| ---------------------------|------------- |     help me kbd all the keys
-| second-up                  | numpad 7 & q |
-| second-down                | numpad 1 & a |
-| minute-up                  | numpad 8 & w |
-| minute-down                | numpad 2 & s |
-| hour-up                    | numpad 9 & e |
-| hour-down                  | numpad 3 & d |
 
+| Type        | Keys                               |
+| ----------- | ---------------------------------- |
+| second-up   | numpad <kbd>4</kbd> & <kbd>q</kbd> |
+| second-down | numpad <kbd>1</kbd> & <kbd>a</kbd> |
+| minute-up   | numpad <kbd>5</kbd> & <kbd>w</kbd> |
+| minute-down | numpad <kbd>2</kbd> & <kbd>s</kbd> |
+| hour-up     | numpad <kbd>6</kbd> & <kbd>e</kbd> |
+| hour-down   | numpad <kbd>3</kbd> & <kbd>d</kbd> |
 
 ### Rewards
 
