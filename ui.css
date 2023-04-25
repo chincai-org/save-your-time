@@ -237,6 +237,7 @@ nav div:hover {
 }
 
 .powerup-load-text {
+    font-size: 3.5rem;
     user-select: none;
     visibility: hidden;
     position: relative;

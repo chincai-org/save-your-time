@@ -14,7 +14,7 @@ const displayHighscore = document.getElementById("highscore");
 const startPage = document.querySelector(".start");
 const flashText = document.querySelector(".flash-text");
 const lose = document.querySelectorAll(".lose");
-
+let loadtexts = ['','','']
 let bulletSizeLevel = 0;
 let helpingHandLevel = 0;
 let powerupReloadtimeLevel = 0;
@@ -129,14 +129,13 @@ function spawnControls() {
             img: "assets/mirror.png",
             id: "mirror-powerup",
             checkAvailable: "canUseMirror",
+            
             onclick: img => () => {
                 if (canUseMirror && !mirror) {
                     img.style.visibility = "visible";
                     mirror = true;
                     canUseMirror = false;
                     startCooldown("mirrorCooldown");
-                    mirrorTimer =  Date.now() - cooldowns['mirrorCooldown'].startTime
-                    img.textContent = mirrorTimer
                     startCooldown("mirrorEnd");
                 }
             }
@@ -153,8 +152,6 @@ function spawnControls() {
                     smallClock = new SmallClock();
                     canUseDoubleTrouble = false;
                     startCooldown("doubleTroubleCooldown");
-                    doubleTroubleTimer = Date.now() - cooldowns['doubleTroubleCooldown'].startTime
-                    img.textContent = doubleTroubleTimer
                 }
             }
         },
@@ -170,8 +167,6 @@ function spawnControls() {
                     timeBomb = new TimeBomb();
                     canUseTimeBomb = false;
                     startCooldown("timeBombCooldown");
-                    timeBombTimer = Date.now() - cooldowns['timeBombCooldown'].startTime
-                    img.textContent = timeBombTimer
                 }
             }
         }
@@ -198,6 +193,7 @@ function spawnControls() {
         const loadText = document.createElement("p");
         loadText.textContent = powerup.timer;
         loadText.className = "powerup-load-text"
+        loadtexts[index] = (loadText)
         article.appendChild(loadText)
 
         if (!eval(powerup.checkAvailable)) {
@@ -206,14 +202,32 @@ function spawnControls() {
 
         const powerupImage = document.createElement("div");
         powerupImage.onclick = powerup.onclick(loadText);
+        
         powerupImage.appendChild(img);
         powerupImage.appendChild(loadText);
-        
         article.appendChild(powerupImage);
         powerupsSection.appendChild(article);
     });
     mainUi.appendChild(powerupsSection);
 }
+
+setInterval(function () {
+    timeBombTimer = Math.floor((cooldowns['timeBombCooldown'].duration - (Date.now() - cooldowns['timeBombCooldown'].startTime))/1000);
+    loadtexts[2].textContent = timeBombTimer
+},
+)
+
+setInterval(function () {
+    doubleTroubleTimer = Math.floor((cooldowns['doubleTroubleCooldown'].duration - (Date.now() - cooldowns['doubleTroubleCooldown'].startTime))/1000);
+    loadtexts[1].textContent = doubleTroubleTimer
+},
+)
+
+setInterval(function () {
+    mirrorTimer =  Math.floor((cooldowns['mirrorCooldown'].duration - (Date.now() - cooldowns['mirrorCooldown'].startTime))/1000);
+    loadtexts[0].textContent = mirrorTimer
+},
+)
 
 shops.onclick = () => {
     mainUi.innerHTML = "";
