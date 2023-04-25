@@ -99,7 +99,9 @@ nav div:hover {
     align-items: center;
     justify-content: center;
     flex-direction: column;
+    background: url("/assets/icon.png");
     background-color: black;
+    background-size: 50dvw 100dvh;
     color: white;
     visibility: visible;
     opacity: 1;
@@ -108,7 +110,22 @@ nav div:hover {
 }
 
 .start {
+    color: rgb(16, 180, 1);
     font-size: 5rem;
+}
+
+.start + h3 {
+    color: black;
+    background: radial-gradient(yellow, rgba(0,0,0,0));
+}
+
+.start + div {
+    color: black;
+}
+
+.start + h4 {
+    color: black;
+    background: radial-gradient(orange, rgba(255,0,0,0));
 }
 
 #play {
@@ -128,7 +145,6 @@ nav div:hover {
 }
 
 .lose {
-    background-color: black;
     font-size: 4rem;
 }
 
