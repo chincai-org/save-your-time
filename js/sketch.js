@@ -133,7 +133,11 @@ const cooldowns = {
             let element = loadtexts[1];
             if (element && !smallClock) {
                 element.style.visibility = "hidden";
-        };
+        } else if (element && smallClock) {
+            if (element.textContent == 0) {
+                element.textContent = "";
+            }
+        }
         }
     },
     mirrorEnd: {

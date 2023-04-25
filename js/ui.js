@@ -266,7 +266,7 @@ shops.onclick = () => {
                     bulletSizeMultiplier += 0.6;
                     bulletSizeLevel++;
                     level.textContent = `Level: ${bulletSizeLevel}`;
-                    bulletSizeCost *= 1.25;
+                    bulletSizeCost = Math.floor(bulletSizeCost * 1.25);
 
                     if (bulletSizeLevel == maxBulletSizeLevel) {
                         upgradeButton.textContent = `Max`;
@@ -293,7 +293,7 @@ shops.onclick = () => {
                     clock.takeDamage(helpingHandCost);
                     helpingHandLevel++;
                     level.textContent = `Level: ${helpingHandLevel}`;
-                    helpingHandCost *= 1.25;
+                    helpingHandCost = Math.floor(helpingHandCost * 1.25);
                     if (helpingHandLevel == maxHelpingHandLevel) {
                         upgradeButton.textContent = `Max`;
                     } else {
@@ -320,7 +320,7 @@ shops.onclick = () => {
                     clock.takeDamage(powerupReloadTimeCost);
                     powerUpReloadTimeMultiplier /= 1000; // ???, by upgrading this you get a higher reload time?
                     powerupReloadtimeLevel++;
-                    powerupReloadTimeCost *= 1.25;
+                    powerupReloadTimeCost = Math.floor(powerupReloadTimeCost * 1.25);
                     if (powerupReloadtimeLevel == maxPowerupReloadtimeLevel) {
                         upgradeButton.textContent = `Max`;
                     } else {

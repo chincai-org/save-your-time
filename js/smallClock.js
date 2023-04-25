@@ -25,7 +25,6 @@ class SmallClock extends Clock {
         let element = loadtexts[1];
         if (canUseDoubleTrouble) {
             element.style.opacity = "0"
-            element.textContent = "";
         };
 
         smallClock = null;
