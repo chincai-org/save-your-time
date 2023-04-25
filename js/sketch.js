@@ -76,12 +76,12 @@ const rewards = [];
 // TODO adjust broken stats
 const waveRate = 10000;
 
-const maxEpicRate = 56;
+const maxEpicRate = 52;
 const adjustEpicRateEvery = 1;
 const epicRateIncrease = 4;
 
-const maxMythicRate = 40;
-const adjustMythicRateEvery = 2;
+const maxMythicRate = 46;
+const adjustMythicRateEvery = 1;
 const mythicRateIncrease = 2;
 
 const adjustMinSpawnRateEvery = 2;
@@ -107,7 +107,7 @@ const cooldowns = {
             canUseMirror = true;
 
             let element = loadtexts[0];
-            if (element) element.style.opacity = "0";
+            if (element) element.style.visibility = "hidden";
         }
     },
     timeBombCooldown: {
@@ -119,7 +119,7 @@ const cooldowns = {
 
             let element = loadtexts[2];
             if (element) {
-                element.style.opacity = "0";
+                element.style.visibility = "hidden";
             };
         }
     },
@@ -132,7 +132,7 @@ const cooldowns = {
 
             let element = loadtexts[1];
             if (element && !smallClock) {
-                element.style.opacity = "0";
+                element.style.visibility = "hidden";
         };
         }
     },

@@ -21,7 +21,7 @@ class Monster extends Sprite {
     }
 
     static normal(x, y, vector) {
-        return new Monster(x, y, vector, 30, normalFrames, 5, 0.02, 20, 6);
+        return new Monster(x, y, vector, 30, normalFrames, 6, 0.02, 20, 6);
     }
 
     static epic(x, y, vector, choice) {
@@ -57,7 +57,7 @@ class Monster extends Sprite {
                     vector,
                     30,
                     assassinFrames,
-                    5,
+                    6,
                     0.02,
                     60,
                     9
@@ -99,7 +99,7 @@ class Monster extends Sprite {
                     vector,
                     30,
                     loadFrames("speedyassasin", 5),
-                    5,
+                    6,
                     0.04,
                     60,
                     16
