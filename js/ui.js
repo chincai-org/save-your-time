@@ -136,6 +136,7 @@ function spawnControls() {
                     canUseMirror = false;
                     startCooldown("mirrorCooldown");
                     mirrorTimer =  Date.now() - cooldowns['mirrorCooldown'].startTime
+                    img.textContent = mirrorTimer
                     startCooldown("mirrorEnd");
                 }
             }
@@ -153,6 +154,7 @@ function spawnControls() {
                     canUseDoubleTrouble = false;
                     startCooldown("doubleTroubleCooldown");
                     doubleTroubleTimer = Date.now() - cooldowns['doubleTroubleCooldown'].startTime
+                    img.textContent = doubleTroubleTimer
                 }
             }
         },
@@ -169,6 +171,7 @@ function spawnControls() {
                     canUseTimeBomb = false;
                     startCooldown("timeBombCooldown");
                     timeBombTimer = Date.now() - cooldowns['timeBombCooldown'].startTime
+                    img.textContent = timeBombTimer
                 }
             }
         }
