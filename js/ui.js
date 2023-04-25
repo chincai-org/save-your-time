@@ -22,17 +22,20 @@ let shieldLevel = 0;
 let rewardBoosterLevel = 0;
 
 // TODO adjust max level
-let maxBulletSizeLevel = 30;
-let maxHelpingHandLevel = 10;
+let maxBulletSizeLevel = 5;
+let maxHelpingHandLevel = 5;
 let maxPowerupReloadtimeLevel = 10;
 let maxShieldLevel = 10;
 let maxRewardBoosterLevel = 30;
 
-let bulletSizeCost = 50;
-let helpingHandCost = 40;
-let powerupReloadTimeCost = 30;
+//adjust starting cost
+let bulletSizeCost = 40;
+let helpingHandCost = 60;
+let powerupReloadTimeCost = 50;
 let shieldCost = 40;
-let rewardBoosterCost = 30;
+let rewardBoosterCost = 40;
+
+let shieldtime = 15;
 
 function lost(score) {
     flashText.style.visibility = "visible";
@@ -210,13 +213,18 @@ shops.onclick = () => {
                     bulletSizeLevel < maxBulletSizeLevel
                 ) {
                     clock.takeDamage(bulletSizeCost);
-                    bulletSizeMultiplier += 0.1;
+                    bulletSizeMultiplier += 0.6;
                     bulletSizeLevel++;
                     level.textContent = `Level: ${bulletSizeLevel}`;
                     bulletSizeCost *= 1.25;
-                    upgradeButton.textContent = `Cost: ${Math.floor(
-                        bulletSizeCost
-                    )}sec`;
+
+                    if (bulletSizeLevel == maxBulletSizeLevel) {
+                        upgradeButton.textContent = `Max`
+                    } else {                        
+                        upgradeButton.textContent = `Cost: ${Math.floor(
+                            bulletSizeCost
+                        )}sec`;
+                    }
                 }
             }
         },
@@ -224,7 +232,7 @@ shops.onclick = () => {
             img: "assets/helpinghand.png",
             title: "Helping Hand",
             description:
-                "Add more hand that automatically shoot enemies. Maximum: 5",
+                "Add more hand that automatically shoot enemies.",
             level: helpingHandLevel,
             cost: helpingHandCost,
             onclick: (level, upgradeButton) => () => {
@@ -233,6 +241,19 @@ shops.onclick = () => {
                     helpingHandLevel < maxHelpingHandLevel
                 ) {
                     // TODO add helping hand
+                    clock.takeDamage(helpingHandCost);
+                    helpingHandLevel++;
+                    level.textContent = `Level: ${helpingHandLevel}`;
+                    helpingHandCost *= 1.25;
+                    if (helpingHandLevel == maxHelpingHandLevel) {
+                        upgradeButton.textContent = `Max`
+                    } else {
+                        upgradeButton.textContent = `Cost: ${Math.floor(
+                            helpingHandCost
+                        )}sec`;
+                    }
+
+                    clock.addHand();
                 }
             }
         },
@@ -251,9 +272,13 @@ shops.onclick = () => {
                     powerUpReloadTimeMultipler /= 1000; // ???, by upgrading this you get a higher reload time?
                     powerupReloadtimeLevel++;
                     powerupReloadTimeCost *= 1.25;
-                    upgradeButton.textContent = `Cost: ${Math.floor(
-                        powerupReloadTimeCost
-                    )}sec`;
+                    if (powerupReloadtimeLevel == maxPowerupReloadtimeLevel) {
+                        upgradeButton.textContent = `Max`
+                    } else {
+                        upgradeButton.textContent = `Cost: ${Math.floor(
+                            powerupReloadTimeCost
+                        )}sec`;
+                    }
                     level.textContent = `Level: ${powerupReloadtimeLevel}`;
                 }
             }
@@ -272,12 +297,16 @@ shops.onclick = () => {
                     clock.takeDamage(shieldCost);
                     shieldLevel++;
                     shieldCost *= 1.25;
-                    upgradeButton.textContent = `Cost: ${Math.floor(
-                        shieldCost
-                    )}sec`;
+                    if (shieldLevel == maxShieldLevel) {
+                        upgradeButton.textContent = `Max`
+                    } else {
+                        upgradeButton.textContent = `Cost: ${Math.floor(
+                            shieldCost
+                        )}sec`;
+                    }
                     level.textContent = `Level: ${shieldLevel}`;
 
-                    shield = new Shield(15);
+                    shield = new Shield(shieldtime * shieldLevel);
                     //TODO shield
                 }
             }
@@ -298,9 +327,13 @@ shops.onclick = () => {
                     rewardMulitplier += 0.2;
                     rewardBoosterLevel++;
                     rewardBoosterCost *= 1.25;
-                    upgradeButton.textContent = `Cost: ${Math.floor(
-                        rewardBoosterCost
-                    )}sec`;
+                    if (rewardBoosterCost == maxRewardBoosterLevel) {
+                        upgradeButton.textContent = `Max`
+                    } else {
+                        upgradeButton.textContent = `Cost: ${Math.floor(
+                            rewardBoosterCost
+                        )}sec`;
+                        }
                     level.textContent = `Level: ${rewardBoosterLevel}`;
                 }
             }
