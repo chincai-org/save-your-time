@@ -100,7 +100,7 @@ let score = 0;
 
 const cooldowns = {
     mirrorCooldown: {
-        duration: 5_000, //180
+        duration: 180_000, //180
         startTime: null,
         timerId: null,
         onCooldownEnd: () => {
@@ -111,7 +111,7 @@ const cooldowns = {
         }
     },
     timeBombCooldown: {
-        duration: 3_000, //600
+        duration: 600_000, //600
         startTime: null,
         timerId: null,
         onCooldownEnd: () => {
@@ -124,7 +124,7 @@ const cooldowns = {
         }
     },
     doubleTroubleCooldown: {
-        duration: 3_000, //300
+        duration: 300_000, //300
         startTime: null,
         timerId: null,
         onCooldownEnd: () => {
