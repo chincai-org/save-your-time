@@ -66,7 +66,7 @@ let lastShoot = 0;
 let shootRate = 250;
 
 let bulletSizeMultiplier = 1;
-let powerUpReloadTimeMultipler = 1;
+let powerUpReloadTimeMultiplier = 1;
 let rewardMulitplier = 1;
 
 const projectiles = [];
@@ -491,7 +491,9 @@ function copyImage(img) {
 function startCooldown(cooldownName) {
     const cooldown = cooldowns[cooldownName];
     cooldown.startTime = Date.now();
-    const remainingTime = cooldown.duration - (Date.now() - cooldown.startTime);
+    const remainingTime =
+        cooldown.duration * powerUpReloadTimeMultiplier -
+        (Date.now() - cooldown.startTime);
     cooldown.timerId = setTimeout(() => {
         cooldown.onCooldownEnd();
     }, remainingTime);
@@ -500,7 +502,9 @@ function startCooldown(cooldownName) {
 function pauseCooldown(cooldownName) {
     const cooldown = cooldowns[cooldownName];
     clearTimeout(cooldown.timerId);
-    const remainingTime = cooldown.duration - (Date.now() - cooldown.startTime);
+    const remainingTime =
+        cooldown.duration * powerUpReloadTimeMultiplier -
+        (Date.now() - cooldown.startTime);
     cooldown.remainingTime = remainingTime > 0 ? remainingTime : 0;
 }
 

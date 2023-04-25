@@ -318,7 +318,7 @@ shops.onclick = () => {
                     powerupReloadtimeLevel < maxPowerupReloadtimeLevel
                 ) {
                     clock.takeDamage(powerupReloadTimeCost);
-                    powerUpReloadTimeMultipler /= 1000; // ???, by upgrading this you get a higher reload time?
+                    powerUpReloadTimeMultiplier /= 1000; // ???, by upgrading this you get a higher reload time?
                     powerupReloadtimeLevel++;
                     powerupReloadTimeCost *= 1.25;
                     if (powerupReloadtimeLevel == maxPowerupReloadtimeLevel) {
