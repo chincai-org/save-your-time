@@ -117,8 +117,10 @@ const cooldowns = {
         onCooldownEnd: () => {
             canUseTimeBomb = true;
 
-            let element = loadtexts[1];
-            if (element) element.style.opacity = "0";
+            let element = loadtexts[2];
+            if (element) {
+                element.style.opacity = "0";
+            };
         }
     },
     doubleTroubleCooldown: {
@@ -128,8 +130,10 @@ const cooldowns = {
         onCooldownEnd: () => {
             canUseDoubleTrouble = true;
 
-            let element = loadtexts[2];
-            if (element && !smallClock) element.style.opacity = "0";
+            let element = loadtexts[1];
+            if (element && !smallClock) {
+                element.style.opacity = "0";
+        };
         }
     },
     mirrorEnd: {

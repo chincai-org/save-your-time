@@ -21,11 +21,14 @@ class SmallClock extends Clock {
         textSize(15);
         text(this.formatTime(), this.x, this.y - 45);
     }
-
     kill() {
-        let element = document.getElementById("doubletrouble-powerup");
-        if (canUseDoubleTrouble) element.style.opacity = "1";
+        let element = loadtexts[1];
+        if (canUseDoubleTrouble) {
+            element.style.opacity = "0"
+            element.textContent = "";
+        };
 
         smallClock = null;
     }
+    
 }
