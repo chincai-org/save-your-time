@@ -14,7 +14,7 @@ const displayHighscore = document.getElementById("highscore");
 const startPage = document.querySelector(".start");
 const flashText = document.querySelector(".flash-text");
 const lose = document.querySelectorAll(".lose");
-let loadtexts = ['m','d','t']
+let loadtexts = ["m", "d", "t"];
 let bulletSizeLevel = 0;
 let helpingHandLevel = 0;
 let powerupReloadtimeLevel = 0;
@@ -38,9 +38,9 @@ let rewardBoosterCost = 40;
 let shieldtime = 15;
 
 //cooldown timer
-let mirrorTimer =  0
-let doubleTroubleTimer = 0
-let timeBombTimer = 0
+let mirrorTimer = 0;
+let doubleTroubleTimer = 0;
+let timeBombTimer = 0;
 
 function lost(score) {
     flashText.style.visibility = "visible";
@@ -125,12 +125,13 @@ function spawnControls() {
     const powerups = [
         {
             title: "Mirror",
-            description: "You can shoot enemies behind and in front of the clock hand",
+            description:
+                "You can shoot enemies behind and in front of the clock hand",
             img: "assets/mirror.png",
             id: "mirror-powerup",
             loadtextid: "mirror-load",
             checkAvailable: "canUseMirror",
-            
+
             onclick: img => () => {
                 if (canUseMirror && !mirror) {
                     img.style.visibility = "visible";
@@ -159,7 +160,8 @@ function spawnControls() {
         },
         {
             title: "Time Bomb",
-            description: "A bomb that that will kill all enemy in less than 5 seconds",
+            description:
+                "A bomb that that will kill all enemy in less than 5 seconds",
             img: "assets/timebomb.png",
             id: "timebomb-powerup",
             loadtextid: "timebomb-load",
@@ -195,16 +197,16 @@ function spawnControls() {
 
         const loadText = document.createElement("p");
         loadText.textContent = powerup.timer;
-        loadText.className = "powerup-load-text"
-        loadtexts[index] = (loadText)
-        
+        loadText.className = "powerup-load-text";
+        loadtexts[index] = loadText;
+
         const powerupImage = document.createElement("div");
         powerupImage.onclick = powerup.onclick(loadText);
 
         if (!eval(powerup.checkAvailable)) {
             loadText.style.visibility = "visible";
         }
-        
+
         powerupImage.appendChild(img);
         powerupImage.appendChild(loadText);
         article.appendChild(powerupImage);
@@ -214,22 +216,34 @@ function spawnControls() {
 }
 
 setInterval(function () {
-    timeBombTimer = Math.floor((cooldowns['timeBombCooldown'].duration - (Date.now() - cooldowns['timeBombCooldown'].startTime))/1000);
-    loadtexts[2].textContent = timeBombTimer
-},
-)
+    if (canUseTimeBomb) return;
+    timeBombTimer = Math.floor(
+        (cooldowns["timeBombCooldown"].duration -
+            (Date.now() - cooldowns["timeBombCooldown"].startTime)) /
+            1000
+    );
+    loadtexts[2].textContent = timeBombTimer;
+});
 
 setInterval(function () {
-    doubleTroubleTimer = Math.floor((cooldowns['doubleTroubleCooldown'].duration - (Date.now() - cooldowns['doubleTroubleCooldown'].startTime))/1000);
-    loadtexts[1].textContent = doubleTroubleTimer
-},
-)
+    if (canUseDoubleTrouble) return;
+    doubleTroubleTimer = Math.floor(
+        (cooldowns["doubleTroubleCooldown"].duration -
+            (Date.now() - cooldowns["doubleTroubleCooldown"].startTime)) /
+            1000
+    );
+    loadtexts[1].textContent = doubleTroubleTimer;
+});
 
 setInterval(function () {
-    mirrorTimer =  Math.floor((cooldowns['mirrorCooldown'].duration - (Date.now() - cooldowns['mirrorCooldown'].startTime))/1000);
-    loadtexts[0].textContent = mirrorTimer
-},
-)
+    if (canUseMirror) return;
+    mirrorTimer = Math.floor(
+        (cooldowns["mirrorCooldown"].duration -
+            (Date.now() - cooldowns["mirrorCooldown"].startTime)) /
+            1000
+    );
+    loadtexts[0].textContent = mirrorTimer;
+});
 
 shops.onclick = () => {
     mainUi.innerHTML = "";
@@ -255,8 +269,8 @@ shops.onclick = () => {
                     bulletSizeCost *= 1.25;
 
                     if (bulletSizeLevel == maxBulletSizeLevel) {
-                        upgradeButton.textContent = `Max`
-                    } else {                        
+                        upgradeButton.textContent = `Max`;
+                    } else {
                         upgradeButton.textContent = `Cost: ${Math.floor(
                             bulletSizeCost
                         )}sec`;
@@ -267,8 +281,7 @@ shops.onclick = () => {
         {
             img: "assets/helpinghand.png",
             title: "Helping Hand",
-            description:
-                "Add more hand that automatically shoot enemies.",
+            description: "Add more hand that automatically shoot enemies.",
             level: helpingHandLevel,
             cost: helpingHandCost,
             onclick: (level, upgradeButton) => () => {
@@ -282,7 +295,7 @@ shops.onclick = () => {
                     level.textContent = `Level: ${helpingHandLevel}`;
                     helpingHandCost *= 1.25;
                     if (helpingHandLevel == maxHelpingHandLevel) {
-                        upgradeButton.textContent = `Max`
+                        upgradeButton.textContent = `Max`;
                     } else {
                         upgradeButton.textContent = `Cost: ${Math.floor(
                             helpingHandCost
@@ -309,7 +322,7 @@ shops.onclick = () => {
                     powerupReloadtimeLevel++;
                     powerupReloadTimeCost *= 1.25;
                     if (powerupReloadtimeLevel == maxPowerupReloadtimeLevel) {
-                        upgradeButton.textContent = `Max`
+                        upgradeButton.textContent = `Max`;
                     } else {
                         upgradeButton.textContent = `Cost: ${Math.floor(
                             powerupReloadTimeCost
@@ -334,7 +347,7 @@ shops.onclick = () => {
                     shieldLevel++;
                     shieldCost *= 1.25;
                     if (shieldLevel == maxShieldLevel) {
-                        upgradeButton.textContent = `Max`
+                        upgradeButton.textContent = `Max`;
                     } else {
                         upgradeButton.textContent = `Cost: ${Math.floor(
                             shieldCost
@@ -364,12 +377,12 @@ shops.onclick = () => {
                     rewardBoosterLevel++;
                     rewardBoosterCost *= 1.25;
                     if (rewardBoosterCost == maxRewardBoosterLevel) {
-                        upgradeButton.textContent = `Max`
+                        upgradeButton.textContent = `Max`;
                     } else {
                         upgradeButton.textContent = `Cost: ${Math.floor(
                             rewardBoosterCost
                         )}sec`;
-                        }
+                    }
                     level.textContent = `Level: ${rewardBoosterLevel}`;
                 }
             }
