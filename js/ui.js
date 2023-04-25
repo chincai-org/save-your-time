@@ -24,7 +24,7 @@ let rewardBoosterLevel = 0;
 // TODO adjust max level
 let maxBulletSizeLevel = 5;
 let maxHelpingHandLevel = 5;
-let maxPowerupReloadtimeLevel = 10;
+let maxPowerupReloadtimeLevel = 5;
 let maxShieldLevel = 10;
 let maxRewardBoosterLevel = 10;
 
@@ -36,6 +36,7 @@ let shieldCost = 40;
 let rewardBoosterCost = 40;
 
 let shieldtime = 15;
+let maxhealth = 15
 
 //cooldown timer
 let mirrorTimer = 0;
@@ -360,7 +361,6 @@ shops.onclick = () => {
                         )}sec`;
                     }
                     level.textContent = `Level: ${shieldLevel}`;
-
                     shield = new Shield(shieldtime * shieldLevel);
                     //TODO shield
                 }
