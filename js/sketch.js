@@ -43,6 +43,10 @@ let clickSound;
 let shootSound;
 let enemyHurtSound;
 
+let normalFrames = [];
+let speedyFrames = [];
+let assassinFrames = [];
+
 let canUseMirror = true;
 let canUseTimeBomb = true;
 let canUseDoubleTrouble = true;
@@ -156,6 +160,10 @@ function preload() {
     clickSound.setVolume(10);
     shootSound.setVolume(10);
     enemyHurtSound.setVolume(10);
+
+    normalFrames = loadFrames("normal", 3);
+    speedyFrames = loadFrames("speedy", 5);
+    assassinFrames = loadFrames("assassin", 3);
 }
 
 function setup() {
@@ -451,6 +459,29 @@ function loadFrames(name, frameAmount) {
     return Array(frameAmount)
         .fill()
         .map((_, i) => loadImage(`assets/${name}/sprite_${i}.png`));
+}
+
+function resizeFrames(frames, width, height) {
+    return frames.map(frame => {
+        frame.resize(width, height);
+        return frame;
+    });
+}
+
+function copyImage(img) {
+    resultImg = createImage(img.width, img.height);
+    resultImg.copy(
+        img,
+        0,
+        0,
+        img.width,
+        img.height,
+        0,
+        0,
+        img.width,
+        img.height
+    );
+    return resultImg;
 }
 
 function startCooldown(cooldownName) {

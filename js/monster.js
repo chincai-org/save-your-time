@@ -21,17 +21,7 @@ class Monster extends Sprite {
     }
 
     static normal(x, y, vector) {
-        return new Monster(
-            x,
-            y,
-            vector,
-            30,
-            loadFrames("normal", 3),
-            5,
-            0.02,
-            20,
-            6
-        );
+        return new Monster(x, y, vector, 30, normalFrames, 5, 0.02, 20, 6);
     }
 
     static epic(x, y, vector, choice) {
@@ -42,7 +32,7 @@ class Monster extends Sprite {
                     y,
                     vector,
                     40,
-                    loadFrames("placeholder", 1),
+                    resizeFrames(normalFrames.map(copyImage), 45, 45),
                     25,
                     0.017,
                     15,
@@ -54,7 +44,7 @@ class Monster extends Sprite {
                     y,
                     vector,
                     30,
-                    loadFrames("speedy", 5),
+                    speedyFrames,
                     4,
                     0.05,
                     10,
@@ -66,7 +56,7 @@ class Monster extends Sprite {
                     y,
                     vector,
                     30,
-                    loadFrames("assassin", 3),
+                    assassinFrames,
                     5,
                     0.02,
                     60,
@@ -78,7 +68,7 @@ class Monster extends Sprite {
                     y,
                     vector,
                     24,
-                    loadFrames("normal", 3),
+                    normalFrames,
                     4,
                     0.02,
                     10,
@@ -96,7 +86,7 @@ class Monster extends Sprite {
                     y,
                     vector,
                     40,
-                    loadFrames("placeholder", 1),
+                    resizeFrames(speedyFrames.map(copyImage), 45, 45),
                     25,
                     0.0335,
                     15,
@@ -120,7 +110,7 @@ class Monster extends Sprite {
                     y,
                     vector,
                     40,
-                    loadFrames("placeholder", 1),
+                    resizeFrames(assassinFrames.map(copyImage), 45, 45),
                     25,
                     0.0235,
                     60,
