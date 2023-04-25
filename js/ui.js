@@ -318,7 +318,7 @@ shops.onclick = () => {
                     powerupReloadtimeLevel < maxPowerupReloadtimeLevel
                 ) {
                     clock.takeDamage(powerupReloadTimeCost);
-                    powerUpReloadTimeMultiplier *= 0.7;
+                    powerUpReloadTimeMultiplier *= 0.5;
                     powerupReloadtimeLevel++;
                     powerupReloadTimeCost = Math.floor(
                         powerupReloadTimeCost * 1.25
