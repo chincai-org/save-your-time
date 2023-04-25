@@ -120,7 +120,7 @@ const cooldowns = {
             let element = loadtexts[2];
             if (element) {
                 element.style.visibility = "hidden";
-            };
+            }
         }
     },
     doubleTroubleCooldown: {
@@ -133,11 +133,11 @@ const cooldowns = {
             let element = loadtexts[1];
             if (element && !smallClock) {
                 element.style.visibility = "hidden";
-        } else if (element && smallClock) {
-            if (element.textContent == 0) {
-                element.textContent = "";
+            } else if (element && smallClock) {
+                if (element.textContent == 0) {
+                    element.textContent = "";
+                }
             }
-        }
         }
     },
     mirrorEnd: {
@@ -515,6 +515,8 @@ function pauseCooldown(cooldownName) {
 function resumeCooldown(cooldownName) {
     const cooldown = cooldowns[cooldownName];
     if (cooldown.remainingTime > 0) {
+        cooldown.startTime =
+            Date.now() - cooldown.duration + cooldown.remainingTime;
         cooldown.timerId = setTimeout(() => {
             cooldown.onCooldownEnd();
         }, cooldown.remainingTime);
