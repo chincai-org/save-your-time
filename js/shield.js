@@ -16,8 +16,10 @@ class Shield extends Sprite {
     update() {
         let now = Date.now();
         if (now - this.lastHeal > shieldHealRate) {
-            this.health += shieldHeal;
-            this.lastHeal = now;
+            if (this.health < maxhealth * shieldLevel) {
+                this.health += shieldHeal;
+                this.lastHeal = now;
+            }
         }
     }
 
