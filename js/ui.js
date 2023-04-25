@@ -37,6 +37,11 @@ let rewardBoosterCost = 40;
 
 let shieldtime = 15;
 
+//cooldown timer
+let mirrorTimer =  0
+let doubleTroubleTimer = 0
+let timeBombTimer = 0
+
 function lost(score) {
     flashText.style.visibility = "visible";
     [...lose].forEach(el => {
@@ -126,10 +131,11 @@ function spawnControls() {
             checkAvailable: "canUseMirror",
             onclick: img => () => {
                 if (canUseMirror && !mirror) {
-                    img.style.opacity = "0.5";
+                    img.style.visibility = "visible";
                     mirror = true;
                     canUseMirror = false;
                     startCooldown("mirrorCooldown");
+                    mirrorTimer =  Date.now() - cooldowns['mirrorCooldown'].startTime
                     startCooldown("mirrorEnd");
                 }
             }
@@ -142,10 +148,11 @@ function spawnControls() {
             checkAvailable: "canUseDoubleTrouble && !smallClock",
             onclick: img => () => {
                 if (canUseDoubleTrouble && !smallClock) {
-                    img.style.opacity = "0.5";
+                    img.style.visibility = "visible";
                     smallClock = new SmallClock();
                     canUseDoubleTrouble = false;
                     startCooldown("doubleTroubleCooldown");
+                    doubleTroubleTimer = Date.now() - cooldowns['doubleTroubleCooldown'].startTime
                 }
             }
         },
@@ -157,10 +164,11 @@ function spawnControls() {
             checkAvailable: "canUseTimeBomb",
             onclick: img => () => {
                 if (canUseTimeBomb && !timeBomb) {
-                    img.style.opacity = "0.5";
+                    img.style.visibility = "visible";
                     timeBomb = new TimeBomb();
                     canUseTimeBomb = false;
                     startCooldown("timeBombCooldown");
+                    timeBombTimer = Date.now() - cooldowns['timeBombCooldown'].startTime
                 }
             }
         }
@@ -183,13 +191,22 @@ function spawnControls() {
         img.id = powerup.id;
         img.className = "powerup-img";
         img.setAttribute("src", powerup.img);
-        img.onclick = powerup.onclick(img);
+
+        const loadText = document.createElement("p");
+        loadText.textContent = powerup.timer;
+        loadText.className = "powerup-load-text"
+        article.appendChild(loadText)
 
         if (!eval(powerup.checkAvailable)) {
-            img.style.opacity = "0.5";
+            loadText.style.visibility = "visible";
         }
 
-        article.appendChild(img);
+        const powerupImage = document.createElement("div");
+        powerupImage.onclick = powerup.onclick(loadText);
+        powerupImage.appendChild(img);
+        powerupImage.appendChild(loadText);
+        
+        article.appendChild(powerupImage);
         powerupsSection.appendChild(article);
     });
     mainUi.appendChild(powerupsSection);
