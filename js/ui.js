@@ -33,7 +33,7 @@ let bulletSizeCost = 40;
 let helpingHandCost = 180;
 let powerupReloadTimeCost = 50;
 let shieldCost = 40;
-let rewardBoosterCost = 40;
+let rewardBoosterCost = 100;
 
 let shieldTime = 15;
 let shieldMaxHealth = 15;
@@ -271,6 +271,7 @@ shops.onclick = () => {
                     bulletSizeCost = Math.floor(bulletSizeCost * 1.25);
 
                     if (bulletSizeLevel == maxBulletSizeLevel) {
+                        bulletSizeCost = `Max`;
                         upgradeButton.textContent = `Max`;
                     } else {
                         upgradeButton.textContent = `Cost: ${Math.floor(
@@ -297,6 +298,7 @@ shops.onclick = () => {
                     level.textContent = `Level: ${helpingHandLevel}`;
                     helpingHandCost = Math.floor(helpingHandCost * 1.25);
                     if (helpingHandLevel == maxHelpingHandLevel) {
+                        bulletSizeCost = `Max`;
                         upgradeButton.textContent = `Max`;
                     } else {
                         upgradeButton.textContent = `Cost: ${Math.floor(
@@ -326,6 +328,7 @@ shops.onclick = () => {
                         powerupReloadTimeCost * 1.25
                     );
                     if (powerupReloadtimeLevel == maxPowerupReloadtimeLevel) {
+                        bulletSizeCost = `Max`;
                         upgradeButton.textContent = `Max`;
                     } else {
                         upgradeButton.textContent = `Cost: ${Math.floor(
@@ -357,6 +360,7 @@ shops.onclick = () => {
                     shieldLevel++;
                     shieldCost = Math.floor(shieldCost * 1.25);
                     if (shieldLevel == maxShieldLevel) {
+                        bulletSizeCost = `Max`;
                         upgradeButton.textContent = `Max`;
                     } else {
                         upgradeButton.textContent = `Cost: ${Math.floor(
@@ -385,6 +389,7 @@ shops.onclick = () => {
                     rewardBoosterLevel++;
                     rewardBoosterCost = Math.floor(rewardBoosterCost * 1.25);
                     if (rewardBoosterLevel == maxRewardBoosterLevel) {
+                        bulletSizeCost = `Max`;
                         upgradeButton.textContent = `Max`;
                     } else {
                         upgradeButton.textContent = `Cost: ${Math.floor(
