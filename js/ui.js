@@ -66,7 +66,7 @@ window.onkeydown = e => {
 
 playBtn.onclick = () => {
     [...startPage].forEach(el => (el.style.visibility = "hidden"));
-    [...startPage].forEach(el => (el.classList.add("absolute")));
+    [...startPage].forEach(el => el.classList.add("absolute"));
     playBtn.style.visibility = "hidden";
     flashText.style.visibility = "hidden";
     start = true;
@@ -258,6 +258,7 @@ shops.onclick = () => {
             title: "Bullet Size",
             description: "Increase size of bullet",
             level: bulletSizeLevel,
+            maxLevel: maxBulletSizeLevel,
             cost: bulletSizeCost,
             onclick: (level, upgradeButton) => () => {
                 if (
@@ -286,6 +287,7 @@ shops.onclick = () => {
             title: "Helping Hand",
             description: "Add more hand that automatically shoot enemies.",
             level: helpingHandLevel,
+            maxLevel: maxHelpingHandLevel,
             cost: helpingHandCost,
             onclick: (level, upgradeButton) => () => {
                 if (
@@ -315,6 +317,7 @@ shops.onclick = () => {
             title: "Powerup Reload Time",
             description: "Speed up reload time of powerups.",
             level: powerupReloadtimeLevel,
+            maxLevel: maxPowerupReloadtimeLevel,
             cost: powerupReloadTimeCost,
             onclick: (level, upgradeButton) => () => {
                 if (
@@ -328,7 +331,6 @@ shops.onclick = () => {
                         powerupReloadTimeCost * 1.25
                     );
                     if (powerupReloadtimeLevel == maxPowerupReloadtimeLevel) {
-                        bulletSizeCost = `Max`;
                         upgradeButton.textContent = `Max`;
                     } else {
                         upgradeButton.textContent = `Cost: ${Math.floor(
@@ -348,6 +350,7 @@ shops.onclick = () => {
             title: "Shield",
             description: "Add a shield around the clock to protect it.",
             level: shieldLevel,
+            maxLevel: maxShieldLevel,
             cost: shieldCost,
             levelid: "shield-level",
             btnid: "shield-btn",
@@ -360,7 +363,6 @@ shops.onclick = () => {
                     shieldLevel++;
                     shieldCost = Math.floor(shieldCost * 1.25);
                     if (shieldLevel == maxShieldLevel) {
-                        bulletSizeCost = `Max`;
                         upgradeButton.textContent = `Max`;
                     } else {
                         upgradeButton.textContent = `Cost: ${Math.floor(
@@ -378,6 +380,7 @@ shops.onclick = () => {
             description:
                 "Increase the amount of time gain after killing enemies.",
             level: rewardBoosterLevel,
+            maxLevel: maxRewardBoosterLevel,
             cost: rewardBoosterCost,
             onclick: (level, upgradeButton) => () => {
                 if (
@@ -389,7 +392,6 @@ shops.onclick = () => {
                     rewardBoosterLevel++;
                     rewardBoosterCost = Math.floor(rewardBoosterCost * 1.25);
                     if (rewardBoosterLevel == maxRewardBoosterLevel) {
-                        bulletSizeCost = `Max`;
                         upgradeButton.textContent = `Max`;
                     } else {
                         upgradeButton.textContent = `Cost: ${Math.floor(
@@ -446,17 +448,20 @@ shops.onclick = () => {
         // Create a paragraph element for the level
         const level = document.createElement("p");
         level.textContent = `Level: ${upgrade.level}`;
-        
+
         // Create a div element for the upgrade button
         const upgradeButton = document.createElement("div");
         upgradeButton.classList.add("upgrade-button");
-        upgradeButton.textContent = `Cost: ${upgrade.cost}sec`;
+        upgradeButton.textContent =
+            upgrade.level == upgrade.maxLevel
+                ? `Max`
+                : `Cost: ${upgrade.cost}sec`;
 
         if (upgrade.levelid && upgrade.btnid) {
             level.id = upgrade.levelid;
             upgradeButton.id = upgrade.btnid;
         }
-        
+
         article.appendChild(level);
         // Set the onclick event for the upgrade button
         upgradeButton.onclick = upgrade.onclick(level, upgradeButton);
