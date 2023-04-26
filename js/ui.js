@@ -30,7 +30,7 @@ let maxRewardBoosterLevel = 10;
 
 //adjust starting cost
 let bulletSizeCost = 40;
-let helpingHandCost = 60;
+let helpingHandCost = 180;
 let powerupReloadTimeCost = 50;
 let shieldCost = 40;
 let rewardBoosterCost = 40;
@@ -352,7 +352,7 @@ shops.onclick = () => {
                     clock.health >= shieldCost &&
                     shieldLevel < maxShieldLevel
                 ) {
-                    clock.takeDamage(shieldCost);
+                    // clock.takeDamage(shieldCost);
                     shieldLevel++;
                     shieldCost = Math.floor(shieldCost * 1.25);
                     if (shieldLevel == maxShieldLevel) {
