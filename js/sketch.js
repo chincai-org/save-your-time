@@ -106,7 +106,7 @@ const cooldowns = {
         onCooldownEnd: () => {
             canUseMirror = true;
 
-            let element = loadtexts[0];
+            let element = loadTexts[0];
             if (element) element.style.visibility = "hidden";
         }
     },
@@ -117,7 +117,7 @@ const cooldowns = {
         onCooldownEnd: () => {
             canUseTimeBomb = true;
 
-            let element = loadtexts[2];
+            let element = loadTexts[2];
             if (element) {
                 element.style.visibility = "hidden";
             }
@@ -130,7 +130,7 @@ const cooldowns = {
         onCooldownEnd: () => {
             canUseDoubleTrouble = true;
 
-            let element = loadtexts[1];
+            let element = loadTexts[1];
             if (element && !smallClock) {
                 element.style.visibility = "hidden";
             } else if (element && smallClock) {

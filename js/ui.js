@@ -14,7 +14,7 @@ const displayHighscore = document.getElementById("highscore");
 const startPage = document.querySelectorAll(".start");
 const flashText = document.querySelector(".flash-text");
 const lose = document.querySelectorAll(".lose");
-let loadtexts = ["m", "d", "t"];
+let loadTexts = ["m", "d", "t"];
 let bulletSizeLevel = 0;
 let helpingHandLevel = 0;
 let powerupReloadtimeLevel = 0;
@@ -35,8 +35,8 @@ let powerupReloadTimeCost = 50;
 let shieldCost = 40;
 let rewardBoosterCost = 40;
 
-let shieldtime = 15;
-let maxhealth = 15
+let shieldTime = 15;
+let shieldMaxHealth = 15;
 
 //cooldown timer
 let mirrorTimer = 0;
@@ -199,7 +199,7 @@ function spawnControls() {
         const loadText = document.createElement("p");
         loadText.textContent = powerup.timer;
         loadText.className = "powerup-load-text";
-        loadtexts[index] = loadText;
+        loadTexts[index] = loadText;
 
         const powerupImage = document.createElement("div");
         powerupImage.onclick = powerup.onclick(loadText);
@@ -223,7 +223,7 @@ setInterval(function () {
             (Date.now() - cooldowns["timeBombCooldown"].startTime)) /
             1000
     );
-    loadtexts[2].textContent = timeBombTimer;
+    loadTexts[2].textContent = timeBombTimer;
 });
 
 setInterval(function () {
@@ -233,7 +233,7 @@ setInterval(function () {
             (Date.now() - cooldowns["doubleTroubleCooldown"].startTime)) /
             1000
     );
-    loadtexts[1].textContent = doubleTroubleTimer;
+    loadTexts[1].textContent = doubleTroubleTimer;
 });
 
 setInterval(function () {
@@ -243,7 +243,7 @@ setInterval(function () {
             (Date.now() - cooldowns["mirrorCooldown"].startTime)) /
             1000
     );
-    loadtexts[0].textContent = mirrorTimer;
+    loadTexts[0].textContent = mirrorTimer;
 });
 
 shops.onclick = () => {
@@ -361,7 +361,7 @@ shops.onclick = () => {
                         )}sec`;
                     }
                     level.textContent = `Level: ${shieldLevel}`;
-                    shield = new Shield(shieldtime * shieldLevel);
+                    shield = new Shield(shieldTime * shieldLevel);
                     //TODO shield
                 }
             }
