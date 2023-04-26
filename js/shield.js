@@ -44,5 +44,9 @@ class Shield extends Sprite {
 
     kill() {
         shield = null;
+        shieldCost = 40
+        shieldLevel = 0
+        document.getElementById("shield-btn").textContent = `Cost: ${shieldCost}sec`;
+        document.getElementById("shield-level").textContent = `Level: ${shieldLevel}`;
     }
 }

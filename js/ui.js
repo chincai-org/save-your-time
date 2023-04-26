@@ -345,6 +345,8 @@ shops.onclick = () => {
             description: "Add a shield around the clock to protect it.",
             level: shieldLevel,
             cost: shieldCost,
+            levelid: "shield-level",
+            btnid: "shield-btn",
             onclick: (level, upgradeButton) => () => {
                 if (
                     clock.health >= shieldCost &&
@@ -352,7 +354,7 @@ shops.onclick = () => {
                 ) {
                     clock.takeDamage(shieldCost);
                     shieldLevel++;
-                    shieldCost *= 1.25;
+                    shieldCost = Math.floor(shieldCost * 1.25);
                     if (shieldLevel == maxShieldLevel) {
                         upgradeButton.textContent = `Max`;
                     } else {
@@ -362,7 +364,6 @@ shops.onclick = () => {
                     }
                     level.textContent = `Level: ${shieldLevel}`;
                     shield = new Shield(shieldTime * shieldLevel);
-                    //TODO shield
                 }
             }
         },
@@ -381,7 +382,7 @@ shops.onclick = () => {
                     clock.takeDamage(rewardBoosterCost);
                     rewardMulitplier += 0.4;
                     rewardBoosterLevel++;
-                    rewardBoosterCost *= 1.25;
+                    rewardBoosterCost = Math.floor(rewardBoosterCost * 1.25);
                     if (rewardBoosterLevel == maxRewardBoosterLevel) {
                         upgradeButton.textContent = `Max`;
                     } else {
@@ -439,13 +440,18 @@ shops.onclick = () => {
         // Create a paragraph element for the level
         const level = document.createElement("p");
         level.textContent = `Level: ${upgrade.level}`;
-        article.appendChild(level);
-
+        
         // Create a div element for the upgrade button
         const upgradeButton = document.createElement("div");
         upgradeButton.classList.add("upgrade-button");
         upgradeButton.textContent = `Cost: ${upgrade.cost}sec`;
 
+        if (upgrade.levelid && upgrade.btnid) {
+            level.id = upgrade.levelid;
+            upgradeButton.id = upgrade.btnid;
+        }
+        
+        article.appendChild(level);
         // Set the onclick event for the upgrade button
         upgradeButton.onclick = upgrade.onclick(level, upgradeButton);
         article.appendChild(upgradeButton);
