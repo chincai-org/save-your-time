@@ -267,3 +267,11 @@ nav div:hover {
     color: white;
     opacity: 0.7;
 }
+
+.relative {
+    position: relative;
+}
+
+.absolute {
+    position: absolute;
+}

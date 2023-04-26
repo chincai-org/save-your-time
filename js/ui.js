@@ -66,6 +66,7 @@ window.onkeydown = e => {
 
 playBtn.onclick = () => {
     [...startPage].forEach(el => (el.style.visibility = "hidden"));
+    [...startPage].forEach(el => (el.classList.add("absolute")));
     playBtn.style.visibility = "hidden";
     flashText.style.visibility = "hidden";
     start = true;
