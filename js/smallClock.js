@@ -22,12 +22,11 @@ class SmallClock extends Clock {
         text(this.formatTime(), this.x, this.y - 45);
     }
     kill() {
-        let element = loadtexts[1];
+        let element = loadTexts[1];
         if (canUseDoubleTrouble) {
-            element.style.opacity = "0"
-        };
+            element.style.opacity = "0";
+        }
 
         smallClock = null;
     }
-    
 }
