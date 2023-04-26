@@ -4,8 +4,6 @@ This game is made for the [Gamedev.js Jam 2023](https://itch.io/jam/gamedevjs-20
 
 ## Intro
 
-This game is originally made for [gamedev.js jam 2023](https://itch.io/jam/gamedevjs-2023)
-
 In a world where time is everything, a powerful clock at the center of the universe is the only source of time. However, an army of greedy monsters want to steal time from the clock.
 
 As the controller of the clock, you are the last line of defense against an never-ending invasion of time-wasting monsters that threaten to steal time and create chaos in the universe. With your quick reflexes and precise aiming, you fire powerful time vortexes from the clock's hands to defeat the monsters that are approaching from all directions.
