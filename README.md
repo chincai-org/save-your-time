@@ -4,6 +4,8 @@ This game is made for the [Gamedev.js Jam 2023](https://itch.io/jam/gamedevjs-20
 
 ## Intro
 
+This game is originally made for [gamedev.js jam 2023](https://itch.io/jam/gamedevjs-2023)
+
 In a world where time is everything, a powerful clock at the center of the universe is the only source of time. However, an army of greedy monsters want to steal time from the clock.
 
 As the controller of the clock, you are the last line of defense against an never-ending invasion of time-wasting monsters that threaten to steal time and create chaos in the universe. With your quick reflexes and precise aiming, you fire powerful time vortexes from the clock's hands to defeat the monsters that are approaching from all directions.
@@ -20,22 +22,23 @@ In this game, you control a clock and monsters will come at you from all directi
 
 ### Shooting
 
-To shoot enemies, you can click on the screen or press the <kbd>SPACE</kbd> key. The projectiles will come out from each hand of the clock.
+To shoot enemies, you can <kbd>left-click</kbd> on the screen or press the <kbd>SPACE</kbd> key. The projectiles will come out from each hand of the clock.
 
 ### Aiming
 
 You can aim by adjusting the time on the sidebar. Alternatively, you can use the keyboard to adjust the time. If you look at your numpad, you can imagine the <kbd>4</kbd>, <kbd>5</kbd>, <kbd>6</kbd>, <kbd>1</kbd>, <kbd>2</kbd>, <kbd>3</kbd> keys to be aligned with the arrows on the sidebar. To use this shortcut, you must have the num lock on. <kbd>Q</kbd>, <kbd>A</kbd>, <kbd>W</kbd>, <kbd>S</kbd>, <kbd>E</kbd>, <kbd>D</kbd> keys are also an option and they are aligned with the arrows on the sidebar.
 
-### Aim table
+### Controls table
 
-| Type        | Keys                               |
-| ----------- | ---------------------------------- |
-| second-up   | numpad <kbd>4</kbd> & <kbd>q</kbd> |
-| second-down | numpad <kbd>1</kbd> & <kbd>a</kbd> |
-| minute-up   | numpad <kbd>5</kbd> & <kbd>w</kbd> |
-| minute-down | numpad <kbd>2</kbd> & <kbd>s</kbd> |
-| hour-up     | numpad <kbd>6</kbd> & <kbd>e</kbd> |
-| hour-down   | numpad <kbd>3</kbd> & <kbd>d</kbd> |
+| Type        | Keys                                       |
+| ----------- | -------------------------------------------|
+| second-up   | numpad <kbd>4</kbd> & <kbd>q</kbd>         |
+| second-down | numpad <kbd>1</kbd> & <kbd>a</kbd>         |
+| minute-up   | numpad <kbd>5</kbd> & <kbd>w</kbd>         |
+| minute-down | numpad <kbd>2</kbd> & <kbd>s</kbd>         |
+| hour-up     | numpad <kbd>6</kbd> & <kbd>e</kbd>         |
+| hour-down   | numpad <kbd>3</kbd> & <kbd>d</kbd>         |
+| shoot       | <kbd>space</kbd>    & <kbd>left-click</kbd>|
 
 ### Rewards
 
@@ -71,11 +74,11 @@ Upgrades that will boost your survival from the never-ending waves of monsters!
 
 | Type                                                        | Cost(second) | Max level | Description                                                |
 | ----------------------------------------------------------- | ------------ | --------- | ---------------------------------------------------------- |
-| Bullet size ![](/assets/bulletsize.png)                     | 50           | 30        | Increase size of bullet                                    |
-| Helping hand ![](/assets/helpinghand.png)                   | 40           | 10        | Add more hand that automatically shoot enemies. Maximum: 5 |
-| Decrease powerup cooldown![](/assets/powerupreloadtime.png) | 30           | 10        | Speed up reload time of powerups.                          |
+| Bullet size ![](/assets/bulletsize.png)                     | 50           | 5        | Increase size of bullet                                    |
+| Helping hand ![](/assets/helpinghand.png)                   | 40           | 5        | Add more hand that automatically shoot enemies. Maximum: 5 |
+| Decrease powerup cooldown![](/assets/powerupreloadtime.png) | 30           | 5        | Speed up reload time of powerups.                          |
 | Shield ![](/assets/shield.png)                              | 40           | 10        | Add a shield around the clock to protect it.               |
-| Reward booster ![](/assets/rewardbooster.png)               | 30           | 30        | Increase the amount of time gain after killing enemies     |
+| Reward booster ![](/assets/rewardbooster.png)               | 30           | 10        | Increase the amount of time gain after killing enemies     |
 
 ## Creators:
 
