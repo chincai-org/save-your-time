@@ -29,11 +29,11 @@ let maxShieldLevel = 10;
 let maxRewardBoosterLevel = 10;
 
 //adjust starting cost
-let bulletSizeCost = 40;
+let bulletSizeCost = 60;
 let helpingHandCost = 180;
-let powerupReloadTimeCost = 50;
+let powerupReloadTimeCost = 120;
 let shieldCost = 40;
-let rewardBoosterCost = 100;
+let rewardBoosterCost = 50;
 
 let shieldTime = 15;
 let shieldMaxHealth = 15;
