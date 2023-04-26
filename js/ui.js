@@ -382,7 +382,7 @@ shops.onclick = () => {
                     rewardMulitplier += 0.4;
                     rewardBoosterLevel++;
                     rewardBoosterCost *= 1.25;
-                    if (rewardBoosterCost == maxRewardBoosterLevel) {
+                    if (rewardBoosterLevel == maxRewardBoosterLevel) {
                         upgradeButton.textContent = `Max`;
                     } else {
                         upgradeButton.textContent = `Cost: ${Math.floor(
