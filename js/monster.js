@@ -21,7 +21,7 @@ class Monster extends Sprite {
     }
 
     static normal(x, y, vector) {
-        return new Monster(x, y, vector, 30, normalFrames, 6, 0.02, 20, 6);
+        return new Monster(x, y, vector, 30, normalFrames, 15, 0.02, 20, 6);
     }
 
     static epic(x, y, vector, choice) {
@@ -33,7 +33,7 @@ class Monster extends Sprite {
                     vector,
                     40,
                     resizeFrames(normalFrames.map(copyImage), 45, 45),
-                    25,
+                    30,
                     0.017,
                     15,
                     15
@@ -45,7 +45,7 @@ class Monster extends Sprite {
                     vector,
                     30,
                     speedyFrames,
-                    4,
+                    10,
                     0.05,
                     10,
                     7
@@ -57,7 +57,7 @@ class Monster extends Sprite {
                     vector,
                     30,
                     assassinFrames,
-                    6,
+                    15,
                     0.02,
                     60,
                     9
@@ -69,7 +69,7 @@ class Monster extends Sprite {
                     vector,
                     24,
                     loadFrames("horde", 5),
-                    4,
+                    5,
                     0.02,
                     10,
                     5,
@@ -87,7 +87,7 @@ class Monster extends Sprite {
                     vector,
                     40,
                     resizeFrames(speedyFrames.map(copyImage), 45, 45),
-                    25,
+                    30,
                     0.0335,
                     15,
                     22
@@ -99,7 +99,7 @@ class Monster extends Sprite {
                     vector,
                     30,
                     loadFrames("speedyassasin", 5),
-                    6,
+                    15,
                     0.04,
                     60,
                     16
@@ -111,7 +111,7 @@ class Monster extends Sprite {
                     vector,
                     40,
                     resizeFrames(assassinFrames.map(copyImage), 45, 45),
-                    25,
+                    30,
                     0.0235,
                     60,
                     23
