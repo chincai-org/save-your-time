@@ -1,5 +1,7 @@
 # Save Your Time
 
+This game is made for the [Gamedev.js Jam 2023](https://itch.io/jam/gamedevjs-2023)
+
 ## Intro
 
 This game is originally made for [gamedev.js jam 2023](https://itch.io/jam/gamedevjs-2023)

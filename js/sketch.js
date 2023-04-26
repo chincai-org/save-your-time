@@ -495,9 +495,7 @@ function copyImage(img) {
 function startCooldown(cooldownName) {
     const cooldown = cooldowns[cooldownName];
     cooldown.startTime = Date.now();
-    const remainingTime =
-        cooldown.duration * powerUpReloadTimeMultiplier -
-        (Date.now() - cooldown.startTime);
+    const remainingTime = cooldown.duration - (Date.now() - cooldown.startTime);
     cooldown.timerId = setTimeout(() => {
         cooldown.onCooldownEnd();
     }, remainingTime);
@@ -506,9 +504,7 @@ function startCooldown(cooldownName) {
 function pauseCooldown(cooldownName) {
     const cooldown = cooldowns[cooldownName];
     clearTimeout(cooldown.timerId);
-    const remainingTime =
-        cooldown.duration * powerUpReloadTimeMultiplier -
-        (Date.now() - cooldown.startTime);
+    const remainingTime = cooldown.duration - (Date.now() - cooldown.startTime);
     cooldown.remainingTime = remainingTime > 0 ? remainingTime : 0;
 }
 
